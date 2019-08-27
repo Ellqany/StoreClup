@@ -1,0 +1,53 @@
+﻿@model Domain.Entities.LoginModel
+<section class="log-out">
+    <span class="back">
+        <a href="/Home/Index">
+            <i class="fas fa-backward"></i> Back
+        </a>
+    </span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 m-auto">
+                <div class="title-form text-center">
+                    <h2 class="h2">welcome back</h2>
+                    <p class="p-2">please log in to continue</p>
+                </div>
+                <div class="text-danger">
+                    @Html.ValidationSummary()
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken();
+                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+
+                    <div class="log-form">
+                        <div class="d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.TextBoxFor(x => x.Email, new { @class = "w3-text-white", @style = "width:100%", @type = "email", @placeholder = "Email" })<br />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.PasswordFor(x => x.Password, new { @class = "w3-text-white", @style = "width:100%", @placeholder = "Password" })<br />
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <input type="submit" value="LOG IN" class="log-in">
+                        <div class="col-sm-3"></div>
+                    </div>
+                }
+                <p class="p-2">or</p>
+                <button class="facebook"><a href="#">log in with facebook</a></button>
+                @using (Html.BeginForm("GoogleLogin", "Account"))
+                {
+                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                    <button type="submit" class="google"> log in with google <i class="fa fa-google-plus"></i> </button>
+                }
+                @Html.ActionLink("forget password?", "ForgetPassword", "Account", null, new { @class = "href" })
+            </div>
+        </div>
+    </div>
+</section>

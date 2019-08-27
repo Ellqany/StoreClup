@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+
+<div class="btn-log mr-auto">
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            <button type="button" class="btn btn-primary join bg-color">
+                @Html.ActionLink("My Account", "Manage", "Account", null, new { title = "Manage"})
+            </button>
+            <button type="submit" class="btn btn-primary join bg-color">Log off</button>
+        }
+    }
+    else
+    {
+        <button class="btn btn-primary join bg-color">
+            @Html.ActionLink("Join In", "Register", "Account", null, new { id = "registerLink" })
+        </button>
+        <button class="btn btn-primary join bg-color">
+            @Html.ActionLink("log In", "Login", "Account", null, new { id = "loginLink" })
+        </button>
+    }
+</div>

@@ -1,0 +1,6 @@
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\bin\Debug\Domain.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\bin\Debug\Domain.pdb
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\obj\Debug\Domain.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\Domain\obj\Debug\Domain.pdb

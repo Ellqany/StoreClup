@@ -1,0 +1,2152 @@
+/*********** << -- start  varabals -->> *************/
+/*********** << -- start  varabals -->> *************/
+$main-Color: #ff6000;
+$color :#aaa;;
+$text :#554740;
+
+
+/************* <<--   start IMPORT -->>  *************/
+/************* <<--   start IMPORT-->>  *************/
+@import 'sass/scmobile.scss';
+@import 'sass/mixin.scss';
+/******** STYLE BODY *********/
+body{
+    padding:0 !important;
+    margin:0 !important;
+    background-color:#f9f7f6;
+    // height:10000px;
+    position: relative !important;
+    overflow-x: hidden;
+}
+
+/******* STYLE BODY **********/
+.parent-top{
+    // position: absolute;
+    // top:0;
+    // left:0;
+    width: 100%;
+
+    /***** start navbar *****/
+.top-bar-area{
+    position: relative;
+    background-color:#f9f7f6;
+    line-height:32px;
+    padding-top:3px;
+    height:35px;
+    z-index: 99999;
+    width:100%;
+    .list-icon{
+      float:right !important;
+      list-style:none;
+      padding-inline-start: 0;
+      @media #{$mainMobile} {
+        right:10% !important;
+
+   } 
+    @media #{$mediumMobile} {
+        right:20%;
+        // margin-top:15px;
+
+   } 
+   @media #{$tapMobile} {
+        right:30%;
+        // margin-top:20px;   
+   }
+    li{
+    display: inline-block;
+    }
+  }
+}
+.navbar{
+//    position: fixed;
+    width:100%;
+    z-index:99999;
+    background-color:#fff;
+    // top:0;
+    // left:0;
+
+    a{
+        color:#000;
+    }
+    .join{
+        border:none;
+        background-color:$main-Color;
+        // transition: 0.6s;
+        @include prefixer(transition , 0.6s ,ms moz o webkit);
+        &:hover{
+            background-color:#ff883d;
+        }
+        a{
+            color: #fff;
+            font-weight:bold;
+            text-transform: capitalize;
+            text-decoration: none;
+        }
+    }
+}
+
+/***** End navbar ******/
+}
+
+
+/******
+*******
+******* START PAGE HEADER HOW IT WORK 
+*******
+******/
+
+/********* STart HEADER *********/
+.head{
+    margin-top:0;
+   
+    background-color:#f7f4f3;
+    .content{
+        padding-top:80px;
+        margin:0px; 
+        h1{
+            font-size:40px;
+            font-weight:800;
+            color:#554740;
+            margin-top:0;
+            @media #{$mainMobile} {
+                font-size:17px;
+                margin-top:10px;
+
+           } 
+            @media #{$mediumMobile} {
+                font-size:19px;
+                margin-top:15px;
+
+           } 
+           @media #{$tapMobile} {
+                font-size:25px;
+                margin-top:20px;   
+           }
+        }
+        p{
+            width:50%;
+            margin:50px auto;
+            color:#aaa;
+        }
+    }
+    .text{
+        margin:20px;
+        h4{
+            font-weight:600;
+            color:$text;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        p{
+            color:#9D938F;
+            font-size:15px;
+            text-transform: capitalize;
+            width:75%;
+            margin:auto;
+            @media #{$mainMobile} {
+                font-size:11px;
+                width:100%;
+                // margin-top:30px;
+
+           } 
+            @media #{$mediumMobile} {
+                font-size:13px;
+                // margin-top:45px;
+                width:100%;
+
+           } 
+           @media #{$tapMobile} {
+                font-size:14px;
+                // margin-top:60px;
+                width:90%;
+                margin:auto;
+
+           }
+        }
+    }
+}
+
+
+/******** END HEADER ******/
+/********  START TRY THE CLUB *****/
+.try_club{
+    padding:40px;
+    background-color:#fff;
+    .content{
+        font-size:22px;
+        @media #{$mainMobile} {
+            font-size:11px;
+            width:100%;
+            // margin-top:30px;
+
+       } 
+        @media #{$mediumMobile} {
+            font-size:13px;
+            // margin-top:45px;
+            width:100%;
+
+       } 
+       @media #{$tapMobile} {
+            font-size:14px;
+            // margin-top:60px;
+            width:90%;
+            margin:auto;
+
+       }
+        .try{
+            color:#fff;
+            a{
+                color:#fff;
+                font-weight:bold;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+
+
+/******** END TRY THE CLUB *****/
+
+/******
+*******
+******* START  PAGE ACCOUNT  
+*******
+******/
+
+
+
+/*********** START HEAD TITLE ******/
+.parent-acount{
+    margin-top:50px;
+    background-color:#fcfbfa;
+    padding:50px;
+    @media #{$mainMobile} {
+        padding:20px;
+        margin-top:20px;
+    } 
+    @media #{$mediumMobile} {
+       margin-top:40px;
+       padding:25px;
+    } 
+    .account{
+        h2{
+        font-size:40px;
+        color:$text;
+        margin-top:70px;
+        font-weight:700;
+            @media #{$mainMobile} {
+                 font-size:17px;
+                 margin-top:30px;
+
+            } 
+             @media #{$mediumMobile} {
+                 font-size:19px;
+                 margin-top:45px;
+
+            } 
+            @media #{$tapMobile} {
+                 font-size:25px;
+                 margin-top:60px;   
+            }
+        }
+    }
+}
+
+.detailes{
+    .container{
+        .side-left-one{
+            background-color: #F9F7F6;
+            border: 1px solid #d0ccc9;
+            width:100%;
+            // height:250px;
+            margin-top:70px;
+            border-radius:5px;
+            .content-left{
+                .h-pazor{
+                    margin:20px;
+                    font-weight:500;
+                    font-size:22px;
+                    color:$text;
+                    @media #{$mainMobile} {
+                        font-size:15px;
+                        margin-top:7px;
+       
+                   } 
+                    @media #{$mediumMobile} {
+                        font-size:17px;
+                        margin-top:15px;
+       
+                   } 
+                   @media #{$tapMobile} {
+                        font-size:19px;
+                        margin-top:20px;   
+                   }
+                }
+                p{
+                    width:80%;
+                    margin:10px auto;
+                    font-size:18px;
+                    color:#9D938F;
+                    text-transform: capitalize;
+                    @media #{$mainMobile} {
+                        font-size:12px;
+                        // margin-top:7px;
+       
+                   } 
+                    @media #{$mediumMobile} {
+                        font-size:14px;
+                        // margin-top:15px;
+       
+                   } 
+                   @media #{$tapMobile} {
+                        font-size:15px;
+                        // margin-top:20px;   
+                   }
+                }
+                .pick{
+                    width:100px;
+                    height:40px;
+                    color:#fff;
+                    border:1px solid $main-Color;
+                    background-color:$main-Color;
+                    border-radius: 5px;
+                    font-weight:bold;
+                    margin:10px;
+                    cursor: pointer;
+                }
+                .image{
+                    width:250px;
+                    height:250px;
+                    margin:20px auto 0 auto ;
+                    overflow: hidden;
+                   img{
+                       width:100%;
+                       height:100%;
+                       
+                   }
+
+                }
+            }
+        }
+        .parent-one{
+            // padding:20px !important;
+            .top-p{
+                font-size: 18px;
+                width:80%;
+                margin: 50px auto;
+                text-transform:capitalize;
+                font-weight:600;
+            }
+            .send{
+                    
+                    position: relative;
+                    margin: 10px;
+                    padding:50px 10px 10px 10px ;   
+                    border-radius:5px; 
+                    background-color: #F9F7F6;
+                    border: 1px solid #d0ccc9;
+                    transition:0.6s;
+                    .topic{
+                        position: absolute;
+                        top:-25px;
+                        left:30%;
+                        border-radius: 4px;
+                        overflow: hidden;
+                        border: 1px solid #d0ccc9;
+                        @media #{$mainMobile} {
+                            // font-size:12px;
+                            left:30%;
+                        
+                       } 
+                        @media #{$mediumMobile} {
+                            // font-size:14px;
+                            // margin-top:15px;
+           
+                       } 
+                       @media #{$tapMobile} {
+                           top:-15px;
+                       }
+                        span{     
+                                height:50px;
+                                background-color:#000;
+                                display: block;
+                                float: left;
+                                color:#fff;
+                                line-height:30px;
+                                font-weight:bold;
+                                font-size:21px;
+                                padding:10px 20px;
+                                transition: 0.6s;
+                                cursor:pointer;
+                                @media #{$mainMobile} {
+                                    // font-size:12px;
+                                    left:25%;
+                                
+                               } 
+                                @media #{$mediumMobile} {
+                                    // font-size:14px;
+                                    // margin-top:15px;
+                   
+                               } 
+                               @media #{$tapMobile} {
+                                    // font-size:15px;
+                                    // margin-top:20px;  
+                                       left:23%;
+                                        font-size: 17px;
+                                        height:30px;
+                                        line-height: 20px;
+                                        padding: 5px 10px;
+                                     
+                               }
+                                &:hover{
+                                    background-color: #9D938F;
+                                    color:#fff;
+
+                                }
+                        }
+                        .left{
+                            background: #9D938F;
+
+                        }   
+                        .right{
+                            background: #f5f5f5;
+                            color:#000;
+                        }        
+                    }
+            }
+            form{
+                .number{
+                    border:1px solid #d0ccc9;
+                    padding:5px 7px;
+                    border-radius:3px;
+                    margin:10px;
+                    text-transform: capitalize
+                    // display: block;
+                }
+                label{
+                    color:#aaa;
+                    font-size:12px;
+                }
+                p{
+                    font-size:14px;
+                }
+                .confirm{
+                    width:100px;
+                    height:40px;
+                    color:#fff;
+                    border:1px solid $main-Color;
+                    background-color:$main-Color;
+                    @include prefixer(border-radius , 3px ,ms moz o webkit);
+                    // border-radius:3px;
+                    font-weight:bold;
+                    text-transform:uppercase;
+                    cursor:pointer;
+                }
+                
+            }
+         .share{
+             font-size:13px;
+             margin:20px;
+         }
+            strong{
+                color:$text;
+                text-transform: capitalize;
+            }
+            .link{
+                width: 75%;
+                padding:10px 20px;
+                border:1px solid #d0ccc9;
+                @include prefixer(border-radius , 3px ,ms moz o webkit);
+                margin-top:10px;
+            }
+        }
+        .side-left-two{
+            margin:20px 0;
+            width:100%;
+            height:100%;
+                padding:10px;
+                @include prefixer(border-radius , 5px ,ms moz o webkit);
+                background-color: #F9F7F6;
+                border: 1px solid #d0ccc9;
+            .customize{
+               .image{
+                   margin: auto;
+                    width:200px;
+                    height:200px;
+                    img{
+                        width:100%;
+                        height:100%;
+
+                    }
+               }
+               h3{
+                   text-align:Center;
+                   font-weight:800;
+                   font-size:16px;
+               }
+               p{
+                   width:50%;
+                   margin:auto;
+                   text-align: center;
+               }
+               .get{
+                border:1px solid $main-Color;
+                background-color:$main-Color;
+                width:170px;
+                height:40px;
+                padding:10px 20px;
+                color:#fff;
+                line-height:20px;
+                // border-radius:5px;
+                @include prefixer(border-radius , 5px ,ms moz o webkit);
+                margin:10px 30%;
+                font-weight:bold;
+                text-transform:capitalize;
+               }
+            }
+        }
+        .parent-two{
+            .list-edit{
+                list-style: none;
+                padding-inline-start: 0;
+                width:100%;
+                .child{
+                    width:100%;
+                    position: relative;
+                    margin: 10px;
+                    height: 100px;
+                    padding:10px;
+                    
+                    @include prefixer(border-radius , 5px ,ms moz o webkit);
+                    background-color: #F9F7F6;
+                    border: 1px solid #d0ccc9;
+                    
+                    margin: 10px;
+                    @include prefixer(transition , 0.6s ,ms moz o webkit);
+                    
+                    // &:hover{
+                    //     box-shadow: 0 6px 8px rgba(102,119,136,.03),
+                    //             0 1px 2px rgba(102,119,136,.3),
+                    //             0 8px 12px rgba(58,193,203,.1);
+                    // }
+                strong{
+                    margin: 20px;
+                }  
+                p{
+                    margin: 20px;
+                    // display: block;
+                }
+                button{
+                    position:absolute;
+                    right:10px;
+                    bottom:25px;
+                    float: right;
+                    margin: 5px; 
+                    width:50px;
+                    height:30px;
+                    line-height:20px;
+                    @include prefixer(border-radius , 5px ,ms moz o webkit);
+                    background-color: #F9F7F6;
+                    border: 1px solid #d0ccc9;
+                    @include prefixer(transition, 0.6s ,ms moz o webkit);
+                    &:hover{
+                         background-color:#554740;
+                         border: 1px solid #554740;
+                         a{
+                             color:#fff;
+                         }
+                         
+                     }
+                       a{
+                           font-weight:bold;
+                           text-transform: capitalize;
+                        color:#2C2A29;
+                           text-decoration: none;
+                       }
+                  }
+                }
+                .log_out{
+                    padding:15px;
+                    a{
+                        color:$main-Color;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+/********** END HEAD TITLE ******/
+/********** Start page get started ********/
+.track{
+    background-color:#fff;
+    height:70px;
+    width:100%;
+    margin:0 !important;
+    line-height:65px;
+    overflow: hidden;
+    padding:0;
+    border: 1px solid #d0ccc9;
+    
+    .logo{
+     float:left;
+    }
+   .list-track{
+       margin:0px 40% !important;
+       list-style:none;
+       width: 100%;
+       padding-inline-start: 0;
+       @media #{$mainMobile} {
+               margin: 0px 90px !important;
+        } 
+        @media #{$mediumMobile} {
+            margin:0px 100px !important ;
+        } 
+        @media #{$tapMobile} {
+            margin:0px 140px !important;
+         }
+       li{
+           color:#9D938F;
+           margin:5px 3px;
+         display: inline-block;
+         @media #{$mainMobile} {
+            font-size:11px;
+            // width:100%;
+            // margin-top:30px;
+
+       } 
+        @media #{$mediumMobile} {
+            font-size:13px;
+            // margin-top:45px;
+            // width:100%;
+
+       } 
+       @media #{$tapMobile} {
+            font-size:14px;
+            // margin-top:60px;
+            // width:90%;
+            // margin:auto;
+
+       }
+         &:not(:last-child)::after{
+          content:'  >  ';
+          margin:5px !important;
+        }
+        &.active{
+            color:#222;
+        }
+       }
+   }
+}
+
+.started{
+    .head-start{
+        margin:50px;
+        color:$text;
+        font-weight:800;
+        font-size:24px;
+    }
+    .checkbox{
+        border: 1px solid #d0ccc9;
+        // padding:30px 10px;
+        margin:10px;
+        width: 100%;
+        background-color: #fffdfa;
+        @include prefixer(border-radius , 5px ,ms moz o webkit);
+        height:220px;
+       padding:40px 0px 0px 0px ;
+       img{
+           width:100%;
+           height:100px;
+       }
+       label{
+           margin:10px 28% ;
+           @media #{$mainMobile} {
+            margin: 10px 50% !important;
+     } 
+     @media #{$mediumMobile} {
+         margin:0px 50% !important ;
+     } 
+     @media #{$tapMobile} {
+         margin:0px 41% !important;
+      }
+
+       }
+       .check{
+           margin:10px 42%;
+           padding:8px !important;
+       }
+
+    
+    }
+    .next{
+        color:#fff;
+        font-weight:bold;
+        text-transform:uppercase;
+        background-color:$main-Color;
+        border:1px  solid $main-Color;
+        padding:7px 20px;
+        
+        @include prefixer(border-radius , 5px ,ms moz o webkit);
+        margin:40px 20%;
+        cursor: pointer;
+        width:150px;
+        height:50px;
+            @media #{$mainMobile} {
+                margin:40px 35%;
+               } 
+            @media #{$mediumMobile} {
+                margin:40px 35%;
+               } 
+            @media #{$tapMobile} {
+                margin:40px 35%;
+               }
+        a{
+             color:#fff;
+             font-weight:bold;
+             text-transform: capitalize;
+             text-decoration: none;
+        }
+    }
+}
+/************** START PAGE CUSTOMIZE ************/
+/*****STYLE CUSTOMIZE**********/
+
+.parent-customize{
+    position: relative;
+    .custom-left{
+    // margin:60px auto;   
+        .sticky{
+            
+            @include prefixer(position ,sticky ,ms moz o webkit);
+            top:50px;
+            @media #{$mainMobile} {
+        
+             position: relative;
+              top:20px; 
+
+           } 
+            @media #{$mediumMobile} {
+                position: relative;
+                top:30px;
+
+           } 
+           @media #{$tapMobile} {
+            
+
+           }
+            // left:60px;
+            .image-custom{
+                width:420px;
+                height:auto;
+                margin: auto;
+                img{
+                     
+                    width:100%;
+                    height:100%;
+                }
+            }
+            p{
+                width:65%;
+                margin:auto;
+                .left{
+                    float:left;
+                }
+                .right{
+                    float:right;
+                }
+            }
+            .set{
+                background-color:$main-Color;
+                border:2px solid $main-Color;
+                color:#fff;
+                @include prefixer(border-radius , 3px ,ms moz o webkit);
+                
+                padding:5px 10px;
+                margin:40px 80px;
+                width:70%;
+                font-weight:bold;
+                font-size:14px;
+                text-transform:uppercase;
+                a{
+                    color:#fff;
+                    font-weight:800;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .custom-right{
+        margin:40px;
+               @media #{$mainMobile} {
+                  margin:10px 0px;
+
+               }  
+               @media #{$mediumMobile} {
+                 margin:15px 0px;
+
+                 } 
+               @media #{$tapMobile} {
+                margin:20px;
+
+               }
+        .great{
+            font-size:24px; 
+            font-weight:1000;
+            text-transform: capitalize;
+            color:$text;
+            line-height: 32px;
+            @media #{$mainMobile} {
+                font-size:12px;
+                width:100%;
+                // margin-left:0;
+                // margin-top:30px;
+
+           } 
+            @media #{$mediumMobile} {
+                font-size:14px;
+                // margin-top:45px;
+                width:100%;
+
+           } 
+           @media #{$tapMobile} {
+                font-size:17px;
+                // margin-top:60px;
+                width:90%;
+                margin:auto;
+
+           }
+        }
+        .intro{
+            text-transform: capitalize;
+            font-size:14px;
+            color:#756f6b;
+            margin:19px auto;
+        }
+        .ships{
+            margin-top:40px !important;
+            // margin-bottom: 40px !important;
+            color:$text;
+            font-weight:1000;
+            font-size:17px;
+            @media #{$mainMobile} {
+                font-size:11px;
+                font-weight:600;
+                
+
+           } 
+            @media #{$mediumMobile} {
+                font-size:14px;
+                font-weight:700;
+
+           } 
+           @media #{$tapMobile} {
+                font-size:17px;
+                font-weight:800;
+           }
+            .left{
+                float: left;
+            }
+            .right{
+                float:right;
+                
+
+            }
+        }
+        .trial{
+            // display: block;
+            width: 100%;
+            margin-top:60px;
+            font-size:14px;
+            padding-top:20px;
+            color:#756f6b;
+            // margin-top:30px !important;
+        }
+        .parent-product{
+            padding-top:10px;
+             list-style: none;
+            width: 100%;
+            margin:0 !important;
+            padding-inline-start: 0 !important;
+            .product{
+                    border-radius:3px;
+                    margin:10px 0px;
+                    padding:10px 0px;
+                    width:100% !important;
+                    background-color: #F9F7F6;
+                    border: 1px solid #d0ccc9;
+                    height:145px;
+                img{
+                    float: left;
+                    width:90px;
+                    height: auto;
+                    margin:15px 30px;
+                }
+                .detail-pro{
+                  float:right;
+                  padding-inline-start: 0 !important;
+                  list-style: none;
+                  padding-top:10px !important;
+                  margin-top:20px !important;
+                  display:contents;
+                //   margin-left:0 !important;
+                h6{
+                    font-weight:200;
+                    color:$text;
+                    font-size:14px;
+                    text-transform: capitalize;
+                    font-family: Avenir Next Regular;
+                }
+                  li{
+                    font-size:12px;
+                    color:#9d938f;
+                    &:before{
+                       content:'';
+                       color:#9D938F;
+                       width:5px;
+                       height:5px;
+                       margin-right:10px;
+                    //    margin-bottom:10px;
+                       display: inline-block;
+                       @include prefixer(border-radius , 5px ,ms moz o webkit);
+                       
+                       background-color:#9D938F;
+
+                    }
+                  }
+                }
+            }
+            .change-select{
+                color:$main-Color;
+                text-decoration: none;
+            }
+        }
+        .shaving{
+            list-style: none;
+            padding-inline-start: 0 !important;
+            .size{
+                font-family: Avenir Next Medium;
+                font-weight: 400;
+                font-size:13px;
+                color:#686461;
+            }
+            .shave{
+                background-color: #F9F7F6;
+                border: 1px solid #e9e1df;
+                
+                @include prefixer(border-radius , 5px ,ms moz o webkit);
+                padding:10px 10px 20px 10px;
+                position: relative;
+                margin: 10px 0px;
+                img{
+                   width:100px;
+                   height:auto;
+                   float: left;
+                   margin:0; 
+                }
+                .info{
+                    margin:10px;
+                    // margin:auto;
+                    .info-left{
+                        margin-top:15px;
+                        span{
+                          color:$text;
+                          text-transform: capitalize;
+                          margin:10px !important; 
+                          font-weight:100;
+                          font-family: Avenir Next Regular;
+                        }
+                        .pk{
+                           color:#9d938f;
+                          
+                        }
+                    }
+                    .info-right{
+                        position:absolute;
+                        top:40%;
+                        right:20px;
+                        color:#7d7773;
+                        font-weight:100;
+
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+/********** START  SECTIONS SERVICES ************/
+.services{
+    border: 1px solid #e9e1df;
+    padding:10px;
+    // height:100px;
+    .serv{
+        margin:10px;
+        color:#9d938f;
+        padding:40px;
+        // border:2px solid #222;
+        // background-color:#fff;
+      i{
+          margin-right:10px;
+        //   color:#9d938f;
+      }
+    }
+}
+/********** END   SECTIONS SERVICES ************/
+/********** START  SECTIONS HOW IT WORKS  ************/
+.parent-wroks{
+    margin:50px;
+    .head-work{
+        margin:50px;
+        font-weight:bold;
+        text-transform:uppercase;
+        font-size: 23px;
+        color:$text; 
+        @media #{$mainMobile} {
+            font-size:13px;
+            font-weight:600;
+            
+
+       } 
+        @media #{$mediumMobile} {
+            font-size:16px;
+            font-weight:700;
+
+       } 
+       @media #{$tapMobile} {
+            font-size:20px;
+            font-weight:800;
+       }
+    }
+    .work{
+        .head-box{
+            margin-top:30px;
+            font-weight:800;
+            @media #{$mainMobile} {
+                font-size:10px;
+                font-weight:600;
+                
+    
+           } 
+            @media #{$mediumMobile} {
+                font-size:13px;
+                font-weight:700;
+    
+           } 
+           @media #{$tapMobile} {
+                font-size:16px;
+                font-weight:800;
+           }
+        }
+        .prag-work{
+            color:#9d938f;
+            font-weight:100;
+            text-transform: capitalize;
+            font-size:14px; 
+            margin-top:20px;
+        }
+    }
+}
+/********** END   SECTIONS HOW IT WORKS  ************/
+/********** START  JOIN ************/
+.join{
+    .head-join{
+        text-align:center;
+        margin:150px 50px 50px 50px;
+        color:$text;
+        font-weight:700;
+        @media #{$mainMobile} {
+            margin:80px 20px 20px 20px;
+            font-size: 20px;
+        }
+        @media #{$mediumMobile} {
+            margin:80px 20px 20px 20px;
+            font-size: 22px;
+
+        }
+        @media #{$tapMobile} {
+            margin:80px 20px 20px 20px;
+            font-size: 22px;
+
+        }
+    }
+    .top-intro{
+        font-weight:500;
+        color:$text;
+        font-size: 20px;
+        @media #{$mainMobile} {
+            margin: 20px;
+            font-size: 12px;
+            h3{
+                font-size: 20px;
+            }
+        }
+        @media #{$mediumMobile} {
+            margin:10px ;
+            font-size: 15px;
+         h3{
+             font-size: 20px;
+         }
+        }
+        @media #{$tapMobile} {
+            margin:20px;
+            font-size: 20px;
+         
+        }
+    
+    }
+    form{
+        // margin-top:100px;
+        input{
+            width:20%;
+            @media #{$mainMobile} {
+          
+                width:100%;
+                height:40px;
+                margin:10px;
+            }
+            @media #{$mediumMobile} {
+              width:100%;
+              height:40px;
+              margin:10px;
+            }    
+        }
+        input:not(:last-child){
+            height:45px;
+            padding:10px;
+            
+            @include prefixer(border-radius , 5px ,ms moz o webkit);
+            border: 1px solid #e9e1df;
+
+        }
+        .email{
+            margin:15px 0px;
+            width:40.3%;
+            @media #{$mainMobile} {
+                    width:100%;
+                    height:40px;
+                    margin:10px;
+                
+            }
+            @media #{$mediumMobile} {
+                width:100%;
+                height:40px;
+                margin:10px;
+              }
+
+        }
+        .password{
+          width:40.3%;
+          margin:0px 0px;
+          @media #{$mainMobile} {
+            
+                width:100%;
+                height:40px;
+                margin:10px;
+            
+         }
+         @media #{$mediumMobile} {
+            width:100%;
+            height:40px;
+            margin:10px;
+          }
+        }
+        .terms{
+            margin:20px;
+            color:#9d938f;
+            text-transform: capitalize;
+        }
+        .confirme{
+            cursor: pointer;
+            background-color:$main-Color;
+                border:2px solid $main-Color;
+                color:#fff;
+                @include prefixer(border-radius , 3px ,ms moz o webkit);
+                
+                padding:5px 10px;
+                margin:40px 80px;
+                width:170px;
+                font-weight:bold;
+                font-size:14px;
+                text-transform:uppercase;
+        }
+    }
+}
+/********** END JOIN **********/
+
+/********** START  GIFT THE CLUB  ************/
+.gift{
+    padding:70px 10px;
+    border: 1px solid #e9e1df;
+    .head-club{
+        font-weight:1000;
+        text-transform:capitalize;
+        margin:20px;
+        color:$text;
+        @media #{$mainMobile} {
+            font-size:17px;
+            margin-top:10px;
+
+       } 
+        @media #{$mediumMobile} {
+            font-size:19px;
+            margin-top:15px;
+
+       } 
+       @media #{$tapMobile} {
+            font-size:25px;
+            margin-top:20px;   
+       }
+    }
+    .intro-club{
+        width:70%;
+        margin:auto;
+        color:#9d938f;
+        text-transform: capitalize;
+    }
+
+}
+.gift-sets{
+    background-color:#fcfbfa;
+    border-bottom: 1px solid #e9e1df;
+    padding:30px 10px;
+    @media #{$mainMobile} {
+        padding:10px;
+    
+
+   } 
+    @media #{$mediumMobile} {
+        padding:20px 10px;
+        // margin-top:15px;
+
+   } 
+   @media #{$tapMobile} {
+        padding:25px 15px;
+        margin-top:10px;   
+   }
+    .side-left{
+        .image-gift{
+            width:100%;
+            height:auto;
+            img{
+                width:100%;
+                height:100%;
+
+            }
+        }
+    }
+    .side-right{
+        margin-left:10px;
+        i{
+            color:$main-Color;
+        }
+        h3{
+            font-weight:1000;
+            text-transform: capitalize;
+            color:$text;
+
+        }
+        .info-gift{
+            color:#9d938f;
+            text-transform: capitalize;
+            font-size: 13px;
+        }
+        .choose{
+            list-style:none;
+            padding-inline-start: 0;
+            margin:0;
+            width:100%;
+            li{
+                color:#9d938f;
+                margin:20px 10px;
+                font-size: 12px;
+                
+
+             &::before{
+                 content: '';
+                 width:30px;
+                 height:30px;
+                 line-height: 20px;
+                margin-right:20px;
+                display: inline-block;
+                padding:5px 10px;
+                @include prefixer(border-radius , 50% ,ms moz o webkit);
+                
+                 border:1px solid #d0ccc9;
+             }  
+            } 
+            .one{
+                &::before{
+                    content:'1';
+                }
+            }
+            .two{
+                &::before{
+                    content:'2';
+                }
+            }
+            .three{
+                &::before{
+                    content:'3';
+                }
+            }
+        }
+        .see-gift{
+            border:1px solid $main-Color;
+            padding:10px 20px;
+            width:150px;
+            height:40px;
+            color:#fff;
+            background-color:$main-Color;
+           
+            @include prefixer(border-radius , 5px ,ms moz o webkit);
+            font-weight:800;
+            text-transform:uppercase;
+            font-size:11px;
+            margin:30px 10px;
+            cursor: pointer;
+            
+            @include prefixer(transition , 0.6s ,ms moz o webkit);
+            &:hover{
+                background-color:$main-Color;
+                border:1px solid $main-Color;
+
+            }
+            a{
+                color:#fff;
+                text-transform: capitalize;
+                text-decoration: none;
+            }
+        }
+    }
+}
+/********** END   GIFT THE CLUB   ************/
+/********** START    WHY GIFT DSC   ************/
+.why-gift{
+ padding-top:50px;
+ padding-bottom:50px;
+
+        .head-why{
+            color:$text;
+            font-weight:1000;
+            text-transform:uppercase;
+            
+        }
+        .child-why{
+            margin-top:50px;
+            h4{
+                font-weight:1000;
+                color:$text;
+                text-transform: capitalize;
+            }
+            p{
+                width:80%;
+                margin:auto;
+                color:#9d938f;
+                text-transform: capitalize;
+                font-size:14px;
+
+            }
+        }
+}
+
+
+
+
+
+
+
+/********** END   WHY GIFT DSC  ************/
+
+
+/********** START SECTION PERSON   ************/
+.person{
+    background: url('../images/why/person.jpeg') center center ;
+    background-size: cover;
+    width:100%;
+    height:500px;
+    margin-bottom:50px;
+    .qout{
+        margin-top:70px;
+        i{
+            text-align: center;
+            margin:40px 0px;
+            display:block;
+            color:$text;
+        }
+        p{
+            color:#554740;
+            font-weight:700;
+            font-size:24px;
+            font-family: Prumo Slab;
+        }
+        .author{
+            text-align :center;
+            color:$text;
+            // margin-left:20px;
+        }
+    }
+}
+/********** END SECTION PERSON   ************/
+/********** START  SECTION CATCH   ************/
+
+.catch{
+    margin-bottom:50px;
+    padding-top:50px; 
+    background-color:#f9f7f6;
+    .head-catch{
+        color:$text;
+        font-weight:1000;
+        text-transform:capitalize;
+        font-size: 24px;
+
+    }
+    .intro-catch{
+      width:80%;
+      color:#9d938f;
+      margin:30px auto 50px auto;
+      font-size:15px;
+      text-transform: capitalize;
+      
+    }
+    .acordion{
+        
+        .title-catch{
+            padding:10px;
+            color:#756f6b;
+            font-weight:200;
+            font-size: 16px;
+            text-transform: capitalize;
+            border-top:1px solid #e9e1df;
+            cursor: pointer;
+        }
+        
+       
+        p{
+            display:none;
+            // background: #9D938F;
+            color:#9d938f;
+            font-weight:400;
+            font-size: 12px;
+            text-transform:capitalize;
+            // border:2px solid red;
+            padding:10px; 
+        }
+    }
+    .qoustion{
+        font-size:12px;
+        font-weight:100;
+        text-transform:capitalize;
+        color:#554740;
+        text-align: center;
+        margin-top:50px;
+    }
+    .more-faq{
+        border:1px solid $main-Color;
+        background: $main-Color;
+        color:#fff;
+        font-weight:bold;
+        text-transform:uppercase;
+        width:150px;
+        @include prefixer(border-radius , 5px ,ms moz o webkit);
+        margin-top:10px;
+        text-align: center;
+        margin: 10px 42%;
+        padding:5px;
+        cursor: pointer;
+        @media #{$mainMobile} {
+            margin: 10px 35% !important;
+            font-size: 12px !important;
+            width:150px;
+        }
+        @media #{$mediumMobile} {
+            margin:10px ;
+            font-size: 14px;
+        
+        }
+        @media #{$tapMobile} {
+            margin:20px;
+            font-size: 17px;
+         
+        }
+        a{
+            color:#fff;
+            text-decoration: none;
+        }
+
+    }
+}
+/********** END SECTION CATCH   ************/
+/********** START SECTION INFORMATION   ************/
+.information{
+    margin:50px 10px;
+    background-color:#fcfbfa;
+    .feat{
+        margin-top:50px;
+        i{
+            margin:20px;
+            color:#554740;
+
+        }
+        h4{
+            color:#554740;
+            font-size:15px;
+            text-transform:uppercase;
+            margin: 10px;
+            font-weight: 500;
+        }
+        p{
+            
+            color:#7d7773;
+            font-size:13px;
+            text-transform: capitalize;   
+        }
+    }
+
+}
+/********** END   SECTION INFORMATION   ************/
+/********** START PAGE  LOG OUT    ************/
+.log-out{
+    position: relative;
+    padding:70px;
+    background: #000;
+    .back{
+        position:absolute;
+        top:20px;
+        left:10px;
+        font-weight:bold;
+        color:#fff;
+        text-transform: capitalize;
+        a{
+            color:#fff;
+            text-decoration: none;
+        }
+    }
+    .title-form{
+     h2{
+         font-weight:1000;
+         color:#554740;
+         text-transform: capitalize;
+         color:#fff;
+         margin:20px;
+        }
+        p{
+            color:#fff;
+            font-weight:700;
+            text-transform: capitalize;
+            margin-top:10px;
+            margin-bottom:30px;
+        }
+    }
+    .log-form{
+        margin-top:50px;
+       input:not(:last-child){
+        width:100%;
+        height:50px;
+        border:1px solid #2C2A29;
+        @include prefixer(border-radius , 5px ,ms moz o webkit);
+        
+        background-color:#000;
+        margin:10px;
+        padding-left:10px;
+        }
+        .log-in{
+            background-color:#222;
+            width:100%;
+            color:$text;
+            font-weight:1000;
+            cursor: pointer;
+            text-transform: capitalize;
+            height:35px;
+            border:1px solid #2C2A29;
+            @include prefixer(border-radius , 5px ,ms moz o webkit);
+    
+            margin:20px 10px ;
+
+        }
+     
+    }
+    p{  text-align: center;
+        margin:20px auto;
+        // margin: 10px;
+        // display:block;
+    }
+    button{
+        width:100%;
+        height:40px;
+        border:1px solid #3b5998;
+        background-color:#3b5998;
+        
+        @include prefixer(border-radius , 3px ,ms moz o webkit);
+        margin:10px;
+         a{
+             font-weight:1000;
+             color:#fff;
+             text-transform: capitalize;
+
+         }
+    }
+    .facebok{
+        background-color: #3b5998;
+        border:1px solid #3b5998;
+    }
+    .google{
+        margin-bottom:30px;
+     background-color:#F9F7F6;
+     border:1px solid #F9F7F6;
+    //  color:#554740;
+     a{
+         color:#554740;
+     }    
+    }
+    a{
+     margin:10px;
+    }
+}
+/********** END  PAGE LOG OUT   ************/
+
+
+
+/************* START PAGE HOME PAGE **********/
+// .carousel{
+//     margin-bottom:0;
+//     padding-top:0;
+//     margin-top:-50px;
+//     height:500px;
+//     overflow: hidden;
+//     .carousel-item{
+//         width:100%;
+//         height:100%;
+//         img{
+//             height:450px;
+//         }
+//       .carousel-caption{
+//           padding-top:0;
+//           top:35%;
+//           bottom:none;
+//           margin:auto;
+//         h3{
+//             color:white;
+//             font-weight:1000;
+//             text-transform: capitalize;
+//         }
+//         p{
+//             color:#F9F7F6;
+//         }
+//         .getstart-btn{
+//             padding:5px 15px;
+//             border:1px solid #ff6000;
+//             background-color:#ff6000;
+//             border-radius: 5px;
+//             color:#fff;
+//             font-weight:bold;
+//             a{
+//                 color:#fff;
+//                 text-decoration: none;
+//             }
+
+//         }
+//       }
+//     }
+// }
+
+// START VIDOE HOME STYLE 
+.video-home{
+    width:200%;
+    // position:absolute;
+    // top:0;
+    // left:0;
+    height:100vh;
+    overflow: hidden !important;
+    video{
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        min-width:100%;
+        min-height:100%;
+        overflow:hidden;
+    }
+    // .row{
+        .top-instruct{
+            align-self: auto;
+            padding-top:50px;
+            position: absolute;;
+            top:5%;
+            left:50px;
+            @media #{$mainMobile} {
+                top:2% !important;
+            }
+            @media #{$mediumMobile} {
+                top:4%;
+            
+            }
+            @media #{$tapMobile} {
+                top:4%;
+             
+            }
+            // height:400px;
+            z-index: 999999999;
+            // background: #554740;
+            h4{
+                font-size:25px;
+                color:#fff;
+                font-weight:900;
+                text-transform: capitalize;
+            }
+            p{
+                color:#9D938F;
+                font-size:10px;
+                text-transform: capitalize;
+            }
+            button{
+                padding:5px 10px;
+                border-radius: 5px;
+                border:1px solid #ff6000;
+                background:$main-Color;
+                color:#fff;
+                a{
+                    width:100%;
+                    height:100%;
+                    color:#fff;
+                    font-weight:bold;
+                    
+                }
+            }
+        }
+    // }
+}
+.sec-discount{
+    background-color:#f9f7f6;
+    border:0;
+   .side-right{
+    margin-top:100px !important;
+       .rest-rock{
+           font-weight:800;
+           text-transform:capitalize;
+           color:$text;
+           margin:20px 0px 10px 0px;
+       }
+       .info-gift{
+           width:80%;
+           
+           font-size: 10px;
+       }
+   }
+}
+
+
+/*********** END PAGE HOME PAGE *************/
+/*********** START PAGE CONTACT US *********/
+.contact{
+    margin:50px;
+    .card{
+        @media #{$mainMobile} {
+            width:100%;
+        
+        }
+        // @media #{$mediumMobile} {
+        //     margin:10px 15px;
+            
+        
+        // }
+        // @media #{$tapMobile} {
+        //     margin:10px 20px;
+
+         
+        // }
+
+        margin:20px 10px;
+        h5{
+            color:$text;
+            font-weight:500;
+            text-transform: capitalize;
+            font-size: 15px;
+        }
+        i{
+            margin : 10px 45%;
+            color:$main-Color;
+        }
+        p{
+            font-size:12px;
+        }
+    }
+
+}
+/******start maps *****/
+.maps{
+    .row{
+        .map{
+            overflow: hidden;
+            margin-bottom:50px;
+        }
+        .form{
+            // .list-input{
+                margin-bottom:40px;
+                list-style:none;
+                padding-inline-start: 0;
+                // li{
+                    display:inline-block;
+                    input{
+                        margin:10px 0px;
+                        width:49%;
+                        height:35px;
+                        border:1px solid #f5f5f5;
+                        border-radius:5px;
+                        padding:5px 10px;
+                        font-size:12px;
+                        @media #{$mainMobile} {
+                            width:100%;
+                        
+                        }
+                    }
+                    textarea{
+                        width:100% !important;
+                        height:100px;
+                        border:1px solid #f5f5f5;
+                        border-radius:5px;
+                        padding:5px 10px;
+                        font-size: 12px;
+                    }
+                    .send{
+                        background-color:$main-Color;
+                        font-weight:700;
+                        color:#fff;
+                        text-transform: capitalize;
+                        cursor:pointer;
+                        transition: 0.6s;
+                        &:hover{
+                            background-color: #f9f7f6;
+                              color:#000;
+                              border:1px solid #fff;
+                        }
+                    }
+                    .reset{
+                        background: #f9f7f6;
+                        cursor: pointer;
+                        border:1px solid #fff;
+                        font-weight:700;
+                        color:#000;
+                        transition:0.6s;
+                       &:hover{
+                           background-color: $main-Color;
+                           color:#fff;
+
+
+                       }
+                    }
+        } 
+    }
+}
+/********* END PAGE CONTACT US *********/
+
+/***** start  footer  *****/
+footer{
+    
+    background: #2C2A29;
+    color:#fff;
+    padding: 50px 0px 0px 0px !important;
+    margin:0px 0px 0px !important;
+    //border:18px solid #2C2A29;
+    position: relative;
+    overflow: hidden;
+    img{
+        // margin:10px  20% !important;
+        @media #{$mainMobile} {
+            margin: 10px 40% !important;
+        
+        }
+        @media #{$mediumMobile} {
+            margin:10px 15px;
+            
+        
+        }
+        @media #{$tapMobile} {
+            margin:10px 20px;
+
+         
+        }
+
+    }
+    .foot{
+        margin:10px;
+        
+    span{
+        margin:5px;
+        display: block;
+        a{
+            font-weight:800;
+            text-transform: capitalize;
+            // color:#fff;
+            text-decoration: none;
+            margin:5px !important;
+            // padding:10px 20px;
+            // background-color: #ddd;
+            color:#fff;
+            &:hover{
+                color:#ff6000;
+            }
+        }
+    }
+    }
+    .links{
+        ul{
+            list-style:none;
+           padding-inline-start: 0;
+           margin-top:50px;
+        }
+    }
+    .footer-cright{
+       overflow: hidden;
+        width:100%;
+        position: relative;
+        // height:50px;
+        bottom:0;
+        padding:20px 10px !important;
+        margin:0 !important;
+        @media #{$mainMobile} {
+        height:100px !important;
+//   padding: 20px 10px;
+        
+        }
+        @media #{$mediumMobile} {
+            // margin:auto !important;
+            height:30px
+        
+        }
+        @media #{$tapMobile} {
+            height:30px;
+         
+        }
+     .container{
+         text-align: center;
+         .text{
+             float: left;
+             line-height:1;
+            @media #{$mainMobile} {
+                font-size:12px;
+            
+            }
+            @media #{$mediumMobile} {
+                font-size:13px;
+            }
+            @media #{$tapMobile} {
+                font-size:12px;             
+            }
+         }         
+        .list-icon{
+            float:right;
+            text-align:center;
+            padding-inline-start: 0;
+            margin:0 !important;
+            @media #{$mainMobile} {
+                // margin:10px !important;
+                position: absolute;
+                right:30%;
+                bottom:10px;
+                margin-top:30px;
+            
+            }
+            @media #{$mediumMobile} {
+                margin:auto !important;
+                
+            
+            }
+            @media #{$tapMobile} {
+                margin:auto !important;
+    
+             
+            }
+            li{
+                a{
+                  
+                  i{
+                    display: inline-block;
+                   
+                    color:#222;
+                  width:30px;
+                  height:30px;
+                
+                  background-color: #686461;
+                  padding:8px 5px;
+                //   border-radius: 50%;
+                  @include prefixer(border-radius, 50% ,ms moz o webkit);
+                  overflow: hidden;
+                  }
+                 }
+             }
+
+        }
+      }
+    }
+}
+
+
+
+/***** End Footer ***/
+
+
+
+
+
+/********* END MAIN CLASSES **********/
+.bg-color{
+    background-color:$main-Color;
+}
+.color,
+.prag{
+    color:$color;
+    font-weight: 200;
+
+}
+.list-icon{
+    float: right;
+    list-style: none;
+}
+.footer-cright{
+    color:#aaa; 
+    margin-top:20px;
+    border:5px solid #222;
+    background: #222;
+    padding:10px;
+}
+.list-icon li{
+    display: inline-block;
+   
+}
+.href{
+    color:$main-Color;
+    text-decoration: none !important;
+    text-transform: capitalize;
+}
+.list-image{
+    list-style:none;
+    padding-inline-start: 0;
+    li{
+        display: inline-block;
+    }
+}
+.list-icon{
+    float:right;
+    text-align:center;
+    padding-inline-start: 0;
+    margin:0 !important;
+    
+    @media #{$mainMobile} {
+        // margin:10px !important;
+        position: absolute;
+        right:30%;
+        bottom:10px;
+        margin-top:30px;
+    
+    }
+    @media #{$mediumMobile} {
+        margin:auto !important;
+        
+    
+    }
+    @media #{$tapMobile} {
+        margin:auto !important;
+
+     
+    }
+    li{
+        a{
+          
+          i{
+            display: inline-block;
+           
+            color:#fff;
+          width:25px;
+          height:25px;
+        
+          background-color:$main-Color;
+          padding:5px 5px;
+        //   border-radius: 50%;
+          @include prefixer(border-radius, 50% ,ms moz o webkit);
+          overflow: hidden;
+          }
+         }
+     }
+
+}
+.bg-button{
+  background-color:$main-Color;
+  border:1px solid $main-Color;
+//   border-radius:5px;
+  @include prefixer(border-radius, 5px ,ms moz o webkit);
+  color:#fff;
+}
+.serv-home{
+    border-top:none;
+    border-bottom:1px solid #e9e1df;
+    margin-top:0 !important;
+    padding-top: 0;
+
+}
+.head-after{
+    color:$text;
+    text-transform: capitalize;
+    position:relative;
+    margin:20px 1px;
+    &:after{
+     content:"";
+     position: absolute;
+     bottom:-5px;
+     left:2px;
+     height:2px;
+     width:20px;
+     background-color:$main-Color;
+
+
+    }
+}
+/*********** END  MAIN cLASSES *******/
+
+
+/***********************START LOADING WEBSITE ************************/
+.loading-page{
+    background: #000;                                                                                                                                                                                                                                                                                                                                ;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+      top:0;
+      left:0;
+      z-index: 9999999999999999;
+    
+        .counter{
+               text-align: center;
+               margin:100px auto;
+          p{
+                font-size: 40px;
+                font-weight: 100;
+                color: #fff ;
+              margin-bottom:50px;
+              text-transform: capitalize;
+            }
+            h1 {
+                color: white;
+                font-size: 60px;
+                margin: 50px auto;
+                line-height:150px;
+                width:150px;
+                height:150px;
+                 @include prefixer(animation,animate 3s linear infinite,ms moz o webkit);  
+                
+                background:$main-Color;
+            }
+            
+    /*.counter
+      position: relative
+      width: 200px
+      h1.abs
+        position: absolute
+        top: 0
+        width: 100%
+      .color
+        width: 0px
+        overflow: hidden
+          color: #f60d54*/
+          } 
+  }
+  

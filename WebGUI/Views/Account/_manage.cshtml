@@ -1,0 +1,21 @@
+﻿@model WebGUI.Models.AppUser
+
+<li class="child">
+    <strong>Billing Information</strong><br>
+    <p> <i class="fa fa-money"></i> No payment method on file</p>
+    <button><a href="#">Edit</a></button>
+</li>
+
+<li class="child">
+    <strong>Mobile Number</strong><br>
+    @if (string.IsNullOrEmpty(Model.PhoneNumber))
+    {
+        <p><a href="#">Learn more </a>about DSC SMS.</p>
+    }
+    else
+    {
+        <p>@Model.PhoneNumber</p>
+
+    }
+    <button onclick="document.getElementById('Phone').style.display='block'">Edit</button>
+</li>

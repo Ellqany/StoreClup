@@ -1,0 +1,70 @@
+﻿@model Domain.Entities.UserLogin
+
+<section class="join">
+    <div class="container">
+        <h2 class="head-join">1. CLUB PROFILE </h2>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="top-intro">
+                    <h3 class="h3">CREATE YOUR ACCOUNT</h3>
+                    <p class="p-2">So you can manage your shipments</p>
+                </div>
+
+                @{
+                    List<string> errors = (List<string>)ViewBag.Errors;
+
+                    if (errors != null)
+                    {
+                        if (errors.Count() > 0)
+                        {
+                            <div class="alert-danger">
+                                <ul class="list-group-item-warning list-unstyled">
+                                    @foreach (var item in errors)
+                                    {
+                                        <li>
+                                            @item
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    }
+                }
+
+                @using (Html.BeginForm())
+                {
+                    <div class="panel w3-content">
+                        <div class="form-horizontal w3-container d-flex justify-content-center">
+                            <div class="form-group w3-left" style="width:30%">
+                                @Html.TextBoxFor(x => x.FirstName, new {@style="width:100%", @type = "text", @placeholder = "First Name" })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group w3-left" style="width:30%">
+                                @Html.TextBoxFor(x => x.LastName, new { @style = "width:100%", @type = "text", @placeholder = "Last Name" })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        
+                        <div class="w3-container d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.TextBoxFor(x => x.Email, new { @style = "width:60%", @type = "email", @placeholder = "Email" })<br />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                         </div>
+
+                         <div class="w3-container d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.PasswordFor(x => x.Password, new { @style = "width:60%", @placeholder = "Password" })<br />
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="terms">By creating an account, you agree to our <a href="#">Terms</a></p>
+                    <input type="submit" value="contunios" class="confirme">
+                }
+            </div>
+        </div>
+    </div>
+</section>
