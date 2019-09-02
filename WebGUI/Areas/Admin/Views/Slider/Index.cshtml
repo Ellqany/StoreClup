@@ -1,0 +1,60 @@
+﻿@model List<WebGUI.App_Data.Image>
+
+@{
+    double c = Model.Count / 2;
+    int Length = Convert.ToInt32(Math.Ceiling(c));
+    int k = 0;
+}
+
+<div class="w3-container w3-animate-zoom">
+    <div class="w3-center">
+        <h2 class="h2">Slider</h2>
+    </div>
+</div>
+<br />
+
+<div class="w3-container alert-success">
+    @TempData["Sucssess"]
+</div>
+
+<div class="w3-container w3-animate-zoom">
+    <br />
+    @for (int i = 0; i <= Length; i++, k += 2)
+    {
+        <div class="w3-row-padding active">
+            <br />
+            @for (int j = k; j < k + 2; j++)
+            {
+                try
+                {
+                    var item = Model[j];
+                    <div class="w3-half" onclick="document.location ='@Url.Action("Edit", "Slider",
+                                                                     new { @Id = item.ImageId })';">
+                        <button class=" M3ybtnaccordion w3-display-container" type="button">
+                            <img src='@item.ImageURL' alt="@item.Title" style="height:300px;width:100%;">
+                            @if (item.Title != " " || item.Description != " ")
+                            {
+                                <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
+                                    @if (item.Title != " ")
+                                    {
+                                        @item.Title
+                                    }
+                                    <br />
+                                    @if (item.Description != " ")
+                                    {
+                                        @item.Description
+                                    }
+                                </div>
+                            }
+                        </button>
+                    </div>
+                }
+                catch (Exception)
+                {
+                    <div class="w3-quarter"></div>
+                }
+            }
+        </div>
+    }
+    <br />
+</div>

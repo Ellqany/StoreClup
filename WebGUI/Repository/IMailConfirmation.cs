@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
-namespace WepUI.Repository
+namespace WebGUI.Repository
 {
     public interface IMailConfirmation
     {

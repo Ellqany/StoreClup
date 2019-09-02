@@ -1,0 +1,109 @@
+﻿@model WebGUI.App_Data.Product
+
+<br />
+<br />
+
+<section class="parent-customize w3-container">
+    <div class="container">
+        <div class="row">
+            <div class=" col-lg-6 col-md-12 col-sm-12 col-xs-12 custom-left">
+                <div class="sticky">
+                    <div class="image-custom">
+                        <img src="@Model.ImageUrl" title="@Model.Name">
+                    </div>
+                    <p>
+                        <span class="left">@Model.Name</span>
+                        <span class="right">Price is @Model.Price.ToString("c")</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="custom-right">
+                    <h5 class="form-inline w3-container">
+                        <span class="w3-twothird"><strong>@Model.Name </strong></span>
+                        <span class="w3-third">
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                @Html.HiddenFor(x => x.ProductID)
+                                @Html.Hidden("ReturnUrl", Request.Url.PathAndQuery)
+                                <button type="submit" class="btn btn-sm btn-outline-primary float-right w3-margin-left" title="Add to cart"><i class="fa fa-cart-plus"></i></button>
+                            }
+                            <b class="float-right">@Model.Price.ToString("c")</b>
+                        </span>
+                    </h5>
+                    <div class="clearfix"></div>
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br />
+<br />
+
+<section class="services">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center ">
+                <div class="serv">
+                    <i class="fas fa-truck"></i>
+                    Free Shipping
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  text-center">
+                <div class="serv">
+                    <i class="far fa-smile"></i>
+                    Satisfaction Guaranteed
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  text-center">
+                <div class="serv">
+                    <i class="fas fa-clock"></i>
+                    Cancel Anytime
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="parent-wroks">
+    <div class="container">
+        <h2 class="text-center head-work">how it works </h2>
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                <div class="work text-center">
+                    <div class="image-work">
+                        <img src="~/wwwroot/images/work1.png" title="">
+                    </div>
+                    <h3 class="head-box">YOUR FIRST BOX IS A GREAT START.</h3>
+                    <p class="prag-work">You‘ll get acquainted with the Club‘s amazing products as you enjoy the trial sizes.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="work text-center">
+                    <div class="image-work">
+                        <img src="~/wwwroot/images/work2.png" title="">
+                    </div>
+                    <h3 class="head-box">YOUR FIRST BOX IS A GREAT START.</h3>
+                    <p class="prag-work"> You‘ll get acquainted with the Club‘s amazing products as you enjoy the trial sizes.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="work text-center">
+                    <div class="image-work">
+                        <img src="~/wwwroot/images/work3.png" title="">
+                    </div>
+                    <h3 class="head-box">YOUR FIRST BOX IS A GREAT START.</h3>
+                    <p class="prag-work">You‘ll get acquainted with the Club‘s amazing products as you enjoy the trial sizes.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

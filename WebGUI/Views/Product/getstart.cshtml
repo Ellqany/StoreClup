@@ -1,49 +1,44 @@
-﻿<nav class="track">
-    <div class="container">
-        <div class="logo">
-            <a href="/Home/Index"><img src="https://via.placeholder.com/50"></a>
-        </div>
-        <ul class="list-track m-auto">
-            <li class="active"> Get Ready  </li>
-            <li> Customize </li>
-            <li> Checkout </li>
-        </ul>
-    </div>
-</nav>
+﻿@model List<WebGUI.App_Data.Product>
+
+@{
+    double c = Model.Count / 3;
+    int Length = Convert.ToInt32(Math.Ceiling(c));
+    int k = 0;
+}
 
 <section class="started">
     <div class="container">
         <h3 class="text-center head-start">What part of your morning routine can we help with?</h3>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-            </div>
-            <div class=" col-lg-2 col-md-4 col-sm-12 col-xs-12 checkbox">
-                <div class="image-check">
-                    <img src="~/wwwroot/images/get1.png" title="get">
-                </div>
-                <label for="ncheck2" class=text-center>Check 2</label><br>
-                <input type="checkbox" id="ncheck2" class="check text-center" />
-            </div>
 
-            <div class=" col-lg-2 col-md-4 col-sm-12 col-xs-12  checkbox">
-                <div class="image-check">
-                    <img src="~/wwwroot/images/get2.png" title="get">
-                </div>
-                <label for="ncheck2" class=text-center>Check 2</label><br>
-                <input type="checkbox" id="ncheck2" class="check text-center" />
-            </div>
+        @for (int i = 0; i <= Length; i++, k += 3)
+        {
+            <div class="w3-row-padding w3-margin-top">
+                @for (int j = k; j < k + 3; j++)
+                {
+                    try
+                    {
+                        var item = Model[j];
 
-            <div class=" col-lg-2 col-md-4 col-sm-12 col-xs-12  checkbox">
-                <div class="image-check">
-                    <img src="~/wwwroot/images/get3.png" title="get">
-                </div>
-                <label for="ncheck2" class=text-center>Check 2</label><br>
-                <input type="checkbox" id="ncheck2" class="check text-center" />
+                        <div class="w3-third">
+                            <div class="w3-card">
+                                <img src="@item.ImageUrl" title="@item.Name" alt="@item.Name"style="width:100%; height:300px"
+                                     onclick="document.location ='@Url.Action("Details", "Product", new { @Id = item.ProductID })';">
+                                <div class="w3-container text-center w3-margin-top">
+                                    <h4 class="h4">@item.Name</h4>
+                                    <h5 class="h5">@item.Price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    catch (Exception)
+                    {
+                        <div class="w3-third"></div>
+                    }
+                }
             </div>
-
-            <div class=" col-lg-3 col-md-4 col-sm-12 col-xs-12">
-            </div>
-            <button class="next text-center"><a href="customaize.html">continue</a></button>
-        </div>
+        }
     </div>
 </section>
+
+<br />
+<br />

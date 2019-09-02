@@ -1,32 +1,28 @@
 ﻿using System.Web.Optimization;
 
-namespace WebGUI
+namespace WebGUI.App_Start
 {
     public class BundleConfig
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/YMMM/css").Include(
-                            "~/wwwroot/css/bootstrap.min.css",
-                            "~/wwwroot/css/swiper.min.css",
-                            "~/wwwroot/css/owl.theme.default.min.css",
-                            "~/wwwroot/css/owl.carousel.css",
-                            "~/wwwroot/css/animate.css",
-                            "~/wwwroot/css/main.css",
-                            "~/wwwroot/css/VarelaRound.css",
-                            "~/wwwroot/css/fontawesome.css"
-                            ));
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/*.css",
+                               "~/Content/bootstrap.min.css",
+                               "~/Content/font-awesome.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/clientfeaturesscripts")
-            .Include("~/wwwroot/js/jquery.min.js",
-                "~/wwwroot/js/owl.carousel.js",
-                "~/wwwroot/js/poper.min.js",
-                "~/wwwroot/js/jquery.nicescroll.js",
-                "~/wwwroot/js/bootstrap.min.js",
-                "~/wwwroot/js/swiper.min.js",
-                "~/wwwroot/js/page.js"));
-
-            BundleTable.EnableOptimizations = true;
+                .Include("~/Scripts/jquery-3.3.1.min.js",
+                               "~/scripts/jquery.validate.min.js",
+                               "~/scripts/jquery.validate.unobtrusive.min.js",
+                               "~/scripts/jquery.unobtrusive-ajax.min.js",
+                               "~/scripts/owl.carousel.js",
+                               "~/scripts/poper.min.js",
+                               "~/scripts/jquery.nicescroll.js",
+                               "~/scripts/bootstrap.min.js",
+                               "~/Scripts/ckeditor/ckeditor.js",
+                                "~/scripts/swiper.min.js",
+                                "~/scripts/page.js"));
         }
     }
 }

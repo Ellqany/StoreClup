@@ -1,15 +1,14 @@
-﻿<section class="video-home">
-    <video playsinline="" autoplay="" loop="">
-        <source src="~/wwwroot/video/www.dollarshaveclub.com-0640158e4722cd4119b2afe081(webm).mp4">
-        <source src="~/wwwroot/video/www.dollarshaveclub.com-0640158e4722cd4119b2afe081(webm).webm">
-    </video>
+﻿@model List<WebGUI.App_Data.Image>
 
-    <div class="top-instruct">
-        <h4 class="h4">Get ready to look,<br> feel, and smell your<br> best</h4>
-        <p class="p-2">Try a risk-free Starter Set today</p>
-        @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn join bg-color text-white" })
-    </div>
+<section class="w3-container">
+    @Html.Action("SlideShow", "Nav")
 </section>
+
+<br />
+
+@{
+    var First = Model.SingleOrDefault(x => x.Title == "1");
+    }
 
 <section class="gift-sets">
     <div class="container">
@@ -17,19 +16,14 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class=" side-left">
                     <div class="image-gift">
-                        <img src="~/wwwroot/images/home2.png" title="Image sets">
+                        <img src="@First.ImageURL" title="Image sets">
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="side-right">
-                    <h3 class="h3">How does it work? It’s simple.</h3>
-                    <ul class="choose">
-                        <li class="one">Choose the perfect Gift Set.</li>
-                        <li class="two">Have it shipped to them or to yourself. Gift </li>
-                        <li class="three">Gifting isn’t a competition, but if it was you</li>
-                    </ul>
+                    @Html.Raw(First.Description);
                     @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn see-gift" })
                 </div>
             </div>
@@ -62,134 +56,34 @@
     </div>
 </section>
 
-<section class="gift-sets sec-discount">
-    <div class=" container">
-        <div class="row">
-            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                <div class="side-right">
-                    <i class="fas fa-sync fa-2x"></i>
-                    <h4 class="rest-rock">The restock box.</h4>
-                    <p class="info-gift">
-                        Four times a year (or whenever you want) we send a Restock Box so you never run out of
-                        anything you need to look, smell and feel your best.
-                    </p>
-                </div>
-            </div>
+@foreach (var item in Model)
+{
+    if (item.Title == "1")
+    {
 
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class=" side-left">
-                    <div class="image-gift">
-                        <img src="~/wwwroot/images/home4.png" title="Image sets">
+    }
+    else
+    {
+        <section class="gift-sets sec-discount">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" side-left">
+                            <div class="image-gift">
+                                <img src="@item.ImageURL" title="Image sets">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="side-right">
+                            @Html.Raw(item.Description)
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="gift-sets sec-discount">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class=" side-left">
-                    <div class="image-gift">
-                        <img src="~/wwwroot/images/home2.gif" title="Image sets">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class="side-right">
-                    <i class="fas fa-percent href fa-2x"></i>
-                    <h4 class="rest-rock">The Handsome Discount.</h4>
-                    <p class="info-gift">
-                        the more you buy, the more you save. Add two or more products and unlock big savings.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="gift-sets sec-discount">
-    <div class=" container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class="side-right">
-                    <i class="fas fa-calendar-week href fa-2x"></i>
-                    <h4 class="rest-rock">The Handsome Discount.</h4>
-                    <p class="info-gift">
-                        the more you buy, the more you save. Add two or more products and unlock big savings.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class=" side-left">
-                    <div class="image-gift">
-                        <img src="~/wwwroot/images/home.gif" title="Image sets">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="catch">
-    <div class="container">
-        <h2 class="head-catch text-center">So what's the catch?</h2>
-        <p class="intro-catch text-center">
-            There’s no catch. Seriously. No funny business, no BS, no gotchas. Still not
-            convinced? Read on.
-        </p>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="acordion">
-                    <h3 class="title-catch">how do the new dsc gift sets work</h3>
-                    <p class="test">
-                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
-                        within 5-7 business days
-                    </p>
-                </div>
-
-                <div class="acordion">
-                    <h3 class="title-catch">Is Gift wrapping available for all Gift Sets?</h3>
-                    <p class="test">
-                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
-                        within 5-7 business days
-                    </p>
-                </div>
-
-                <div class="acordion">
-                    <h3 class="title-catch">Do I need to be a DSC member to buy a Gift Set?</h3>
-                    <p class="test">
-                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
-                        within 5-7 business days
-                    </p>
-                </div>
-
-                <div class="acordion">
-                    <h3 class="title-catch">Can my Gift recipient return or exchange their Gifts?</h3>
-                    <p class="test">
-                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
-                        within 5-7 business days
-                    </p>
-                </div>
-
-                <div class="acordion ">
-                    <h3 class="title-catch ">Are there expedited shipping options?</h3>
-                    <p class="test">
-                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
-                        within 5-7 business days
-                    </p>
-                </div>
-
-                <p class="qoustion">Didn’t we convince you? We knew you’d come around </p>
-                @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn more-faq" })
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
+    }
+}
 
 @Html.Partial("_Load")

@@ -1,0 +1,103 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOLLAR SHAVE CLUB</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/clientfeaturesscripts")
+</head>
+<body>
+    <div class="parent-top">
+        <div class="top-bar-area inline inc-border">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 address-info text-left">
+                        <div class="info box word-left">
+                            <p>welcome the clucb </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 bar-btn text-right socail-right">
+                        @Html.Partial("_social")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                @Html.ActionLink("DOLLAR SHAVE CLUB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Products", "Index", "AdminProduct", new { area = "Admin" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Sliders", "Index", "Slider", new { area = "Admin" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Home Page Edit", "Index", "AdminHome", new { area = "Admin" }, new { @class = "nav-link" })
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4  foot">
+                    <img src="https://via.placeholder.com/100">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><a href="#" class="href">help center</a></span><br>
+                    <span>
+                        @Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" }, new { @class = "href" })
+                    </span>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><a href="#" class="href">privacy</a></span><br>
+                    <span><a href="#" class="href">terms</a></span>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><img src="~/wwwroot/images/pay/amerc.svg" title="Amercia"> United States</span><br>
+                    <p class="">Accepted Payments</p>
+                    <ul class="list-image">
+                        <li class="pay"><img src="~/wwwroot/images/pay/pay1.svg"></li>
+                        <li class="pay"><img src="~/wwwroot/images/pay/pay2.svg"></li>
+                        <li class="pay"><img src="~/wwwroot/images/pay/pay3.svg"></li>
+                        <li class="pay"><img src="~/wwwroot/images/pay/pay4.svg"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-cright">
+            <div class="container">
+                <p class="text text-center">&copy; 2012-19 DOLLAR SHAVE CLUB . ALL RIGHTS RESERVED.</p>
+                @Html.Partial("_social")
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -50,7 +50,6 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\roslyn\vbc.
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\roslyn\VBCSCompiler.exe
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Antlr3.Runtime.dll
-C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Domain.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\EntityFramework.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\EntityFramework.SqlServer.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.AspNet.Identity.Core.dll
@@ -80,7 +79,6 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.WebPages.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.WebPages.Razor.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\WebGrease.dll
-C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Domain.pdb
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.Helpers.xml
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.Mvc.xml
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\System.Web.Optimization.xml
@@ -125,3 +123,4 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SendGrid.pd
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SendGrid.xml
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.Migrations.CityProperty.resources
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.csproj.GenerateResource.cache
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.Migrations.mig2.resources

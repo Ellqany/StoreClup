@@ -1,0 +1,44 @@
+﻿@model WebGUI.Models.ImageModel
+
+<div class="m-content">
+    @using (Html.BeginForm("Edit", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x=>x.ImageId)
+        <div class="w3-container form-group">
+            <div style="position:relative;">
+                <a class='btn' href='javascript:;'>
+                    Image..
+                    @Html.TextBoxFor(model => model.ImageFile, "", new { @class = "M3yUpload", @type = "file", @accept = "image/*", @style = "width:100%", @id = "Image" })
+                </a>
+            </div>
+            <div class="w3-container w3-display-container">
+                <img id="demo" src='@Model.ImageURL' alt="@Model.Title" style="width:100%;max-height:400px;">
+                <div class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black">
+                    @Html.TextBoxFor(x => x.Title, new { @placeholder = "write Title for image..", @class = "form-control" })
+                    @Html.TextBoxFor(x => x.Description, new { @placeholder = "write description for image..", @class = "form-control" })
+                </div>
+            </div>
+            <p class="text-danger" id="imgwide"></p>
+            @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+        </div>
+    
+        <div class="w3-container btn-group">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa fa-upload"></i> Upload
+            </button>
+        </div>
+    }
+</div>
+
+<br />
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/Model.js"></script>
+<script>
+    $("#Image").change(function () {
+        readIMG(this, '#demo', 'imgwide');
+    });
+</script>

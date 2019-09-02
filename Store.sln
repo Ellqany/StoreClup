@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F6778251-C74F-4875-AE20-1DEF54AED908}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGUI", "WebGUI\WebGUI.csproj", "{ACCD049F-2ED0-4B13-B54C-38307E5AF1D8}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F6778251-C74F-4875-AE20-1DEF54AED908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6778251-C74F-4875-AE20-1DEF54AED908}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6778251-C74F-4875-AE20-1DEF54AED908}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6778251-C74F-4875-AE20-1DEF54AED908}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACCD049F-2ED0-4B13-B54C-38307E5AF1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACCD049F-2ED0-4B13-B54C-38307E5AF1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCD049F-2ED0-4B13-B54C-38307E5AF1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
 
 namespace WebGUI.Infrastructure
 {
-    public class CustomPasswordValidator: PasswordValidator
+    public class CustomPasswordValidator : PasswordValidator
     {
         public override async Task<IdentityResult> ValidateAsync(string pass)
         {

@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
@@ -11,7 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebGUI.Infrastructure;
 using WebGUI.Models;
-using WepUI.Repository;
+using WebGUI.Repository;
 
 namespace WebGUI.Controllers
 {
@@ -34,11 +33,11 @@ namespace WebGUI.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
             }
         }
-        AppUser CurrentUser
+        Task<AppUser> CurrentUser
         {
             get
             {
-                return UserManager.FindByName(HttpContext.User.Identity.Name);
+                return UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
             }
         }
         ApplicationSignInManager SignInManager
@@ -56,14 +55,11 @@ namespace WebGUI.Controllers
         #endregion
 
         [HttpGet]
-        public ActionResult Manage()
-        {
-            return View(CurrentUser);
-        }
+        public async Task<ActionResult> Manage() => View(await CurrentUser);
         [HttpPost]
         public async Task<ActionResult> Edit(Manage manage)
         {
-            AppUser user = CurrentUser;
+            AppUser user = await CurrentUser;
             user.Billing = manage.Billing;
             user.PhoneNumber = manage.PhoneNumber;
             await UserManager.UpdateAsync(user);
@@ -77,7 +73,7 @@ namespace WebGUI.Controllers
         [HttpPost]
         public async Task<ActionResult> ChangPassword(ChangePassword manage)
         {
-            AppUser user = CurrentUser;
+            AppUser user = await CurrentUser;
             var reult = await UserManager.CheckPasswordAsync(user, manage.OldPassword);
             if (reult)
             {
@@ -209,8 +205,6 @@ namespace WebGUI.Controllers
                     }
                     ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user,
                     DefaultAuthenticationTypes.ApplicationCookie);
-                    ident.AddClaims(LocationClaimsProvider.GetClaims(ident));
-                    ident.AddClaims(ClaimsRoles.CreateRolesFromClaims(ident));
                     AuthManager.SignOut();
                     AuthManager.SignIn(new AuthenticationProperties
                     {

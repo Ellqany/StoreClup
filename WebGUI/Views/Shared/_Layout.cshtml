@@ -1,25 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOLLAR SHAVE CLUB</title>
 
-    <link href="~/wwwroot/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/swiper.min.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/owl.carousel.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/animate.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/main.css" rel="stylesheet" />
-    <link href="~/wwwroot/css/VarelaRound.css" rel="stylesheet" />
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/w3css/w3.css" rel="stylesheet" />
-    <script src="~/wwwroot/js/jquery.min.js"></script>
-    <script src="~/Content/jquery.validate.min.js"></script>
-    <script src="~/Content/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Content/jquery.unobtrusive-ajax.min.js"></script>
-
-    @RenderSection("Scripts", false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/clientfeaturesscripts")
 </head>
 <body>
     <div class="parent-top">
@@ -40,7 +28,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                @Html.ActionLink("DOLLAR SHAVE CLUB","Index","Home", new { area = "" }, new { @class="navbar-brand"})
+                @Html.ActionLink("DOLLAR SHAVE CLUB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -114,11 +102,5 @@
             </div>
         </div>
     </footer>
-    <script src="~/wwwroot/js/owl.carousel.js"></script>
-    <script src="~/wwwroot/js/poper.min.js"></script>
-    <script src="~/wwwroot/js/jquery.nicescroll.js"></script>
-    <script src="~/wwwroot/js/bootstrap.min.js"></script>
-    <script src="~/wwwroot/js/swiper.min.js"></script>
-    <script src="~/wwwroot/js/page.js"></script>
 </body>
 </html>

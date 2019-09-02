@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using WebGUI.Models;
 
-namespace WepUI.Repository.Concreate
+namespace WebGUI.Repository.Concreate
 {
     public class MailConfirmation : IMailConfirmation
     {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a44e2dc1d954497b77aab40ae3faa0e" Name="Diagram1">
+        <EntityTypeShape EntityType="ClupStoreModel.CartLine" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Order" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Product" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="ClupStoreModel.FK_CartLine_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ClupStoreModel.FK_CartLine_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClupStoreModel.Image" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="ClupStoreModel.Contact" Width="1.5" PointX="4.25" PointY="5.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
