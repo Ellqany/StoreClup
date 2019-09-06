@@ -1,9 +1,14 @@
 ﻿@model IEnumerable<WebGUI.App_Data.Product>
 
+<br />
+
 <div class="w3-container">
-    <div class="head">
-        <h3 class="h3">All Products</h3>
+    <div class="w3-container w3-xlarge">
+        <h2 class="h2">All Products</h2>
     </div>
+
+    <br />
+
     <div class="w3-container">
         @Html.Partial("GetProducts", Model)
     </div>

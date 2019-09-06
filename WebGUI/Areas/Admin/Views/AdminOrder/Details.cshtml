@@ -1,0 +1,55 @@
+﻿@model WebGUI.App_Data.Order
+
+<div class="w3-container w3-margin-top">
+    <h2 class="h2 w3-wide text-center">Bill Details</h2>
+
+    <div class="container form-group">
+        <h3 class="h3" title="Get all Customer Order" style="cursor:pointer"
+            onclick="document.location ='@Url.Action("Index", "AdminOrder", new { @Search = Model.AspNetUser.Name })';">
+            Customer Name:      @Model.AspNetUser.Name
+        </h3>
+        <h4 class="h4">Customer Email:      @Model.AspNetUser.Email</h4>
+    </div>
+
+    <div class="container form-group">
+        <h3 class="h3">Address</h3>
+        <div class="w3-container">
+            <div class="d-flex justify-content-center w3-large">
+                <p class="w3-margin"><label class="font-weight-bold">Country:</label>     @Model.Country</p>
+                <p class="w3-margin"><label class="font-weight-bold">City:</label>    @Model.City</p>
+                <p class="w3-margin"><label class="font-weight-bold">State:</label>   @Model.State</p>
+                <p class="w3-margin"><label class="font-weight-bold">Zip:</label>     @Model.Zip</p>
+            </div>
+            <p class="w3-margin-left"><label class="font-weight-bold">Line 1:</label> @Model.Line1</p>
+            <p class="w3-margin-left"><label class="font-weight-bold">Line 2:</label> @Model.Line2</p>
+            <p class="w3-margin-left"><label class="font-weight-bold">Line 3:</label> @Model.Line3</p>
+        </div>
+        <h3 class="h3">Payment Details</h3>
+        <div class="w3-container">
+            <div class="d-flex justify-content-center w3-large">
+                <p class="w3-margin"><label class="font-weight-bold">Is Paid:</label>   @((Model.Baid) ? "Yes" : "No")</p>
+                <p class="w3-margin"><label class="font-weight-bold">Shipped:</label>   @((Model.Shipped) ? "Yes" : "No")</p>
+                <p class="w3-margin"><label class="font-weight-bold">Order Date:</label>  @Model.RegisteratedDate.ToShortDateString()</p>
+            </div>
+        </div>
+        <h3 class="h3">Cart Details</h3>
+        <div class="w3-container">
+            <table class="table table-striped table-hover table-bordered">
+                <tr class="w3-blue">
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+                @foreach (var item in Model.CartLines)
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />

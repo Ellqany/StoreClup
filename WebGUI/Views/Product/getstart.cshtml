@@ -21,7 +21,7 @@
 
                         <div class="w3-third">
                             <div class="w3-card">
-                                <img src="@item.ImageUrl" title="@item.Name" alt="@item.Name"style="width:100%; height:300px"
+                                <img src="@item.ImageUrl" title="@item.Name" alt="@item.Name" style="width:100%; height:300px; cursor:pointer;"
                                      onclick="document.location ='@Url.Action("Details", "Product", new { @Id = item.ProductID })';">
                                 <div class="w3-container text-center w3-margin-top">
                                     <h4 class="h4">@item.Name</h4>

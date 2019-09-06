@@ -27,6 +27,10 @@
     <Property Name="GiftWrap" Type="Boolean" Nullable="false" />
     <Property Name="Shipped" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="CartLines" Relationship="Self.FK_CartLine_Orders" FromRole="Orders" ToRole="CartLine" />
+    <Property Name="RegisteratedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RenewDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Baid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="ClupStoreModel.FK_Orders_AspNetUsers" FromRole="Order" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -82,6 +86,11 @@
     </AssociationSet>
     <EntitySet Name="Images" EntityType="ClupStoreModel.Image" />
     <EntitySet Name="Contacts" EntityType="ClupStoreModel.Contact" />
+    <EntitySet Name="AspNetUsers" EntityType="ClupStoreModel.AspNetUser" />
+    <AssociationSet Name="FK_Orders_AspNetUsers" Association="ClupStoreModel.FK_Orders_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Image">
     <Key>
@@ -104,4 +113,38 @@
     <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
     <Property Name="Massage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Billing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="ClupStoreModel.FK_Orders_AspNetUsers" FromRole="AspNetUser" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Orders_AspNetUsers">
+    <End Type="ClupStoreModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ClupStoreModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

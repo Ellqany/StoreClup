@@ -11,7 +11,9 @@ namespace WebGUI.App_Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using WebGUI.Models;
+
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,20 +21,30 @@ namespace WebGUI.App_Data
         {
             this.CartLines = new HashSet<CartLine>();
         }
-    
+
         public int OrderID { get; set; }
         public string UserId { get; set; }
+        [Required(ErrorMessage = "Please enter a country name")]
         public string Country { get; set; }
+        [Required(ErrorMessage = "Please enter a city name")]
         public string City { get; set; }
+        [Required(ErrorMessage = "Please enter a state name")]
         public string State { get; set; }
         public string Zip { get; set; }
+        [Required(ErrorMessage = "Please enter the first address line")]
         public string Line1 { get; set; }
         public string Line2 { get; set; }
         public string Line3 { get; set; }
+        public DateTime RegisteratedDate { get; set; }
+        public DateTime RenewDate { get; set; }
+        public bool Baid { get; set; }
         public bool GiftWrap { get; set; }
         public bool Shipped { get; set; }
-    
+
+        public AppUser User { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartLine> CartLines { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

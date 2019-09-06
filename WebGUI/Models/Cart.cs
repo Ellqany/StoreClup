@@ -8,16 +8,19 @@ namespace WebGUI.Models
     {
         readonly List<CartLine> LineCollection = new List<CartLine>();
 
+        public Order CurrentOrder { get; set; }
+
         public void AddItem(Product product, int Quantity)
         {
             CartLine Line = LineCollection.
-                SingleOrDefault(x => x.Product.ProductID == product.ProductID);
+                SingleOrDefault(x => x._Product.ProductID == product.ProductID);
             if (Line == null)
             {
                 LineCollection.Add(new CartLine
                 {
-                    Product = product,
-                    Quantity = Quantity
+                    _Product = product,
+                    Quantity = Quantity,
+                    ProductID = product.ProductID
                 });
             }
             else
@@ -27,10 +30,10 @@ namespace WebGUI.Models
         }
 
         public void RemoveLine(Product product) =>
-            LineCollection.RemoveAll(x => x.Product.ProductID == product.ProductID);
+            LineCollection.RemoveAll(x => x._Product.ProductID == product.ProductID);
 
         public decimal ComputeTotalItem() =>
-            LineCollection.Sum(x => x.Quantity * x.Product.Price);
+            LineCollection.Sum(x => x.Quantity * x._Product.Price);
 
         public void Clear() => LineCollection.Clear();
 

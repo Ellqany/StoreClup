@@ -1,0 +1,80 @@
+﻿@model WebGUI.App_Data.Order
+
+<br />
+<br />
+
+<div class="w3-container w3-animate-zoom">
+    <h2 class="h2">Check out now</h2>
+    <p class="p-2">Please enter your details, and we'll ship your goods right away!</p>
+    @Html.ValidationSummary(true, null, new { @class = "text-danger" })
+    @using (Html.BeginForm("Checkout", "Order", FormMethod.Post, new { @class = "active" }))
+    {
+        @Html.HiddenFor(x=>x.UserId)
+        <h3 class="h3">Ship to</h3>
+        <div class="w3-container form-group">
+            <label class="col-form-label w3-large">Name: @Model.User.Name</label><br />
+            <label class="col-form-label w3-large">Email: @Model.User.Email</label>
+        </div>
+        
+        <h3 class="h3">Address</h3>
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.Country, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.Country, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Country, null, new { @class = "text-danger" })
+        </div>
+    
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.City, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.City, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.City, null, new { @class = "text-danger" })
+        </div>
+    
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.State, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.State, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.State, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.Zip, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.Zip, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Zip, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.Line1, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.Line1, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Line1, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.Line2, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.Line2, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Line2, null, new { @class = "text-danger" })
+        </div>
+    
+        <div class="w3-container form-group">
+            @Html.LabelFor(x=>x.Line3, new {@class = "font-weight-bold" })
+            @Html.TextBoxFor(x=>x.Line3, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Line3, null, new { @class = "text-danger" })
+        </div>
+            
+        <h3 class="h3">Options</h3>
+        <div class="w3-container checkbox">
+            <label>
+                @Html.EditorFor(x => x.GiftWrap)
+                @Html.ValidationMessageFor(x => x.GiftWrap)
+                Gift wrap these items
+            </label>
+        </div>
+
+        <div class="text-center">
+            <input class="btn btn-outline-primary" type="submit" 
+                   value="Complete Order using paypal" />
+        </div>
+    }
+</div>
+
+<br />
+<br />
+<br />

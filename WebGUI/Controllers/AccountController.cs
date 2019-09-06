@@ -19,34 +19,14 @@ namespace WebGUI.Controllers
     {
         #region PrivateVariables
         readonly IMailConfirmation MailConfirmation;
-        IAuthenticationManager AuthManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
-        AppUserManager UserManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-            }
-        }
-        Task<AppUser> CurrentUser
-        {
-            get
-            {
-                return UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
-            }
-        }
-        ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-        }
+        IAuthenticationManager AuthManager =>
+            HttpContext.GetOwinContext().Authentication;
+        AppUserManager UserManager =>
+            HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+        Task<AppUser> CurrentUser =>
+            UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
+        ApplicationSignInManager SignInManager =>
+            HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
         #endregion
 
         #region Constractor

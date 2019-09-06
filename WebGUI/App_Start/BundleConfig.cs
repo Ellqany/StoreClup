@@ -9,6 +9,8 @@ namespace WebGUI.App_Start
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/*.css",
                                "~/Content/bootstrap.min.css",
+                               "~/Content/swiper.min.css",
+                               "~/Content/owl.theme.default.min",
                                "~/Content/font-awesome.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/clientfeaturesscripts")
@@ -22,7 +24,8 @@ namespace WebGUI.App_Start
                                "~/scripts/bootstrap.min.js",
                                "~/Scripts/ckeditor/ckeditor.js",
                                 "~/scripts/swiper.min.js",
-                                "~/scripts/page.js"));
+                                "~/scripts/page.js",
+                                "~/Scripts/jquery-ui.js"));
         }
     }
 }

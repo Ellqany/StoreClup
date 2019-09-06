@@ -1,0 +1,95 @@
+﻿@model WebGUI.Areas.Admin.Models.OrderModel
+
+<br />
+
+<div class="w3-container">
+    <div class="w3-container w3-xlarge">
+        <div class="w3-left w3-third">
+            <h2 class="h2">Orders</h2>
+        </div>
+        <div class="w3-right w3-twothird M3ysearch-container">
+            @using (Html.BeginForm("Index", "AdminOrder", FormMethod.Get))
+            {
+                <button type="submit" class="M3ySearchButton"><i class="fa fa-search"></i></button>
+                @Html.TextBoxFor(x => x.Search, new { @type = "search", @id = "Search", @placeholder = "Search by email", @class = "M3ySearch", @style = "font-size: 17px;width:60%;" })
+            }
+        </div>
+    </div>
+
+    <br />
+
+    <div class="w3-container">
+        @if (Model.Orders.Count() > 0)
+        {
+            <table class="table table-hover table-condensed table-bordered">
+                <tr class="w3-blue">
+                    <th>Name</th>
+                    <th>First Line</th>
+                    <th colspan="2">Details</th>
+                    <th></th>
+                </tr>
+                @foreach (var o in Model.Orders)
+                {
+                    <tr onclick="document.location ='@Url.Action("Details", "AdminOrder", new { @Id = o.OrderID})';">
+                        <td>@o.AspNetUser.Name</td>
+                        <td>@o.Line1</td>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <td>
+                            @using (Html.BeginForm("MarkShipped", "AdminOrder", FormMethod.Post))
+                            {
+                                @Html.Hidden("ReturnUrl", Request.Url.PathAndQuery)
+                                <input type="hidden" id="orderID" name="orderID" value="@o.OrderID" />
+                                if (o.Shipped)
+                                {
+                                    <p>The Product is shipped</p>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">
+                                        Ship
+                                    </button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    foreach (var line in o.CartLines)
+                    {
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>@line.Product.Name</td>
+                            <td>@line.Quantity</td>
+                            <td></td>
+                        </tr>
+                    }
+                }
+            </table>
+        }
+        else
+        {
+            <div class="text-center">No Unshipped Orders</div>
+        }
+    </div>
+</div>
+
+<br />
+<br />
+
+<script>
+    $("#Search").autocomplete({
+        source: function (request, response) {
+        $.ajax({
+            url: '@Url.Action("SearchResult", "AdminOrder")',
+            dataType: "json",
+            data: { search: $("#Search").val() },
+            success: function (data) {
+                response($.map(data, function (item) {
+                    return { label: item, value: item };
+                }));
+            },
+            error: function (xhr, status, error) {
+                alert("Error");
+            }
+        });
+    }});
+</script>

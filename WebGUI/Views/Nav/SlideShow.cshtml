@@ -1,43 +1,30 @@
 ﻿@model List<WebGUI.App_Data.Image>
 
-<div class="w3-display-container">
-    @foreach (var item in Model)
-    {
-    <div class="mySlides">
-        <img class="w3-animate-right" alt="@item.Title" 
-             style="max-height:400px; width:100%" src='@item.ImageURL'>
-       
-        @if (item.Title != " " || item.Description != " ")
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (var item in Model)
         {
-            <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
-                @if (item.Title != " ")
-                {
-                    @item.Title
-                }
-                <br />
-                @if (item.Description != " ")
-                {
-                    @item.Description
-                }
+            string cssclass = " ";
+            if (item.ImageId == 1)
+            {
+                cssclass = "active";
+            }
+            <div class="carousel-item @cssclass" style="height: 450px;">
+                <img class="d-block w-100" src="@item.ImageURL" alt="@item.Title">
+                <div class="carousel-caption ml-auto">
+                    <h3>@item.Title</h3>
+                    <p>@item.Description</p>
+                    @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "getstart-btn btn btn-lg btn-primary" })
+                </div>
             </div>
         }
-
-        <button class="w3-hover-text-khaki w3-teal btn w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-hover-text-khaki w3-teal btn w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-
-        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(1)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(2)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(3)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(4)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(5)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(6)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(7)"></span>
-            <span class="demo w3-border btn w3-hover-blue" onclick="currentDiv(8)"></span>
-        </div>
-
     </div>
-    }
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
-
-<script src="~/Scripts/Model.js"></script>

@@ -30,5 +30,6 @@ namespace WebGUI.App_Data
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
     }
 }

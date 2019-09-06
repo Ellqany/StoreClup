@@ -12,6 +12,8 @@
         <AssociationConnector Association="ClupStoreModel.FK_CartLine_Products" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ClupStoreModel.Image" Width="1.5" PointX="5.25" PointY="2.125" />
         <EntityTypeShape EntityType="ClupStoreModel.Contact" Width="1.5" PointX="4.25" PointY="5.25" />
+        <EntityTypeShape EntityType="ClupStoreModel.AspNetUser" Width="1.5" PointX="0.75" PointY="9.125" />
+        <AssociationConnector Association="ClupStoreModel.FK_Orders_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

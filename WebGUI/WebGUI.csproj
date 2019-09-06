@@ -46,6 +46,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -57,6 +66,12 @@
     </Reference>
     <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="ReportViewerForMvc, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportViewerForMvc.1.1.1\lib\net45\ReportViewerForMvc.dll</HintPath>
     </Reference>
     <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
@@ -228,6 +243,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\AspNetUser.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\Contact.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -244,13 +262,17 @@
     </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenericController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="App_Data\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -295,6 +317,9 @@
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Manage.cs" />
+    <Compile Include="Areas\Admin\Models\MessageModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrderModel.cs" />
+    <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="App_Data\Order.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -318,10 +343,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\M3Y.css" />
     <Content Include="Content\w3colors.css" />
     <Content Include="Content\w3mobile.css" />
     <Content Include="Content\w3pro.css" />
+    <Content Include="Images\Logo.PNG" />
+    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\config.js" />
@@ -671,6 +699,7 @@
     <Content Include="Scripts\ckeditor\skins\moono-lisa\images\refresh.png" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -707,56 +736,6 @@
     <Content Include="Content\owl.theme.default.min.css" />
     <Content Include="Content\swiper.min.css" />
     <Content Include="Content\VarelaRound.css" />
-    <Content Include="wwwroot\images\1.jpg" />
-    <Content Include="wwwroot\images\1.svg" />
-    <Content Include="wwwroot\images\2.jpg" />
-    <Content Include="wwwroot\images\2.svg" />
-    <Content Include="wwwroot\images\3.jpg" />
-    <Content Include="wwwroot\images\3.svg" />
-    <Content Include="wwwroot\images\4.jpg" />
-    <Content Include="wwwroot\images\4.svg" />
-    <Content Include="wwwroot\images\5.svg" />
-    <Content Include="wwwroot\images\account1.png" />
-    <Content Include="wwwroot\images\brush1.png" />
-    <Content Include="wwwroot\images\brush2.png" />
-    <Content Include="wwwroot\images\custmoize.png" />
-    <Content Include="wwwroot\images\get1.png" />
-    <Content Include="wwwroot\images\get2.png" />
-    <Content Include="wwwroot\images\get3.png" />
-    <Content Include="wwwroot\images\gift1.png" />
-    <Content Include="wwwroot\images\gift2.png" />
-    <Content Include="wwwroot\images\home.gif" />
-    <Content Include="wwwroot\images\home.jpg" />
-    <Content Include="wwwroot\images\home1.jpg" />
-    <Content Include="wwwroot\images\home2.gif" />
-    <Content Include="wwwroot\images\home2.jpg" />
-    <Content Include="wwwroot\images\home2.png" />
-    <Content Include="wwwroot\images\home4.png" />
-    <Content Include="wwwroot\images\home5.png" />
-    <Content Include="wwwroot\images\home6.png" />
-    <Content Include="wwwroot\images\pay\amerc.svg" />
-    <Content Include="wwwroot\images\pay\pay1.svg" />
-    <Content Include="wwwroot\images\pay\pay2.svg" />
-    <Content Include="wwwroot\images\pay\pay3.svg" />
-    <Content Include="wwwroot\images\pay\pay4.svg" />
-    <Content Include="wwwroot\images\pro1.png" />
-    <Content Include="wwwroot\images\pro2.png" />
-    <Content Include="wwwroot\images\pro3.png" />
-    <Content Include="wwwroot\images\Screenshot from 2019-08-02 01-46-32.png" />
-    <Content Include="wwwroot\images\shav1.png" />
-    <Content Include="wwwroot\images\shav2.png" />
-    <Content Include="wwwroot\images\shav3.png" />
-    <Content Include="wwwroot\images\shav4.png" />
-    <Content Include="wwwroot\images\shower1.png" />
-    <Content Include="wwwroot\images\shower2.png" />
-    <Content Include="wwwroot\images\shower3.png" />
-    <Content Include="wwwroot\images\why\1.svg" />
-    <Content Include="wwwroot\images\why\2.svg" />
-    <Content Include="wwwroot\images\why\3.svg" />
-    <Content Include="wwwroot\images\why\person.jpeg" />
-    <Content Include="wwwroot\images\work1.png" />
-    <Content Include="wwwroot\images\work2.png" />
-    <Content Include="wwwroot\images\work3.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -767,11 +746,9 @@
     <Content Include="Scripts\poper.min.js" />
     <Content Include="Scripts\swiper.min.js" />
     <Content Include="Scripts\wow.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -791,6 +768,11 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProduct\GetProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrder\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\Product.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
@@ -800,10 +782,8 @@
     <Content Include="Content\sass\_mixin.scss" />
     <Content Include="Content\sass\_scmobile.scss" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Load.cshtml" />
     <Content Include="Views\Product\getstart.cshtml" />
     <Content Include="Views\Home\HowitWork.cshtml" />
-    <Content Include="Views\Home\Clup.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\_social.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -820,8 +800,8 @@
     <Content Include="Views\Account\EditPhone.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProduct\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProduct\Edit.cshtml" />
-    <Content Include="Views\Cart\Checkout.cshtml" />
-    <Content Include="Views\Cart\Completed.cshtml" />
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\Order\Completed.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
@@ -837,6 +817,9 @@
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Reports\Money.rdl" />
+    <Content Include="Reports\Products.rdl" />
+    <Content Include="Reports\Users.rdl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908241715207_CityProperty.resx">

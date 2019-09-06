@@ -124,3 +124,9 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SendGrid.xm
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.Migrations.CityProperty.resources
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.csproj.GenerateResource.cache
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.Migrations.mig2.resources
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\PayPal.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\PayPal.xml
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\ReportViewerForMvc.dll

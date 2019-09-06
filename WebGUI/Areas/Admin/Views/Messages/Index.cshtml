@@ -1,0 +1,69 @@
+﻿@model WebGUI.Areas.Admin.Models.MessageModel
+
+@{
+    int i = 0;
+}
+
+<br />
+
+    <div class="w3-container">
+        <div class="w3-container w3-xlarge">
+            <div class="w3-left w3-third">
+                <h2 class="h2">Messages</h2>
+            </div>
+            <div class="w3-right w3-twothird M3ysearch-container">
+                @using (Html.BeginForm("Index","Messages",FormMethod.Get))
+                    {
+                        <button type="submit" class="M3ySearchButton"><i class="fa fa-search"></i></button>
+                        @Html.TextBoxFor(x=>x.Search,new {@type="search", @id="Search", @placeholder ="Search by email", @class="M3ySearch", @style="font-size: 17px;width:60%;" })
+                    }
+            </div>
+        </div>
+
+        <br />
+
+        <div class="w3-container">
+            <table class="table table-hover table-condensed table-bordered">
+                <tr class="w3-blue">
+                    <th class="text-right">No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                </tr>
+                @foreach (var item in Model.Messages)
+                {
+                    i++;
+                    <tr onclick="document.location ='@Url.Action("Details", "Messages", new { @Id = item.ContactId })';">
+                        <td class="text-right">@i</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Subject</td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+
+<br />
+<br />
+
+<script>
+    $("#Search").autocomplete({
+        source: function (request, response) {
+        $.ajax({
+            url: '@Url.Action("SearchResult", "Messages")',
+            dataType: "json",
+            data: { search: $("#Search").val() },
+            success: function (data) {
+                response($.map(data, function (item) {
+                    return { label: item.Email, value: item.Email };
+                }));
+            },
+            error: function (xhr, status, error) {
+                alert("Error");
+            }
+        });
+    }
+    });
+</script>

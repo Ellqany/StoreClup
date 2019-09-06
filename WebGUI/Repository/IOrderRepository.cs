@@ -1,12 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebGUI.App_Data;
-using WebGUI.Models;
 
 namespace WebGUI.Repository
 {
     public interface IOrderRepository
     {
-        IQueryable<Order> Orders { get; }
-        void SaveOrder(Cart cart, Order order);
+        IEnumerable<Order> Orders { get; }
+        Task SaveOrder(Order order);
     }
 }

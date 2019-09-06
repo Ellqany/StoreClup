@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="card">
                     <div class="card-body">
-                        <i class="fas fa-phone text-center"></i>
+                        <i class="fa fa-phone text-center"></i>
                         <h5 class="card-title text-center">call us</h5>
                         <p class="card-text text-center">phone 011231232</p>
                     </div>
@@ -16,7 +16,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="card">
                     <div class="card-body">
-                        <i class="fas fa-location-arrow"></i>
+                        <i class="fa fa-location-arrow"></i>
                         <h5 class="card-title text-center">address</h5>
                         <p class="card-text text-center">egypt cairo any address</p>
                     </div>
@@ -26,7 +26,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="card">
                     <div class="card-body">
-                        <i class="fas fa-envelope-open-text"></i>
+                        <i class="fa fa-envelope-open"></i>
                         <h5 class="card-title text-center">email </h5>
                         <p class="card-text text-center">abdoabdalla@gmail.com</p>
                     </div>
@@ -36,7 +36,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="card">
                     <div class="card-body">
-                        <i class="fas fa-fax"></i>
+                        <i class="fa fa-fax"></i>
                         <h5 class="card-title text-center">fax</h5>
                         <p class="card-text text-center">(020)0329347)</p>
                     </div>
@@ -45,6 +45,10 @@
         </div>
     </div>
 </section>
+
+<div class="w3-container">
+    <p class="alert-success text-center">@TempData["Success"]</p>
+</div>
 
 <seciton class="maps">
     <div class="container">
@@ -59,17 +63,44 @@
             <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                 <div class="form">
                     <h5 class="intersted head-after">intersted in discussing</h5>
-                    <form>
-                        <input type="text" placeholder="Enter Name" class="one">
-                        <input type="email" placeholder="Enter Email">
-                        <input type="text" placeholder="Enter Subject">
-                        <input type="tel" placeholder="Enter Phone">
-                        <textarea placeholder="Enter Massage"></textarea>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-horizontal d-flex justify-content-center">
+                            <div class="form-group w3-left" style="width:50%">
+                                @Html.TextBoxFor(x => x.Name, new { @style = "width:100%", @type = "text", @placeholder = "Enter Name", @class = "one" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group w3-left" style="width:50%">
+                                @Html.TextBoxFor(x => x.Email, new { @style = "width:100%", @type = "email", @placeholder = "Enter Email" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal d-flex justify-content-center">
+                            <div class="form-group w3-left" style="width:50%">
+                                @Html.TextBoxFor(x => x.Subject, new { @style = "width:100%", @type = "text", @placeholder = "Enter Subject" })
+                                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group w3-left" style="width:50%">
+                                @Html.TextBoxFor(x => x.Phone, new { @style = "width:100%", @type = "tel", @placeholder = "Enter Phone" })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.TextAreaFor(x => x.Massage, new { @style = "width:100%", @type = "text", @placeholder = "Enter Message" })
+                                @Html.ValidationMessageFor(model => model.Massage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
                         <input type="submit" value="send your Massage" class="send">
                         <input type="reset" placeholder="Enter Phone" class="reset">
-                    </form>
+                    }
                 </div>
-            </div>     
+            </div>
         </div>
     </div>
 </seciton>

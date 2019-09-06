@@ -6,19 +6,17 @@
     int k = 0;
 }
 
+<br />
+
 <div class="w3-container w3-animate-zoom">
-    <div class="w3-center">
+    <div class="w3-container w3-xlarge">
         <h2 class="h2">Slider</h2>
     </div>
 </div>
-<br />
 
-<div class="w3-container alert-success">
-    @TempData["Sucssess"]
-</div>
+<p class="alert-success"> @TempData["Sucssess"]</p>
 
 <div class="w3-container w3-animate-zoom">
-    <br />
     @for (int i = 0; i <= Length; i++, k += 2)
     {
         <div class="w3-row-padding active">

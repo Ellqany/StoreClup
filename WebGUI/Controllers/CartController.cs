@@ -6,16 +6,13 @@ using WebGUI.Repository;
 
 namespace WebGUI.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         readonly IProductRepository Reposatory;
-        readonly IOrderRepository OrderRepository;
 
-        public CartController(IProductRepository Repo, IOrderRepository order)
-        {
+        public CartController(IProductRepository Repo) =>
             Reposatory = Repo;
-            OrderRepository = order;
-        }
 
         public ViewResult Index(Cart cart, string returnUrl)
         {
@@ -44,26 +41,6 @@ namespace WebGUI.Controllers
                 cart.RemoveLine(product);
             }
             return RedirectToAction("Index", new { ReturnUrl });
-        }
-
-        public ViewResult Checkout() => View(new Order());
-        [HttpPost]
-        public ViewResult Checkout(Cart cart, Order Order)
-        {
-            if (cart.Lines.Count() == 0)
-            {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
-            }
-            if (ModelState.IsValid)
-            {
-                OrderRepository.SaveOrder(cart, Order);
-                cart.Clear();
-                return View("Completed");
-            }
-            else
-            {
-                return View(Order);
-            }
         }
     }
 }

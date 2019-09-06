@@ -1,6 +1,6 @@
 /*********** << -- start  varabals -->> *************/
 /*********** << -- start  varabals -->> *************/
-$main-Color: #ff6000;
+$main-Color: #4F6CFF;
 $color :#aaa;;
 $text :#554740;
 
@@ -233,7 +233,7 @@ body{
         h2{
         font-size:40px;
         color:$text;
-        margin-top:70px;
+        margin-top:7px;
         font-weight:700;
             @media #{$mainMobile} {
                  font-size:17px;
@@ -1637,8 +1637,8 @@ body{
 //         }
 //         .getstart-btn{
 //             padding:5px 15px;
-//             border:1px solid #ff6000;
-//             background-color:#ff6000;
+//             border:1px solid #4F6CFF;
+//             background-color:#4F6CFF;
 //             border-radius: 5px;
 //             color:#fff;
 //             font-weight:bold;
@@ -1702,7 +1702,7 @@ body{
             button{
                 padding:5px 10px;
                 border-radius: 5px;
-                border:1px solid #ff6000;
+                border:1px solid #4F6CFF;
                 background:$main-Color;
                 color:#fff;
                 a{
@@ -1884,7 +1884,7 @@ footer{
             // background-color: #ddd;
             color:#fff;
             &:hover{
-                color:#ff6000;
+                color:#4F6CFF;
             }
         }
     }

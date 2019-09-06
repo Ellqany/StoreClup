@@ -1,14 +1,12 @@
 ﻿@model List<WebGUI.App_Data.Image>
 
-<section class="w3-container">
-    @Html.Action("SlideShow", "Nav")
-</section>
+@Html.Action("SlideShow", "Nav")
 
 <br />
 
 @{
     var First = Model.SingleOrDefault(x => x.Title == "1");
-    }
+}
 
 <section class="gift-sets">
     <div class="container">
@@ -23,7 +21,7 @@
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="side-right">
-                    @Html.Raw(First.Description);
+                    @Html.Raw(First.Description)
                     @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn see-gift" })
                 </div>
             </div>
@@ -58,11 +56,31 @@
 
 @foreach (var item in Model)
 {
-    if (item.Title == "1")
-    {
+    int id = int.Parse(item.Title);
 
+    if (id % 2 == 0)
+    {
+        <section class="gift-sets sec-discount">
+            <div class=" container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="side-right">
+                            @Html.Raw(item.Description)
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" side-left">
+                            <div class="image-gift">
+                                <img src="@item.ImageURL" title="@item.Title">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     }
-    else
+    else if (id % 2 != 0 && id != 1)
     {
         <section class="gift-sets sec-discount">
             <div class="container">
@@ -70,7 +88,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class=" side-left">
                             <div class="image-gift">
-                                <img src="@item.ImageURL" title="Image sets">
+                                <img src="@item.ImageURL" title="@item.Title">
                             </div>
                         </div>
                     </div>
@@ -86,4 +104,54 @@
     }
 }
 
-@Html.Partial("_Load")
+
+<section class="catch">
+    <div class="container">
+        <h2 class="head-catch text-center">So what's the catch?</h2>
+        <p class="intro-catch text-center">
+            There’s no catch. Seriously. No funny business, no BS, no gotchas. Still not
+            convinced? Read on.
+        </p>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="acordion">
+                    <h3 class="title-catch">how do the new dsc gift sets work</h3>
+                    <p class="test">
+                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
+                        within 5-7 business days
+                    </p>
+                </div>
+                <div class="acordion">
+                    <h3 class="title-catch">Is Gift wrapping available for all Gift Sets?</h3>
+                    <p class="test">
+                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
+                        within 5-7 business days
+                    </p>
+                </div>
+                <div class="acordion">
+                    <h3 class="title-catch">Do I need to be a DSC member to buy a Gift Set?</h3>
+                    <p class="test">
+                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
+                        within 5-7 business days
+                    </p>
+                </div>
+                <div class="acordion">
+                    <h3 class="title-catch">Can my Gift recipient return or exchange their Gifts?</h3>
+                    <p class="test">
+                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
+                        within 5-7 business days
+                    </p>
+                </div>
+                <div class="acordion ">
+                    <h3 class="title-catch ">Are there expedited shipping options?</h3>
+                    <p class="test">
+                        It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered
+                        within 5-7 business days
+                    </p>
+                </div>
+                <p class="qoustion">Didn’t we convince you? We knew you’d come around </p>
+                @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn more-faq" })
+            </div>
+        </div>
+    </div>
+</section>

@@ -22,6 +22,13 @@
     border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%; }
   75% {
     border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%; } }
+
+.youraccount {
+    
+    margin-top:7px !important;
+}
+
+
 @-o-keyframes animate {
   0%,100% {
     border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%; }
@@ -57,11 +64,12 @@ body {
   /***** End navbar ******/ }
   .parent-top .top-bar-area {
     position: relative;
-    background-color: #f9f7f6;
+    background-color: #272727;
     line-height: 32px;
     padding-top: 3px;
     height: 35px;
     z-index: 99999;
+	color: #FFF;
     width: 100%; }
     .parent-top .top-bar-area .list-icon {
       float: right !important;
@@ -86,7 +94,7 @@ body {
       color: #000; }
     .parent-top .navbar .join {
       border: none;
-      background-color: #ff6000;
+      background-color: #4F6CFF;
       -ms-transition: 0.6s;
       -moz-transition: 0.6s;
       -o-transition: 0.6s;
@@ -266,8 +274,8 @@ body {
     width: 100px;
     height: 40px;
     color: #fff;
-    border: 1px solid #ff6000;
-    background-color: #ff6000;
+    border: 1px solid #4F6CFF;
+    background-color: #4F6CFF;
     border-radius: 5px;
     font-weight: bold;
     margin: 10px;
@@ -352,8 +360,8 @@ body {
   width: 100px;
   height: 40px;
   color: #fff;
-  border: 1px solid #ff6000;
-  background-color: #ff6000;
+  border: 1px solid #4F6CFF;
+  background-color: #4F6CFF;
   -ms-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -406,8 +414,8 @@ body {
     margin: auto;
     text-align: center; }
   .detailes .container .side-left-two .customize .get {
-    border: 1px solid #ff6000;
-    background-color: #ff6000;
+    border: 1px solid #4F6CFF;
+    background-color: #4F6CFF;
     width: 170px;
     height: 40px;
     padding: 10px 20px;
@@ -482,7 +490,7 @@ body {
   .detailes .container .parent-two .list-edit .log_out {
     padding: 15px; }
     .detailes .container .parent-two .list-edit .log_out a {
-      color: #ff6000;
+      color: #4F6CFF;
       text-decoration: none; }
 
 /********** END HEAD TITLE ******/
@@ -569,8 +577,8 @@ body {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #ff6000;
-  border: 1px solid #ff6000;
+  background-color: #4F6CFF;
+  border: 1px solid #4F6CFF;
   padding: 7px 20px;
   -ms-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -630,8 +638,8 @@ body {
       .parent-customize .custom-left .sticky p .right {
         float: right; }
     .parent-customize .custom-left .sticky .set {
-      background-color: #ff6000;
-      border: 2px solid #ff6000;
+      background-color: #4F6CFF;
+      border: 2px solid #4F6CFF;
       color: #fff;
       -ms-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -760,7 +768,7 @@ body {
               border-radius: 5px;
               background-color: #9D938F; }
       .parent-customize .custom-right .parent-product .change-select {
-        color: #ff6000;
+        color: #4F6CFF;
         text-decoration: none; }
     .parent-customize .custom-right .shaving {
       list-style: none;
@@ -952,8 +960,8 @@ body {
   text-transform: capitalize; }
 .join form .confirme {
   cursor: pointer;
-  background-color: #ff6000;
-  border: 2px solid #ff6000;
+  background-color: #4F6CFF;
+  border: 2px solid #4F6CFF;
   color: #fff;
   -ms-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1018,7 +1026,7 @@ body {
   .gift-sets .side-right {
     margin-left: 10px; }
     .gift-sets .side-right i {
-      color: #ff6000; }
+      color: #4F6CFF; }
     .gift-sets .side-right h3 {
       font-weight: 1000;
       text-transform: capitalize;
@@ -1057,12 +1065,12 @@ body {
       .gift-sets .side-right .choose .three::before {
         content: '3'; }
     .gift-sets .side-right .see-gift {
-      border: 1px solid #ff6000;
+      border: 1px solid #4F6CFF;
       padding: 10px 20px;
       width: 150px;
       height: 40px;
       color: #fff;
-      background-color: #ff6000;
+      background-color: #4F6CFF;
       -ms-border-radius: 5px;
       -moz-border-radius: 5px;
       -o-border-radius: 5px;
@@ -1079,8 +1087,8 @@ body {
       -webkit-transition: 0.6s;
       transition: 0.6s; }
       .gift-sets .side-right .see-gift:hover {
-        background-color: #ff6000;
-        border: 1px solid #ff6000; }
+        background-color: #4F6CFF;
+        border: 1px solid #4F6CFF; }
       .gift-sets .side-right .see-gift a {
         color: #fff;
         text-transform: capitalize;
@@ -1172,8 +1180,8 @@ body {
     text-align: center;
     margin-top: 50px; }
   .catch .more-faq {
-    border: 1px solid #ff6000;
-    background: #ff6000;
+    border: 1px solid #4F6CFF;
+    background: #4F6CFF;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -1353,8 +1361,8 @@ body {
     .video-home .top-instruct button {
       padding: 5px 10px;
       border-radius: 5px;
-      border: 1px solid #ff6000;
-      background: #ff6000;
+      border: 1px solid #4F6CFF;
+      background: #4F6CFF;
       color: #fff; }
       .video-home .top-instruct button a {
         width: 100%;
@@ -1392,7 +1400,7 @@ body {
       font-size: 15px; }
     .contact .card i {
       margin: 10px 45%;
-      color: #ff6000; }
+      color: #4F6CFF; }
     .contact .card p {
       font-size: 12px; }
 
@@ -1424,7 +1432,7 @@ body {
     padding: 5px 10px;
     font-size: 12px; }
   .maps .row .form .send {
-    background-color: #ff6000;
+    background-color: #4F6CFF;
     font-weight: 700;
     color: #fff;
     text-transform: capitalize;
@@ -1442,7 +1450,7 @@ body {
     color: #000;
     transition: 0.6s; }
     .maps .row .form .reset:hover {
-      background-color: #ff6000;
+      background-color: #4F6CFF;
       color: #fff; }
 
 /********* END PAGE CONTACT US *********/
@@ -1475,7 +1483,7 @@ footer {
         margin: 5px !important;
         color: #fff; }
         footer .foot span a:hover {
-          color: #ff6000; }
+          color: #4F6CFF; }
   footer .links ul {
     list-style: none;
     padding-inline-start: 0;
@@ -1544,9 +1552,11 @@ footer {
 /***** End Footer ***/
 /********* END MAIN CLASSES **********/
 .bg-color {
-  background-color: #ff6000; }
+  background-color: #4F6CFF; }
 
 .color,
+
+
 .prag {
   color: #aaa;
   font-weight: 200; }
@@ -1566,7 +1576,7 @@ footer {
   display: inline-block; }
 
 .href {
-  color: #ff6000;
+  color: #4F6CFF;
   text-decoration: none !important;
   text-transform: capitalize; }
 
@@ -1598,7 +1608,6 @@ footer {
     color: #fff;
     width: 25px;
     height: 25px;
-    background-color: #ff6000;
     padding: 5px 5px;
     -ms-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1608,8 +1617,8 @@ footer {
     overflow: hidden; }
 
 .bg-button {
-  background-color: #ff6000;
-  border: 1px solid #ff6000;
+  background-color: #4F6CFF;
+  border: 1px solid #4F6CFF;
   -ms-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
@@ -1635,7 +1644,7 @@ footer {
     left: 2px;
     height: 2px;
     width: 20px;
-    background-color: #ff6000; }
+    background-color: #4F6CFF; }
 
 /*********** END  MAIN cLASSES *******/
 /***********************START LOADING WEBSITE ************************/
@@ -1679,6 +1688,17 @@ footer {
       -o-animation: animate 3s linear infinite;
       -webkit-animation: animate 3s linear infinite;
       animation: animate 3s linear infinite;
-      background: #ff6000; }
+      background: #4F6CFF; }
+
+
+carousel .carousel-item img {
+    height: 450px;
+}
+
+.w-100 {
+	height:450px;
+	
+}
+
 
 /*# sourceMappingURL=main.css.map */
