@@ -130,3 +130,11 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.R
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\ReportViewerForMvc.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\RdlCompile.cache
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\RdlCompile.compiled
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.SqlServer.Types.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.DataVisualization.dll

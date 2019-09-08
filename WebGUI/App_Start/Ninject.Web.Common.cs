@@ -52,6 +52,7 @@ namespace WebGUI.App_Start
             Kernel.Bind<IImageRepository>().To<ImageRepository>();
             Kernel.Bind<IOrderRepository>().To<OrderRepository>();
             Kernel.Bind<IContactRepository>().To<ContactRepository>();
+            Kernel.Bind<IReportRepository>().To<ReportRepository>();
         }
     }
 }

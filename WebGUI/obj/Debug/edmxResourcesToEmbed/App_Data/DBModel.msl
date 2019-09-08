@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ClupStoreModelStoreContainer" CdmEntityContainer="ClupStoreEntities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ClupStoreModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Billing" ColumnName="Billing" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CartLines">
       <EntityTypeMapping TypeName="ClupStoreModel.CartLine">
         <MappingFragment StoreEntitySet="CartLine">
@@ -11,12 +31,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="ClupStoreModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Massage" ColumnName="Massage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="ClupStoreModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="ClupStoreModel.Order">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="Baid" ColumnName="Baid" />
-          <ScalarProperty Name="RenewDate" ColumnName="RenewDate" />
-          <ScalarProperty Name="RegisteratedDate" ColumnName="RegisteratedDate" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Country" ColumnName="Country" />
@@ -26,6 +66,9 @@
           <ScalarProperty Name="Line1" ColumnName="Line1" />
           <ScalarProperty Name="Line2" ColumnName="Line2" />
           <ScalarProperty Name="Line3" ColumnName="Line3" />
+          <ScalarProperty Name="RegisteratedDate" ColumnName="RegisteratedDate" />
+          <ScalarProperty Name="RenewDate" ColumnName="RenewDate" />
+          <ScalarProperty Name="Baid" ColumnName="Baid" />
           <ScalarProperty Name="GiftWrap" ColumnName="GiftWrap" />
           <ScalarProperty Name="Shipped" ColumnName="Shipped" />
         </MappingFragment>
@@ -43,48 +86,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Images">
-      <EntityTypeMapping TypeName="ClupStoreModel.Image">
-        <MappingFragment StoreEntitySet="Images">
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Contacts">
-      <EntityTypeMapping TypeName="ClupStoreModel.Contact">
-        <MappingFragment StoreEntitySet="Contacts">
-          <ScalarProperty Name="Massage" ColumnName="Massage" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+    <FunctionImportMapping FunctionImportName="Report_Financials" FunctionName="ClupStoreModel.Store.Report_Financials">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClupStoreModel.Report_Financials_Result">
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Report_Products" FunctionName="ClupStoreModel.Store.Report_Products">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClupStoreModel.Report_Products_Result">
+          <ScalarProperty Name="SumQuantity" ColumnName="SumQuantity" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="ClupStoreModel.AspNetUser">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Billing" ColumnName="Billing" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Report_Users" FunctionName="ClupStoreModel.Store.Report_Users">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClupStoreModel.Report_Users_Result">
+          <ScalarProperty Name="TotalOrder" ColumnName="TotalOrder" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

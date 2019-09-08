@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0a44e2dc1d954497b77aab40ae3faa0e" Name="Diagram1">
-        <EntityTypeShape EntityType="ClupStoreModel.CartLine" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClupStoreModel.Order" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClupStoreModel.Product" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+      <Diagram DiagramId="97540918450a4333bec43dec1a14a15f" Name="Diagram1">
+        <EntityTypeShape EntityType="ClupStoreModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.CartLine" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Contact" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Image" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClupStoreModel.Product" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="ClupStoreModel.FK_Orders_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="ClupStoreModel.FK_CartLine_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="ClupStoreModel.FK_CartLine_Products" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ClupStoreModel.Image" Width="1.5" PointX="5.25" PointY="2.125" />
-        <EntityTypeShape EntityType="ClupStoreModel.Contact" Width="1.5" PointX="4.25" PointY="5.25" />
-        <EntityTypeShape EntityType="ClupStoreModel.AspNetUser" Width="1.5" PointX="0.75" PointY="9.125" />
-        <AssociationConnector Association="ClupStoreModel.FK_Orders_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

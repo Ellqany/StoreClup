@@ -1,0 +1,17 @@
+﻿@using ReportViewerForMvc
+
+<br />
+
+@if (ViewBag.ReportViewer != null)
+{
+    <div class="w3-container">
+        @Html.ReportViewer(
+            ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+    </div>
+}
+
+
+<br />
+<br />
+<br />
+<br />

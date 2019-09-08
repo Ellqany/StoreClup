@@ -46,14 +46,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
@@ -243,23 +249,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\AspNetUser.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="App_Data\Contact.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="App_Data\Image.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="App_Data\CartLine.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
@@ -268,12 +262,26 @@
     <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="App_Data\AspNetUser.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\CartLine.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Contact.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DataSet\ReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -293,6 +301,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IdentityConfig.cs" />
+    <Compile Include="App_Data\Image.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\AppRoleManager.cs" />
@@ -327,10 +338,20 @@
     <Compile Include="App_Data\Product.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\Report_Financials_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Report_Products_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Report_Users_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Concreate\ContactRepository.cs" />
     <Compile Include="Repository\Concreate\ImageRepository.cs" />
     <Compile Include="Repository\Concreate\OrderRepository.cs" />
     <Compile Include="Repository\Concreate\ProductRepository.cs" />
+    <Compile Include="Repository\Concreate\ReportRepository.cs" />
     <Compile Include="Repository\IContactRepository.cs" />
     <Compile Include="Repository\IImageRepository.cs" />
     <Compile Include="Repository\IMailConfirmation.cs" />
@@ -340,6 +361,8 @@
     <Compile Include="Repository\Concreate\MailConfirmation.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\IReportRepository.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font-awesome.min.css" />
@@ -348,6 +371,16 @@
     <Content Include="Content\w3colors.css" />
     <Content Include="Content\w3mobile.css" />
     <Content Include="Content\w3pro.css" />
+    <Content Include="App_Data\DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_Data\DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\Logo.PNG" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -708,19 +741,22 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Model.js" />
     <Content Include="Content\w3.css" />
-    <Content Include="App_Data\DBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_Data\DBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -755,13 +791,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <EntityDeploy Include="App_Data\DBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="App_Data\DBModel.edmx.diagram">
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -773,6 +802,26 @@
     <Content Include="Areas\Admin\Views\AdminOrder\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrder\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Product.cshtml" />
+    <Content Include="DataSet\ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Report\Financial.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\Users.cshtml" />
+    <None Include="DataSet\ReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="App_Data\DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="App_Data\DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
@@ -817,9 +866,6 @@
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Reports\Money.rdl" />
-    <Content Include="Reports\Products.rdl" />
-    <Content Include="Reports\Users.rdl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908241715207_CityProperty.resx">
@@ -828,6 +874,9 @@
     <EmbeddedResource Include="Migrations\201908311725498_mig2.resx">
       <DependentUpon>201908311725498_mig2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Money.rdlc" />
+    <EmbeddedResource Include="Reports\Products.rdlc" />
+    <EmbeddedResource Include="Reports\Users.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

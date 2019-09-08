@@ -12,6 +12,8 @@ namespace WebGUI.App_Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ClupStoreEntities : DbContext
     {
@@ -25,11 +27,26 @@ namespace WebGUI.App_Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<CartLine> CartLines { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+    
+        public virtual ObjectResult<Report_Financials_Result> Report_Financials()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_Financials_Result>("Report_Financials");
+        }
+    
+        public virtual ObjectResult<Report_Products_Result> Report_Products()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_Products_Result>("Report_Products");
+        }
+    
+        public virtual ObjectResult<Report_Users_Result> Report_Users()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_Users_Result>("Report_Users");
+        }
     }
 }

@@ -4,9 +4,10 @@
 
 @if (ViewBag.ReportViewer != null)
 {
-    @Html.ReportViewer(
-         ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer,
-         new {@style="width:100%; height:100%;" })
+    <div class="w3-container">
+        @Html.ReportViewer(
+            ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+    </div>
 }
 
 
