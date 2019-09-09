@@ -170,6 +170,7 @@ namespace WebGUI.Controllers
 
             this.Payment = new Payment()
             {
+                update_time = NextMonth(DateTime.Now).ToString(),
                 intent = "sale",
                 payer = payer,
                 transactions = transactionList,
