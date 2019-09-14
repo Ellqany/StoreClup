@@ -10,13 +10,13 @@ namespace WebGUI.Areas.Admin.Controllers
     public class GenericController : Controller
     {
         #region Protected Methods
-        protected async Task<string> CreateFileUrl(HttpPostedFileBase Image)
+        protected async Task<string> CreateFileUrl(HttpPostedFileBase Image, string url)
         {
             var task = Task.Factory.StartNew<string>(() =>
             {
-                string url = null;
                 if (Image != null)
                 {
+                    url = null;
                     string Name = Path.GetFileNameWithoutExtension(Image.FileName);
                     string Extention = Path.GetExtension(Image.FileName);
                     string URL = Name + DateTime.Now.ToString("yymmssfff") + Extention;

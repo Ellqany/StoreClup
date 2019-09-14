@@ -5,6 +5,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(x=>x.ImageId)
+        @Html.HiddenFor(x => x.ImageURL)
         <div class="w3-container form-group">
             <div style="position:relative;">
                 <a class='btn' href='javascript:;'>

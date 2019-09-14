@@ -1,22 +1,22 @@
 ﻿@model WebGUI.Models.ImageModel
 
 <div class="w3-container">
-    @using (Html.BeginForm("Edit", "AdminHome", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "HowitWork", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(x => x.ImageId)
         @Html.HiddenFor(x => x.Title)
         @Html.HiddenFor(x => x.ImageURL)
-    
+
         <div class="w3-container form-group">
-                <div style="position:relative;">
-                    <a class='btn' href='javascript:;'>
+            <div style="position:relative;">
+                <a class='btn' href='javascript:;'>
                     Image..
                     @Html.TextBoxFor(model => model.ImageFile, "", new { @class = "M3yUpload", @type = "file", @accept = "image/*", @style = "width:100%", @id = "Image" })
                 </a>
-                </div>
+            </div>
 
-                <section class="gift-sets">
+            <section class="gift-sets">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -36,15 +36,15 @@
                 </div>
             </section>
 
-                <p class="text-danger" id="imgwide"></p>
-                @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
-            </div>
+            <p class="text-danger" id="imgwide"></p>
+            @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+        </div>
 
         <div class="w3-container btn-group">
-                <button type="submit" class="btn btn-outline-primary">
-                    <i class="fa fa-upload"></i> Upload
-                </button>
-            </div>
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa fa-upload"></i> Upload
+            </button>
+        </div>
     }
 </div>
 

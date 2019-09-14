@@ -6,19 +6,22 @@ using WebGUI.Repository;
 
 namespace WebGUI.Areas.Admin.Controllers
 {
-    public class SliderController : GenericController
+    public class HowitWorkController : GenericController
     {
         readonly IImageRepository ImageRepository;
 
-        public SliderController(IImageRepository imageRepository) => ImageRepository = imageRepository;
+        public HowitWorkController(IImageRepository imageRepository) =>
+            ImageRepository = imageRepository;
 
         public ActionResult Index() =>
-          View(ImageRepository.Images.Where(x => x.Category == "Slider").ToList());
+             View(ImageRepository.Images
+                 .Where(x => x.Category == "HowitWork")
+                 .OrderBy(x => x.Title).ToList());
 
         [HttpGet]
-        public ActionResult Edit(int Id)
+        public ActionResult Edit(int id)
         {
-            var image = ImageRepository.Images.SingleOrDefault(x => x.ImageId == Id);
+            var image = ImageRepository.Images.SingleOrDefault(x => x.ImageId == id);
             return View(new ImageModel
             {
                 ImageId = image.ImageId,
@@ -30,13 +33,12 @@ namespace WebGUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public async Task<ActionResult> Edit(ImageModel image)
         {
             if (ModelState.IsValid)
             {
-                image.Category = "Slider";
-                if (string.IsNullOrEmpty(image.Title))
-                    image.Title = " ";
+                image.Category = "HowitWork";
                 if (string.IsNullOrEmpty(image.Description))
                     image.Description = " ";
                 image.ImageURL = await CreateFileUrl(image.ImageFile, image.ImageURL);

@@ -44,13 +44,20 @@
                             @Html.ActionLink("Products", "Index", "AdminProduct", new { area = "Admin" }, new { @class = "btn nav-link" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Sliders", "Index", "Slider", new { area = "Admin" }, new { @class = "btn nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Home Page Edit", "Index", "AdminHome", new { area = "Admin" }, new { @class = "btn nav-link" })
-                        </li>
-                        <li class="nav-item">
                             @Html.ActionLink("Orders", "Index", "AdminOrder", new { area = "Admin" }, new { @class = "btn nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="btn nav-link dropdown-toggle" data-toggle="dropdown">
+                                    Pages Edit
+                                </a>
+                                <div class="dropdown-menu">
+                                    @Html.ActionLink("Sliders", "Index", "Slider", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Home Page Edit", "Index", "AdminHome", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("HowitWork Page Edit", "Index", "HowitWork", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Edit Contact Details", "EditContact", "Messages", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown">

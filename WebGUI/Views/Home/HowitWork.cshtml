@@ -1,4 +1,6 @@
-﻿<section class="head">
+﻿@model List<WebGUI.App_Data.Image>
+
+<section class="head">
     <div class="container">
         <div class="content text-center">
             <h1 class="title">How It Works </h1>
@@ -7,34 +9,30 @@
 
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-                <img src="~/images/1.svg">
+                <img src="@Model[0].ImageURL">
                 <div class="text">
-                    <h4 class="title">Title This Is My Name</h4>
-                    <p class="color">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    @Html.Raw(Model[1].Description)
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-                <img src="~/images/2.svg">
+                <img src="@Model[1].ImageURL">
                 <div class="text">
-                    <h4 class="h4">Title This Is My Name</h4>
-                    <p class="p-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    @Html.Raw(Model[1].Description)
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  text-center">
-                <img src="~/images/3.svg">
+                <img src="@Model[2].ImageURL">
                 <div class="text">
-                    <h4 class="h4">Title This Is My Name</h4>
-                    <p class="p-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    @Html.Raw(Model[2].Description)
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  text-center">
-                <img src="~/images/4.svg">
+                <img src="@Model[3].ImageURL">
                 <div class="text">
-                    <h4 class="h4">Title This Is My Name</h4>
-                    <p class="p-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    @Html.Raw(Model[3].Description)
                 </div>
             </div>
         </div>

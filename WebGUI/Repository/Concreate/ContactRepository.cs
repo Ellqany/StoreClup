@@ -23,7 +23,22 @@ namespace WebGUI.Repository.Concreate
 
         public async Task SendMessage(Contact Message)
         {
-            Context.Contacts.Add(Message);
+            if (Message.ContactId == 0)
+            {
+                Context.Contacts.Add(Message);
+            }
+            else
+            {
+                Contact dbEntry = await Context.Contacts.FindAsync(Message.ContactId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = Message.Name;
+                    dbEntry.Email = Message.Email;
+                    dbEntry.Massage = Message.Massage;
+                    dbEntry.Phone = Message.Phone;
+                    dbEntry.Subject = Message.Subject;
+                }
+            }
             await Context.SaveChangesAsync();
         }
     }

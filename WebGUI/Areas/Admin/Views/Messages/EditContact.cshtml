@@ -1,0 +1,37 @@
+﻿@model WebGUI.Areas.Admin.Models.ContactModel
+
+<br />
+
+<div class="container">
+    <h2 class="text-center h2">Edit Contact Details</h2>
+    <p class="alert-success">@TempData["Success"]</p>
+</div>
+
+
+<div class="w3-container">
+    @using (Html.BeginForm("EditContact", "Messages", FormMethod.Post))
+    {
+        <div class="w3-container">
+            @Html.HiddenFor(m => m.Name)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                switch (property.PropertyName)
+                {
+                    case "Name":
+                        break;
+                    default:
+                        <div class="form-group">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            @Html.ValidationMessage(property.PropertyName, "", new { @class = "text-danger" })
+                        </div>
+                        break;
+                }
+            }
+        </div>
+        <div class="w3-container w3-center form-group">
+            <a href="/Admin/Messages/Index" class="btn btn-outline-danger"><i class="fa fa-backward"></i></a>
+            <button type="submit" class="btn btn-outline-success"><i class="fa fa-plus-circle"></i></button>
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿@model List<WebGUI.App_Data.Image>
+
+<br />
+
+<div class="w3-container w3-animate-zoom">
+    <div class="w3-container w3-xlarge">
+        <h2 class="h2">How it Work Page Edit</h2>
+    </div>
+</div>
+
+<p class="alert-success"> @TempData["Sucssess"]</p>
+
+<div class="w3-container w3-animate-zoom">
+    @foreach (var item in Model)
+    {
+        <section class="gift-sets w3-margin-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" style="cursor:pointer"
+                         onclick="document.location ='@Url.Action("Edit", "HowitWork", new { @Id = item.ImageId })';">
+                        <div class=" side-left">
+                            <div class="image-gift">
+                                <img src="@item.ImageURL" title="Image sets">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="side-right">
+                            @Html.Raw(item.Description)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <br />
+</div>

@@ -31,7 +31,10 @@ namespace WebGUI.Controllers
                 .Where(x => x.Category == "Home")
                 .OrderBy(x => x.Title).ToList());
 
-        public ActionResult HowitWork() => View();
+        public ActionResult HowitWork() =>
+            View(ImageRepository.Images
+                .Where(x => x.Category == "HowitWork")
+                .OrderBy(x => x.Title).ToList());
 
         public async Task<ActionResult> Contact()
         {

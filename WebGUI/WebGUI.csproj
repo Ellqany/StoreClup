@@ -259,9 +259,11 @@
     <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenericController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HowitWorkController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\Admin\Models\ContactModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductSallesDetails.cs" />
     <Compile Include="Areas\Admin\Models\UsersReport.cs" />
     <Compile Include="App_Data\AspNetUser.cs">
@@ -812,6 +814,9 @@
     <Content Include="Areas\Admin\Views\Report\Product.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Financial.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\HowitWork\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HowitWork\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\EditContact.cshtml" />
     <None Include="DataSet\ReportDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

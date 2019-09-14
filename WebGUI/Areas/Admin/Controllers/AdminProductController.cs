@@ -27,15 +27,12 @@ namespace WebGUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.ImageUrl = await CreateFileUrl(Image);
+                product.ImageUrl = await CreateFileUrl(Image, product.ImageUrl);
                 await ProductRepository.SaveProduct(product);
                 TempData["message"] = string.Format("{0} has been saved", product.Name);
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View(product);
-            }
+            return View(product);
         }
 
         public ViewResult Create() => View("Edit", new Product());

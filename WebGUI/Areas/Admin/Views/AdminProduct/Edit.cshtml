@@ -5,6 +5,7 @@
     {
         <div class="w3-container">
             @Html.HiddenFor(m => m.ProductID)
+            @Html.HiddenFor(x => x.ImageUrl)
             @foreach (var property in ViewData.ModelMetadata.Properties)
             {
                 switch (property.PropertyName)

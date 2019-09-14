@@ -40,7 +40,7 @@ namespace WebGUI.Areas.Admin.Controllers
                 image.Category = "Home";
                 if (string.IsNullOrEmpty(image.Description))
                     image.Description = " ";
-                image.ImageURL = await CreateFileUrl(image.ImageFile);
+                image.ImageURL = await CreateFileUrl(image.ImageFile, image.ImageURL);
                 await ImageRepository.SaveImage(image);
                 TempData["Sucssess"] = "The Image has been modified successfully.";
                 return RedirectToAction(nameof(Index));
