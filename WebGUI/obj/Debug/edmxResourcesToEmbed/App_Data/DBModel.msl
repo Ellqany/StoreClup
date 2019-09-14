@@ -107,6 +107,7 @@
         <ComplexTypeMapping TypeName="ClupStoreModel.Report_Users_Result">
           <ScalarProperty Name="TotalOrder" ColumnName="TotalOrder" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

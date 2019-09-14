@@ -262,6 +262,8 @@
     <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\Admin\Models\ProductSallesDetails.cs" />
+    <Compile Include="Areas\Admin\Models\UsersReport.cs" />
     <Compile Include="App_Data\AspNetUser.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -801,10 +803,13 @@
     <Content Include="Areas\Admin\Views\Messages\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrder\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrder\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\Product.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ProductReport.cshtml" />
     <Content Include="DataSet\ReportDataSet.xsc">
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Report\FinancialReport.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\UsersReport.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\Product.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Financial.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Users.cshtml" />
     <None Include="DataSet\ReportDataSet.xsd">

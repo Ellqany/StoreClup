@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="97540918450a4333bec43dec1a14a15f" Name="Diagram1">
+      <Diagram DiagramId="af2419950a55427d8bc04245693680ee" Name="Diagram1">
         <EntityTypeShape EntityType="ClupStoreModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ClupStoreModel.CartLine" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ClupStoreModel.Contact" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />

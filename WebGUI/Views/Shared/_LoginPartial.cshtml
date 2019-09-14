@@ -3,10 +3,10 @@
 <div class="btn-log">
     @if (Request.IsAuthenticated)
     {
-        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        using (Html.BeginForm("Logout", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
         {
             <button type="button" class="btn btn-primary join bg-color">
-                @Html.ActionLink("My Account", "Manage", "Account", null, new { title = "Manage" })
+                @Html.ActionLink("My Account", "Manage", "Account", new { area = "" }, new { title = "Manage" })
             </button>
             <button type="submit" class="btn btn-primary join bg-color">Log off</button>
         }

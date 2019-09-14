@@ -161,5 +161,6 @@
   <ComplexType Name="Report_Users_Result">
     <Property Type="Int32" Name="TotalOrder" Nullable="true" />
     <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
   </ComplexType>
 </Schema>

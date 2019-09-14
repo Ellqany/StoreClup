@@ -317,7 +317,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Financial Report</Caption>
+            <Caption>Users Report</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>9pt</FontSize>
@@ -347,7 +347,6 @@
         </ChartNoDataMessage>
         <DataSetName>UserReport</DataSetName>
         <Top>0.57639in</Top>
-        <Left>0in</Left>
         <Height>2.06125in</Height>
         <Width>9.60416in</Width>
         <Style>
@@ -379,7 +378,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Left>0in</Left>
         <Height>0.5625in</Height>
         <Width>9.60416in</Width>
         <ZIndex>1</ZIndex>
@@ -400,7 +398,10 @@
               <Width>2.16667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.28125in</Width>
+              <Width>2.32292in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.76042in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -429,6 +430,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Email</Value>
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -521,6 +558,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Email1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Email.Value</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Email1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="TotalOrder">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -562,6 +634,7 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -576,9 +649,9 @@
         </TablixRowHierarchy>
         <DataSetName>UserReport</DataSetName>
         <Top>2.905in</Top>
-        <Left>2.38541in</Left>
+        <Left>1.80208in</Left>
         <Height>0.73958in</Height>
-        <Width>4.44792in</Width>
+        <Width>6.25in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -987,7 +1060,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
         <Top>4.50917in</Top>
-        <Left>0in</Left>
         <Height>0.38889in</Height>
         <Width>9.60416in</Width>
         <ZIndex>5</ZIndex>
@@ -1037,6 +1109,10 @@
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -15,5 +15,6 @@ namespace WebGUI.App_Data
     {
         public Nullable<int> TotalOrder { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
     }
 }

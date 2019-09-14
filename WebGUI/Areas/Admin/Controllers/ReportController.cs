@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Reporting.WebForms;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WebGUI.App_Data;
+using WebGUI.Areas.Admin.Models;
 using WebGUI.Infrastructure;
 using WebGUI.Repository;
 
@@ -12,6 +16,7 @@ namespace WebGUI.Areas.Admin.Controllers
     {
         #region Private Variables
         readonly IReportRepository ReportRepository;
+        readonly IProductRepository ProductRepository;
         AppUserManager UserManager =>
             HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
         ReportViewer ReportViewer => new ReportViewer
@@ -23,11 +28,22 @@ namespace WebGUI.Areas.Admin.Controllers
         #endregion
 
         #region Controller
-        public ReportController(IReportRepository reportRepository) =>
+        public ReportController(
+            IReportRepository reportRepository,
+            IProductRepository Productrepo)
+        {
             ReportRepository = reportRepository;
+            ProductRepository = Productrepo;
+        }
         #endregion
 
-        public ActionResult Product()
+        public async Task<ActionResult> Product()
+        {
+            var ProductReport = ReportRepository.ProductsReport();
+            return View(await GetProductSallesDetails(ProductReport));
+        }
+
+        public ActionResult ProductReport()
         {
             ReportViewer rp = ReportViewer;
             rp.LocalReport.ReportPath =
@@ -40,6 +56,12 @@ namespace WebGUI.Areas.Admin.Controllers
 
         public ActionResult Financial()
         {
+            var FinancialReport = ReportRepository.FinancialReport();
+            return View(FinancialReport.ToList());
+        }
+
+        public ActionResult FinancialReport()
+        {
             ReportViewer rp = ReportViewer;
             rp.LocalReport.ReportPath =
                     Request.MapPath(Request.ApplicationPath) + @"Reports/Money.rdlc";
@@ -49,7 +71,13 @@ namespace WebGUI.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Users()
+        public async Task<ActionResult> Users()
+        {
+            var UsersReport = ReportRepository.UsersReport();
+            return View(await GetUsersReport(UsersReport.ToList()));
+        }
+
+        public ActionResult UsersReport()
         {
             ReportViewer rp = ReportViewer;
             rp.LocalReport.ReportPath =
@@ -62,5 +90,51 @@ namespace WebGUI.Areas.Admin.Controllers
             return View();
         }
 
+        #region Private Methods
+        public async Task<List<ProductSallesDetails>> GetProductSallesDetails
+            (IEnumerable<Report_Products_Result> report)
+        {
+            var task = Task.Factory.StartNew(() =>
+            {
+                List<ProductSallesDetails> Result = new List<ProductSallesDetails>();
+                foreach (var item in report)
+                {
+                    Result.Add(new ProductSallesDetails
+                    {
+                        Name = item.Name,
+                        SumQuantity = item.SumQuantity,
+                        Product = ProductRepository.Products.Where(x => x.Name == item.Name).FirstOrDefault()
+                    });
+                }
+                return Result.OrderByDescending(x => x.SumQuantity).ToList();
+            });
+            await task;
+            return task.Result;
+        }
+
+        public async Task<List<UsersReport>> GetUsersReport
+            (List<Report_Users_Result> report)
+        {
+            var task = Task.Factory.StartNew(() =>
+           {
+               var users = UserManager.Users;
+               List<UsersReport> Result = new List<UsersReport>();
+               foreach (var item in users)
+               {
+                   var userreport = report.Where(x => x.Email == item.Email).FirstOrDefault();
+                   Result.Add(new UsersReport
+                   {
+                       Name = item.Name,
+                       TotalOrder = userreport?.TotalOrder,
+                       Email = item.Email,
+                       User = item
+                   });
+               }
+               return Result.OrderByDescending(x => x.TotalOrder).ToList();
+           });
+            await task;
+            return task.Result;
+        }
+        #endregion
     }
 }

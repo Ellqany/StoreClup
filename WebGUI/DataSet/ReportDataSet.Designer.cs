@@ -2607,6 +2607,8 @@ namespace WebGUI.DataSet {
             
             private global::System.Data.DataColumn columnName;
             
+            private global::System.Data.DataColumn columnEmail;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Report_UsersDataTable() {
@@ -2658,6 +2660,14 @@ namespace WebGUI.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2693,11 +2703,12 @@ namespace WebGUI.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Report_UsersRow AddReport_UsersRow(int TotalOrder, string Name) {
+            public Report_UsersRow AddReport_UsersRow(int TotalOrder, string Name, string Email) {
                 Report_UsersRow rowReport_UsersRow = ((Report_UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TotalOrder,
-                        Name};
+                        Name,
+                        Email};
                 rowReport_UsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReport_UsersRow);
                 return rowReport_UsersRow;
@@ -2722,6 +2733,7 @@ namespace WebGUI.DataSet {
             internal void InitVars() {
                 this.columnTotalOrder = base.Columns["TotalOrder"];
                 this.columnName = base.Columns["Name"];
+                this.columnEmail = base.Columns["Email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2731,8 +2743,11 @@ namespace WebGUI.DataSet {
                 base.Columns.Add(this.columnTotalOrder);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
                 this.columnTotalOrder.ReadOnly = true;
                 this.columnName.MaxLength = 2147483647;
+                this.columnEmail.MaxLength = 256;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3865,6 +3880,22 @@ namespace WebGUI.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_Users.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'Report_Users\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_Users.EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTotalOrderNull() {
                 return this.IsNull(this.tableReport_Users.TotalOrderColumn);
             }
@@ -3885,6 +3916,18 @@ namespace WebGUI.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNameNull() {
                 this[this.tableReport_Users.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tableReport_Users.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tableReport_Users.EmailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6121,6 +6164,7 @@ namespace WebGUI.DataSet.ReportDataSetTableAdapters {
             tableMapping.DataSetTable = "Report_Users";
             tableMapping.ColumnMappings.Add("TotalOrder", "TotalOrder");
             tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Email", "Email");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

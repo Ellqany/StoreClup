@@ -321,6 +321,7 @@
             <Mappings>
               <Mapping SourceColumn="TotalOrder" DataSetColumn="TotalOrder" />
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -332,7 +333,7 @@
   <xs:element name="ReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportDataSet" msprop:Generator_UserDSName="ReportDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AspNetUsers" msprop:Generator_TableClassName="AspNetUsersDataTable" msprop:Generator_TableVarName="tableAspNetUsers" msprop:Generator_TablePropName="AspNetUsers" msprop:Generator_RowDeletingName="AspNetUsersRowDeleting" msprop:Generator_RowChangingName="AspNetUsersRowChanging" msprop:Generator_RowEvHandlerName="AspNetUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="AspNetUsersRowDeleted" msprop:Generator_UserTableName="AspNetUsers" msprop:Generator_RowChangedName="AspNetUsersRowChanged" msprop:Generator_RowEvArgName="AspNetUsersRowChangeEvent" msprop:Generator_RowClassName="AspNetUsersRow">
+        <xs:element name="AspNetUsers" msprop:Generator_TableClassName="AspNetUsersDataTable" msprop:Generator_TableVarName="tableAspNetUsers" msprop:Generator_RowChangedName="AspNetUsersRowChanged" msprop:Generator_TablePropName="AspNetUsers" msprop:Generator_RowDeletingName="AspNetUsersRowDeleting" msprop:Generator_RowChangingName="AspNetUsersRowChanging" msprop:Generator_RowEvHandlerName="AspNetUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="AspNetUsersRowDeleted" msprop:Generator_RowClassName="AspNetUsersRow" msprop:Generator_UserTableName="AspNetUsers" msprop:Generator_RowEvArgName="AspNetUsersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">
@@ -400,7 +401,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_UserTableName="Orders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_RowEvArgName="OrdersRowChangeEvent" msprop:Generator_RowClassName="OrdersRow">
+        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_RowClassName="OrdersRow" msprop:Generator_UserTableName="Orders" msprop:Generator_RowEvArgName="OrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID" type="xs:int" />
@@ -468,7 +469,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CartLine" msprop:Generator_TableClassName="CartLineDataTable" msprop:Generator_TableVarName="tableCartLine" msprop:Generator_TablePropName="CartLine" msprop:Generator_RowDeletingName="CartLineRowDeleting" msprop:Generator_RowChangingName="CartLineRowChanging" msprop:Generator_RowEvHandlerName="CartLineRowChangeEventHandler" msprop:Generator_RowDeletedName="CartLineRowDeleted" msprop:Generator_UserTableName="CartLine" msprop:Generator_RowChangedName="CartLineRowChanged" msprop:Generator_RowEvArgName="CartLineRowChangeEvent" msprop:Generator_RowClassName="CartLineRow">
+        <xs:element name="CartLine" msprop:Generator_TableClassName="CartLineDataTable" msprop:Generator_TableVarName="tableCartLine" msprop:Generator_RowChangedName="CartLineRowChanged" msprop:Generator_TablePropName="CartLine" msprop:Generator_RowDeletingName="CartLineRowDeleting" msprop:Generator_RowChangingName="CartLineRowChanging" msprop:Generator_RowEvHandlerName="CartLineRowChangeEventHandler" msprop:Generator_RowDeletedName="CartLineRowDeleted" msprop:Generator_RowClassName="CartLineRow" msprop:Generator_UserTableName="CartLine" msprop:Generator_RowEvArgName="CartLineRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CartLineID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCartLineID" msprop:Generator_ColumnPropNameInRow="CartLineID" msprop:Generator_ColumnPropNameInTable="CartLineIDColumn" msprop:Generator_UserColumnName="CartLineID" type="xs:int" />
@@ -478,7 +479,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProductID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:int" />
@@ -514,7 +515,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Report_Financials" msprop:Generator_TableClassName="Report_FinancialsDataTable" msprop:Generator_TableVarName="tableReport_Financials" msprop:Generator_TablePropName="Report_Financials" msprop:Generator_RowDeletingName="Report_FinancialsRowDeleting" msprop:Generator_RowChangingName="Report_FinancialsRowChanging" msprop:Generator_RowEvHandlerName="Report_FinancialsRowChangeEventHandler" msprop:Generator_RowDeletedName="Report_FinancialsRowDeleted" msprop:Generator_UserTableName="Report_Financials" msprop:Generator_RowChangedName="Report_FinancialsRowChanged" msprop:Generator_RowEvArgName="Report_FinancialsRowChangeEvent" msprop:Generator_RowClassName="Report_FinancialsRow">
+        <xs:element name="Report_Financials" msprop:Generator_TableClassName="Report_FinancialsDataTable" msprop:Generator_TableVarName="tableReport_Financials" msprop:Generator_RowChangedName="Report_FinancialsRowChanged" msprop:Generator_TablePropName="Report_Financials" msprop:Generator_RowDeletingName="Report_FinancialsRowDeleting" msprop:Generator_RowChangingName="Report_FinancialsRowChanging" msprop:Generator_RowEvHandlerName="Report_FinancialsRowChangeEventHandler" msprop:Generator_RowDeletedName="Report_FinancialsRowDeleted" msprop:Generator_RowClassName="Report_FinancialsRow" msprop:Generator_UserTableName="Report_Financials" msprop:Generator_RowEvArgName="Report_FinancialsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TotalPrice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalPrice" msprop:Generator_ColumnPropNameInRow="TotalPrice" msprop:Generator_ColumnPropNameInTable="TotalPriceColumn" msprop:Generator_UserColumnName="TotalPrice" type="xs:decimal" minOccurs="0" />
@@ -522,7 +523,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Report_Products" msprop:Generator_TableClassName="Report_ProductsDataTable" msprop:Generator_TableVarName="tableReport_Products" msprop:Generator_TablePropName="Report_Products" msprop:Generator_RowDeletingName="Report_ProductsRowDeleting" msprop:Generator_RowChangingName="Report_ProductsRowChanging" msprop:Generator_RowEvHandlerName="Report_ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="Report_ProductsRowDeleted" msprop:Generator_UserTableName="Report_Products" msprop:Generator_RowChangedName="Report_ProductsRowChanged" msprop:Generator_RowEvArgName="Report_ProductsRowChangeEvent" msprop:Generator_RowClassName="Report_ProductsRow">
+        <xs:element name="Report_Products" msprop:Generator_TableClassName="Report_ProductsDataTable" msprop:Generator_TableVarName="tableReport_Products" msprop:Generator_RowChangedName="Report_ProductsRowChanged" msprop:Generator_TablePropName="Report_Products" msprop:Generator_RowDeletingName="Report_ProductsRowDeleting" msprop:Generator_RowChangingName="Report_ProductsRowChanging" msprop:Generator_RowEvHandlerName="Report_ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="Report_ProductsRowDeleted" msprop:Generator_RowClassName="Report_ProductsRow" msprop:Generator_UserTableName="Report_Products" msprop:Generator_RowEvArgName="Report_ProductsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SumQuantity" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSumQuantity" msprop:Generator_ColumnPropNameInRow="SumQuantity" msprop:Generator_ColumnPropNameInTable="SumQuantityColumn" msprop:Generator_UserColumnName="SumQuantity" type="xs:int" minOccurs="0" />
@@ -544,6 +545,13 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="256" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -571,9 +579,9 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Orders_AspNetUsers" msdata:parent="AspNetUsers" msdata:child="Orders" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_AspNetUsers" msprop:Generator_ParentPropName="AspNetUsersRow" msprop:Generator_RelationVarName="relationFK_Orders_AspNetUsers" msprop:Generator_UserParentTable="AspNetUsers" />
-      <msdata:Relationship name="FK_CartLine_Orders" msdata:parent="Orders" msdata:child="CartLine" msdata:parentkey="OrderID" msdata:childkey="OrderID" msprop:Generator_UserChildTable="CartLine" msprop:Generator_ChildPropName="GetCartLineRows" msprop:Generator_UserRelationName="FK_CartLine_Orders" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationFK_CartLine_Orders" msprop:Generator_UserParentTable="Orders" />
-      <msdata:Relationship name="FK_CartLine_Products" msdata:parent="Products" msdata:child="CartLine" msdata:parentkey="ProductID" msdata:childkey="ProductID" msprop:Generator_UserChildTable="CartLine" msprop:Generator_ChildPropName="GetCartLineRows" msprop:Generator_UserRelationName="FK_CartLine_Products" msprop:Generator_RelationVarName="relationFK_CartLine_Products" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="FK_Orders_AspNetUsers" msdata:parent="AspNetUsers" msdata:child="Orders" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_AspNetUsers" msprop:Generator_RelationVarName="relationFK_Orders_AspNetUsers" msprop:Generator_UserParentTable="AspNetUsers" msprop:Generator_ParentPropName="AspNetUsersRow" />
+      <msdata:Relationship name="FK_CartLine_Orders" msdata:parent="Orders" msdata:child="CartLine" msdata:parentkey="OrderID" msdata:childkey="OrderID" msprop:Generator_UserChildTable="CartLine" msprop:Generator_ChildPropName="GetCartLineRows" msprop:Generator_UserRelationName="FK_CartLine_Orders" msprop:Generator_RelationVarName="relationFK_CartLine_Orders" msprop:Generator_UserParentTable="Orders" msprop:Generator_ParentPropName="OrdersRow" />
+      <msdata:Relationship name="FK_CartLine_Products" msdata:parent="Products" msdata:child="CartLine" msdata:parentkey="ProductID" msdata:childkey="ProductID" msprop:Generator_UserChildTable="CartLine" msprop:Generator_ChildPropName="GetCartLineRows" msprop:Generator_UserRelationName="FK_CartLine_Products" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationFK_CartLine_Products" msprop:Generator_UserParentTable="Products" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

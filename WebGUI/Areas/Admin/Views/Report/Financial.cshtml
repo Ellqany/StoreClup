@@ -1,17 +1,43 @@
-﻿@using ReportViewerForMvc
+﻿@model List<WebGUI.App_Data.Report_Financials_Result>
 
-<br />
-
-@if (ViewBag.ReportViewer != null)
-{
-    <div class="w3-container">
-        @Html.ReportViewer(
-            ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
-    </div>
+@{
+    int i = 0;
 }
 
+<br />
 
-<br />
-<br />
+<div class="w3-container">
+    <div class="w3-container w3-xlarge">
+        <div class="w3-left">
+            @Html.ActionLink("Export to Report", "FinancialReport", null, new { @class = "btn btn-outline-primary" })
+        </div>
+        <div class="w3-right w3-twothird">
+            <h2 class="h2">Financials Report</h2>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="w3-container">
+        <table class="table table-hover table-condensed table-bordered">
+            <tr class="w3-blue text-center">
+                <th>No</th>
+                <th>Year</th>
+                <th>Total seliing prices </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr class="text-center">
+                    <td>@i</td>
+                    <td>@item.Year</td>
+                    <td>@Convert.ToDecimal(item.TotalPrice).ToString("c")</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
 <br />
 <br />
