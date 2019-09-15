@@ -72,6 +72,10 @@
                         <p>**********</p>
                         <button>@Html.ActionLink("Edit", "ChangPassword", "Account", null, null)</button>
                     </li>
+                    <li class="child">
+                        <strong>Your Address</strong><br>
+                        <p>@Model.Address</p>
+                    </li>
                 </ul>
                 <ul id="tbl" class="list-edit">
                     @Html.Partial("_manage", Model)

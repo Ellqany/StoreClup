@@ -48,8 +48,22 @@
                         
                         <div class="w3-container d-flex justify-content-center">
                             <div class="form-group" style="width:100%">
+                                @Html.TextBoxFor(x => x.PhoneNumber, new { @style = "width:60%", @placeholder = "Phone Number" })<br />
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                         </div>
+
+                        <div class="w3-container d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
                                 @Html.TextBoxFor(x => x.Email, new { @style = "width:60%", @type = "email", @placeholder = "Email" })<br />
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                         </div>
+                        
+                        <div class="w3-container d-flex justify-content-center">
+                            <div class="form-group" style="width:100%">
+                                @Html.TextBoxFor(x => x.Address, new { @style = "width:60%", @placeholder = "Address" })<br />
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                             </div>
                          </div>
 

@@ -1,4 +1,12 @@
-﻿<section class="gift">
+﻿@model List<WebGUI.App_Data.Image>
+
+@{ 
+    var first = Model[0];
+    var Second = Model[1];
+    var Third = Model[2];
+}
+
+<section class="gift">
     <div class="container">
         <div class="top-content">
             <h2 class="head-club text-center ">Gift the Club</h2>
@@ -10,26 +18,20 @@
     </div>
 </section>
 
+
 <section class="gift-sets">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class=" side-left">
                     <div class="image-gift">
-                        <img src="../images/gift1.png" title="Image sets">
+                        <img src="@first.ImageURL" title="@first.Title">
                     </div>
-
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="side-right">
-                    <h3>Gift Sets</h3>
-                    <p class="info-gift">From hair to toe, there’s a Gift Set that’s right for everyone. You pick the perfect one and we’ll handle everything else.</p>
-                    <ul class="choose">
-                        <li class="one">Choose the perfect Gift Set.</li>
-                        <li class="two">Have it shipped to them or to yourself. Gift  </li>
-                        <li class="three">Gifting isn’t a competition, but if it was you</li>
-                    </ul>
+                    @Html.Raw(first.Description)
                     <button class="see-gift">see all gift sets </button>
                     <p class="prag">Received a box with a gift card? <a href="#" class="href"> Redeem it now</a></p>
                 </div>
@@ -37,13 +39,7 @@
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="side-right">
-                    <h3>E-Gift Cards</h3>
-                    <p class="info-gift">Send a chunk of DSC cash to use on anything. It’s like giving someone the keys to the Club..</p>
-                    <ul class="choose">
-                        <li class="one">Pick the amount you want, between $10 - $300.</li>
-                        <li class="two">Add a personal message and tell us when & where to email it.</li>
-                        <li class="three">Expect a lot of e-gratitude. And maybe an e-hug.</li>
-                    </ul>
+                    @Html.Raw(Second.Description)
                     <button class="see-gift">gift now</button>
                     <p class="prag">Received an E-gift ? <a href="#" class="href"> Redeem it now</a></p>
                 </div>
@@ -52,7 +48,7 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class=" side-left">
                     <div class="image-gift">
-                        <img src="../images/gift2.png" title="Image sets">
+                        <img src="@Second.ImageURL" title="@Second.Title">
                     </div>
 
                 </div>
@@ -84,8 +80,6 @@
                     <p>Our exclusive products are formulated with topshelf botanicals to help your loved ones look, feel and smell great.</p>
                 </div>
             </div>
-            <!--END CHILD GIFT -->
-            <!--START CHILD GIFT -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="child-why text-center">
                     <div class="image-why">
@@ -95,19 +89,16 @@
                     <p>Everyone has different needs. Fortunately, we have a bunch of awesome stuff to help them all out.</p>
                 </div>
             </div>
-            <!--END CHILD GIFT -->
         </div>
     </div>
 </section>
 
-<section class="person">
+<section class="person" style="background-image:url(@Third.ImageURL)">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 ml-auto">
                 <div class="qout">
-                    <i class="fas fa-quote-left fa-3x"></i>
-                    <p>I love the flexibility of this service and the quality of the products. My bathroom has received a serious upgrade</p>
-                    <span class="author">- Tim <br>Member since April 2018</span>
+                    @Html.Raw(Third.Description)
                 </div>
             </div>
         </div>
@@ -132,19 +123,16 @@
                     <h3 class="title-catch">Do I need to be a DSC member to buy a Gift Set?</h3>
                     <p class="test">It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered within 5-7 business days</p>
                 </div>
-                <!--END ACORDION -->
-                <!-- START ACORDION  -->
+
                 <div class="acordion">
                     <h3 class="title-catch">Can my Gift recipient return or exchange their Gifts?</h3>
                     <p class="test">It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered within 5-7 business days</p>
                 </div>
-                <!--END ACORDION -->
-                <!-- START ACORDION  -->
+
                 <div class="acordion ">
                     <h3 class="title-catch ">Are there expedited shipping options?</h3>
                     <p class="test">It’s easy. Select your Gift Set and where you want it shipped, and we’ll have it delivered within 5-7 business days</p>
                 </div>
-                <!--END ACORDION -->
                 <p class="qoustion">Have more questions?</p>
                 <button class="more-faq">more faq s</button>
             </div>
@@ -155,7 +143,6 @@
 <section class="information">
     <div class="container">
         <div class="row">
-            <!-- START PART FEAT-->
             <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="feat text-center">
                     <i class="fas fa-dollar-sign fa-2x"></i>
@@ -164,8 +151,6 @@
                     <a href="#" class="href"> reed me </a>
                 </div>
             </div>
-            <!--END PART FEAT -->
-            <!-- START PART FEAT-->
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="feat text-center">
                     <i class="fas fa-hands-helping fa-2x"></i>
@@ -174,8 +159,6 @@
                     <a href="#" class="href"> Learn More </a>
                 </div>
             </div>
-            <!--END PART FEAT -->
-            <!-- START PART FEAT-->
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="feat text-center">
                     <i class="fas fa-user-friends fa-2x"></i>
@@ -184,7 +167,6 @@
                     <a href="#" class="href"> contact us </a>
                 </div>
             </div>
-            <!--END PART FEAT -->
         </div>
     </div>
 </section>

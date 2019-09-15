@@ -1,0 +1,9 @@
+﻿@model List<WebGUI.App_Data.SocialLink>
+
+<ul class="list-icon">
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.Link"><i class="@item.CssClass"></i></a></li>
+    }
+</ul>
+

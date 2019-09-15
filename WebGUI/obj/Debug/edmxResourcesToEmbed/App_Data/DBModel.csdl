@@ -84,6 +84,7 @@
     <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CartLines" Relationship="Self.FK_CartLine_Products" FromRole="Products" ToRole="CartLine" />
+    <Property Name="SuppscriptionLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Orders_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -149,6 +150,7 @@
     <FunctionImport Name="Report_Financials" ReturnType="Collection(ClupStoreModel.Report_Financials_Result)" />
     <FunctionImport Name="Report_Products" ReturnType="Collection(ClupStoreModel.Report_Products_Result)" />
     <FunctionImport Name="Report_Users" ReturnType="Collection(ClupStoreModel.Report_Users_Result)" />
+    <EntitySet Name="SocialLinks" EntityType="ClupStoreModel.SocialLink" />
   </EntityContainer>
   <ComplexType Name="Report_Financials_Result">
     <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="38" Scale="2" />
@@ -163,4 +165,13 @@
     <Property Type="String" Name="Name" Nullable="true" />
     <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
   </ComplexType>
+  <EntityType Name="SocialLink">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Link" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CssClass" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

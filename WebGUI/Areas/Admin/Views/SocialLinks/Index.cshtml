@@ -1,0 +1,33 @@
+﻿@model List<WebGUI.App_Data.SocialLink>
+
+<br />
+<br />
+
+<div class="w3-container">
+    <div class="w3-container">
+       <h2 class="h2">Social Links</h2>
+       <p class="alert-success">@TempData["Success"]</p>
+    </div>
+    @using (Html.BeginForm("Index", "SocialLinks", FormMethod.Post))
+    {
+        <div class="w3-container">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="form-group">
+                    @Html.HiddenFor(x=>x[i].Category)
+                    @Html.HiddenFor(x=>x[i].id)
+                    <label>@Model[i].Category</label>
+                    @Html.TextBoxFor(x=>x[i].Link, new { @class = "form-control" })        
+                    @Html.ValidationMessageFor(x=>x[i].Link, "", new { @class = "text-danger" })
+                </div>
+            }
+        </div>
+
+        <div class="w3-container w3-center form-group">
+            <button type="submit" class="btn btn-outline-success"><i class="fa fa-plus-circle"></i></button>
+        </div>
+    }
+</div>
+
+<br />
+<br />

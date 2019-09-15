@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 bar-btn text-right socail-right">
-                        @Html.Partial("_social")
+                        @Html.Action("Social", "Nav",new { area="" })
                     </div>
                 </div>
             </div>
@@ -45,6 +45,9 @@
                         </li>
                         <li class="nav-item">
                             @Html.ActionLink("Orders", "Index", "AdminOrder", new { area = "Admin" }, new { @class = "btn nav-link" })
+                        </li>        
+                        <li class="nav-item">
+                            @Html.ActionLink("SocialLinks", "Index", "SocialLinks", new { area = "Admin" }, new { @class = "btn nav-link" })
                         </li>
                         <li class="nav-item">
                             <div class="dropdown">
@@ -55,6 +58,7 @@
                                     @Html.ActionLink("Sliders", "Index", "Slider", new { area = "Admin" }, new { @class = "dropdown-item" })
                                     @Html.ActionLink("Home Page Edit", "Index", "AdminHome", new { area = "Admin" }, new { @class = "dropdown-item" })
                                     @Html.ActionLink("HowitWork Page Edit", "Index", "HowitWork", new { area = "Admin" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Gift Club Page Edit", "Index", "Club", new { area = "Admin" }, new { @class = "dropdown-item" })
                                     @Html.ActionLink("Edit Contact Details", "EditContact", "Messages", new { area = "Admin" }, new { @class = "dropdown-item" })
                                 </div>
                             </div>
@@ -120,7 +124,7 @@
         <div class="footer-cright">
             <div class="container">
                 <p class="text text-center">&copy; 2012-19 BATH CLUB . ALL RIGHTS RESERVED.</p>
-                @Html.Partial("_social")
+                @Html.Action("Social", "Nav", new { area = "" })
             </div>
         </div>
     </footer>

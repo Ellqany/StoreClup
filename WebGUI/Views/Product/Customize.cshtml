@@ -1,15 +1,17 @@
-﻿@model List<WebGUI.App_Data.Product>
+﻿@model WebGUI.App_Data.Product
 
-@{ 
-    decimal Total = 0;
-    foreach (var item in Model)
-    {
-        Total += item.Price;
-    }
-}
-
-<br />
-<br />
+<nav class="track">
+    <div class="container">
+        <div class="logo">
+            <a href="/Home/index"><img src="~/Images/Logo.PNG" width="70" height="70"></a>
+        </div>
+        <ul class="list-track m-auto">
+            <li class="active"> Get Ready  </li>
+            <li class="active"> Customize </li>
+            <li> Checkout </li>
+        </ul>
+    </div>
+</nav>
 
 <section class="parent-customize w3-container">
     <div class="container">
@@ -17,20 +19,17 @@
             <div class=" col-lg-6 col-md-12 col-sm-12 col-xs-12 custom-left">
                 <div class="sticky">
                     <div class="image-custom">
-                        <img src="~/Images/custmoize194229052.png" alt="Plan" />
+                        <img src="@Model.ImageUrl" alt="@Model.Name" />
                     </div>
                     <p>
                         <span class="left">You Pay</span>
-                        <span class="right">Price is @Total.ToString("c")</span>
+                        <span class="right">Price is @Model.Price.ToString("c")</span>
                     </p>
                     <br />
                     <div class="d-flex align-content-center justify-content-center">
                         @using (Html.BeginForm("Checkout", "Order", FormMethod.Get))
                         {
-                            foreach (var item in Model)
-                            {
-                                <input type="hidden" name="id" value="@item.ProductID" />
-                            }
+                            <input type="hidden" name="id" value="@Model.ProductID" />
                             <button type="submit" class="btn w3-large btn-primary join bg-color">Check Out</button>
                         }
                     </div>
@@ -38,20 +37,15 @@
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
                 <div class="custom-right">
-                    @foreach (var item in Model)
-                    {
-                    <div class="w3-container w3-margin-top w3-border">
-                        <h5 class="form-inline w3-container">
-                            <span class="w3-twothird"><strong>@item.Name </strong></span>
-                            <span class="w3-third">
-                                <b class="float-right">@item.Price.ToString("c")</b>
-                            </span>
-                        </h5>
-                        <div class="clearfix"></div>
-                        @Html.Raw(item.Description)
-                    </div>
-                    }
-                </div>
+                    <h5 class="form-inline w3-container">
+                        <span class="w3-twothird"><strong>@Model.Name </strong></span>
+                        <span class="w3-third">
+                            <b class="float-right">@Model.Price.ToString("c")</b>
+                        </span>
+                    </h5>
+                    <div class="clearfix"></div>
+                    @Html.Raw(Model.Description)
+                 </div>
             </div>
         </div>
     </div>

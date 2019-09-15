@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 bar-btn text-right socail-right">
-                        @Html.Partial("_social")
+                        @Html.Action("Social", "Nav")
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
         <div class="footer-cright">
             <div class="container">
                 <p class="text text-center">&copy; 2012-19 BATH CLUB . ALL RIGHTS RESERVED.</p>
-                @Html.Partial("_social")
+                @Html.Action("Social", "Nav")
             </div>
         </div>
     </footer>

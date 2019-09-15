@@ -138,3 +138,4 @@ C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTy
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.SqlServer.Types.dll
 C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\bin\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Mahmoud Ellqany\Desktop\Team\Implementaion\Store\WebGUI\obj\Debug\WebGUI.Migrations.final.resources

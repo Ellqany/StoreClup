@@ -14,5 +14,9 @@ namespace WebGUI.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "You must enter your Password")]
         [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).{8,15}$", ErrorMessage = "Password must be at least of 8 character and has number and one special chracter at least")]
         public string Password { get; set; }
+        [RegularExpression(@"(01)(0|1|2|5)[0-9]{8}", ErrorMessage = "It is not a correct phone")]
+        public string PhoneNumber { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "You must enter your Address")]
+        public string Address { get; set; }
     }
 }

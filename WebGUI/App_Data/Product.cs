@@ -20,7 +20,6 @@ namespace WebGUI.App_Data
         {
             this.CartLines = new HashSet<CartLine>();
         }
-
         [Key]
         [HiddenInput(DisplayValue = false)]
         public int ProductID { get; set; }
@@ -35,6 +34,8 @@ namespace WebGUI.App_Data
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
+        [Required(ErrorMessage = "Please specify the SuppscriptionLink")]
+        public string SuppscriptionLink { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartLine> CartLines { get; set; }

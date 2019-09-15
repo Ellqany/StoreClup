@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ClupStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ClupStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
@@ -83,6 +83,16 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="SuppscriptionLink" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SocialLinks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="450" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="CssClass" Type="nvarchar" MaxLength="450" />
         </EntityType>
         <Association Name="FK_CartLine_Orders">
           <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
@@ -136,6 +146,7 @@
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialLinks" EntityType="Self.SocialLinks" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CartLine_Orders" Association="Self.FK_CartLine_Orders">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="CartLine" EntitySet="CartLine" />
@@ -149,8 +160,7 @@
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ClupStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -238,6 +248,7 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CartLines" Relationship="Self.FK_CartLine_Products" FromRole="Products" ToRole="CartLine" />
+          <Property Name="SuppscriptionLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Orders_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -303,6 +314,7 @@
           <FunctionImport Name="Report_Financials" ReturnType="Collection(ClupStoreModel.Report_Financials_Result)" />
           <FunctionImport Name="Report_Products" ReturnType="Collection(ClupStoreModel.Report_Products_Result)" />
           <FunctionImport Name="Report_Users" ReturnType="Collection(ClupStoreModel.Report_Users_Result)" />
+          <EntitySet Name="SocialLinks" EntityType="ClupStoreModel.SocialLink" />
         </EntityContainer>
         <ComplexType Name="Report_Financials_Result">
           <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="38" Scale="2" />
@@ -317,6 +329,15 @@
           <Property Type="String" Name="Name" Nullable="true" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
         </ComplexType>
+        <EntityType Name="SocialLink">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CssClass" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -399,6 +420,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="ClupStoreModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="SuppscriptionLink" ColumnName="SuppscriptionLink" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -433,6 +455,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="SocialLinks">
+            <EntityTypeMapping TypeName="ClupStoreModel.SocialLink">
+              <MappingFragment StoreEntitySet="SocialLinks">
+                <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

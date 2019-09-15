@@ -30,7 +30,7 @@ namespace WebGUI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Checkout(Cart cart, List<int> Id)
+        public async Task<ActionResult> Checkout(Cart cart, int Id)
         {
             var user = await CurrentUser;
             AddToCart(cart, Id);
@@ -50,7 +50,9 @@ namespace WebGUI.Controllers
             if (ModelState.IsValid)
             {
                 cart.CurrentOrder = Order;
-                return RedirectToAction(nameof(PaymentWithPaypal));
+                int? id = cart.Lines.FirstOrDefault().ProductID;
+                return Redirect(Reposatory.Products
+                    .SingleOrDefault(x => x.ProductID == id).SuppscriptionLink);
             }
             var user = await CurrentUser;
             Order.User = user;
@@ -58,8 +60,9 @@ namespace WebGUI.Controllers
             return View(Order);
         }
         [HttpGet]
-        public ViewResult Completed(Cart cart)
+        public async Task<ViewResult> Completed(Cart cart)
         {
+            await MakeCurrentOrder(cart, cart.CurrentOrder);
             cart.Clear();
             return View();
         }
@@ -208,16 +211,13 @@ namespace WebGUI.Controllers
                 return date.AddDays(1).AddMonths(1).AddDays(-1);
         }
 
-        void AddToCart(Cart cart, List<int> Id)
+        void AddToCart(Cart cart, int Id)
         {
             cart.Clear();
-            foreach (var item in Id)
+            Product product = Reposatory.Products.FirstOrDefault(x => x.ProductID == Id);
+            if (product != null)
             {
-                Product product = Reposatory.Products.FirstOrDefault(x => x.ProductID == item);
-                if (product != null)
-                {
-                    cart.AddItem(product, 1);
-                }
+                cart.AddItem(product, 1);
             }
         }
         #endregion

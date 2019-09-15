@@ -249,6 +249,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\SocialLink.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
@@ -258,11 +261,13 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClubController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenericController.cs" />
     <Compile Include="Areas\Admin\Controllers\HowitWorkController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SocialLinksController.cs" />
     <Compile Include="Areas\Admin\Models\ContactModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductSallesDetails.cs" />
     <Compile Include="Areas\Admin\Models\UsersReport.cs" />
@@ -322,6 +327,10 @@
     <Compile Include="Migrations\201908311725498_mig2.Designer.cs">
       <DependentUpon>201908311725498_mig2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909150935587_final.cs" />
+    <Compile Include="Migrations\201909150935587_final.Designer.cs">
+      <DependentUpon>201909150935587_final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -355,6 +364,7 @@
     <Compile Include="Repository\Concreate\OrderRepository.cs" />
     <Compile Include="Repository\Concreate\ProductRepository.cs" />
     <Compile Include="Repository\Concreate\ReportRepository.cs" />
+    <Compile Include="Repository\Concreate\SocialLinkRepository.cs" />
     <Compile Include="Repository\IContactRepository.cs" />
     <Compile Include="Repository\IImageRepository.cs" />
     <Compile Include="Repository\IMailConfirmation.cs" />
@@ -365,6 +375,7 @@
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Repository\IReportRepository.cs" />
+    <Compile Include="Repository\ISocialLinkRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -816,6 +827,9 @@
     <Content Include="Areas\Admin\Views\HowitWork\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HowitWork\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Messages\EditContact.cshtml" />
+    <Content Include="Areas\Admin\Views\SocialLinks\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Club\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Club\Edit.cshtml" />
     <None Include="DataSet\ReportDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -843,7 +857,7 @@
     <Content Include="Views\Product\getstart.cshtml" />
     <Content Include="Views\Home\HowitWork.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Shared\_social.cshtml" />
+    <Content Include="Views\Shared\Social.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -882,6 +896,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908311725498_mig2.resx">
       <DependentUpon>201908311725498_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909150935587_final.resx">
+      <DependentUpon>201909150935587_final.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Money.rdlc" />
     <EmbeddedResource Include="Reports\Products.rdlc" />

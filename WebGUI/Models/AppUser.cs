@@ -9,6 +9,7 @@ namespace WebGUI.Models
     {
         public string Name { get; set; }
         public string Billing { get; set; }
+        public string Address { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);

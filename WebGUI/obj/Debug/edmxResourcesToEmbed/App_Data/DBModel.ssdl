@@ -78,6 +78,16 @@
     <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="SuppscriptionLink" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SocialLinks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link" Type="nvarchar" MaxLength="450" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="CssClass" Type="nvarchar" MaxLength="450" />
   </EntityType>
   <Association Name="FK_CartLine_Orders">
     <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
@@ -131,6 +141,7 @@
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocialLinks" EntityType="Self.SocialLinks" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CartLine_Orders" Association="Self.FK_CartLine_Orders">
       <End Role="Orders" EntitySet="Orders" />
       <End Role="CartLine" EntitySet="CartLine" />

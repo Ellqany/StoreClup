@@ -93,7 +93,9 @@ namespace WebGUI.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    Name = model.FirstName + " " + model.LastName
+                    Name = model.FirstName + " " + model.LastName,
+                    Address = model.Address,
+                    PhoneNumber = model.PhoneNumber
                 };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

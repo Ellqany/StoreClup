@@ -77,6 +77,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="ClupStoreModel.Product">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="SuppscriptionLink" ColumnName="SuppscriptionLink" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -111,5 +112,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="SocialLinks">
+      <EntityTypeMapping TypeName="ClupStoreModel.SocialLink">
+        <MappingFragment StoreEntitySet="SocialLinks">
+          <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

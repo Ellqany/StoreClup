@@ -36,6 +36,7 @@ namespace WebGUI.Repository.Concreate
                     dbEntry.Price = product.Price;
                     dbEntry.Category = product.Category;
                     dbEntry.ImageUrl = product.ImageUrl;
+                    dbEntry.SuppscriptionLink = product.SuppscriptionLink;
                 }
             }
             await Context.SaveChangesAsync();
