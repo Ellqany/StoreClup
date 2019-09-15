@@ -45,14 +45,10 @@
                             @Html.ActionLink("How It Work", "HowitWork", "Home", new { area = "" }, new { @class = "btn nav-link" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn nav-link" })
+                            @Html.ActionLink("gift club", "Club", "Home", new { area = "" }, new { @class = "btn nav-link" })
                         </li>
                         <li class="nav-item">
-                            <a href=@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })
-                               class="btn nav-link" title="Your cart">
-                                Your cart
-                                <span class="fa fa-shopping-cart"></span>
-                            </a>
+                            @Html.ActionLink("get Start", "GetStart", "Product", new { area = "" }, new { @class = "btn nav-link" })
                         </li>
                         <li class="nav-item">
                             @Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" }, new { @class = "btn nav-link" })

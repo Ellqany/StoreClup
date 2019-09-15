@@ -1,53 +1,126 @@
-﻿@model WebGUI.Models.LoginModel
-<section class="log-out">
-    <span class="back">
-        <a href="/Home/Index">
-            <i class="fa fa-backward"></i> Back
-        </a>
-    </span>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 m-auto">
-                <div class="title-form text-center">
-                    <h2 class="h2">welcome back</h2>
-                    <p class="p-2">please log in to continue</p>
-                </div>
-                <div class="text-danger">
-                    @Html.ValidationSummary()
-                </div>
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken();
-                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+﻿@using System.Web.Optimization
+@model WebGUI.Models.LoginModel
+@{ 
+    Layout = null;
+    }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Keywords" content="BATH CLUB,BATH,CLUB">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>BATH CLUB</title>
 
-                    <div class="log-form">
-                        <div class="d-flex justify-content-center">
-                            <div class="form-group" style="width:100%">
-                                @Html.TextBoxFor(x => x.Email, new { @class = "w3-text-white", @style = "width:100%", @type = "email", @placeholder = "Email" })<br />
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            </div>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/clientfeaturesscripts")
+</head>
+<body>
+    <div class="parent-top">
+        <div class="top-bar-area inline inc-border">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 address-info text-left">
+                        <div class="info box word-left">
+                            <p><i class="fa fa-star" style="color:#ecef1c;"></i> Welcome to the Bath Club </p>
                         </div>
-
-                        <div class="d-flex justify-content-center">
-                            <div class="form-group" style="width:100%">
-                                @Html.PasswordFor(x => x.Password, new { @class = "w3-text-white", @style = "width:100%", @placeholder = "Password" })<br />
-                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <input type="submit" value="LOG IN" class="log-in">
-                        <div class="col-sm-3"></div>
                     </div>
-                }
-                <p class="p-2">or</p>
-                <button class="facebook"><a href="#">log in with facebook</a></button>
-                @using (Html.BeginForm("GoogleLogin", "Account"))
-                {
-                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
-                    <button type="submit" class="google"> log in with google <i class="fa fa-google-plus"></i> </button>
-                }
-                @Html.ActionLink("forget password?", "ForgetPassword", "Account", null, new { @class = "href" })
+                    <div class="col-md-4 bar-btn text-right socail-right">
+                        @Html.Partial("_social")
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
+
+    <div class="body-content">
+        <section class="log-out">
+            <span class="back">
+                <a href="/Home/Index">
+                    <i class="fa fa-backward"></i> Back
+                </a>
+            </span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 m-auto">
+                        <div class="title-form text-center">
+                            <h2 class="h2">welcome back</h2>
+                            <p class="p-2">please log in to continue</p>
+                        </div>
+                        <div class="text-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken();
+                            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+
+                            <div class="log-form">
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-group" style="width:100%">
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "w3-text-white", @style = "width:100%", @type = "email", @placeholder = "Email" })<br />
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-group" style="width:100%">
+                                        @Html.PasswordFor(x => x.Password, new { @class = "w3-text-white", @style = "width:100%", @placeholder = "Password" })<br />
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <input type="submit" value="LOG IN" class="log-in">
+                                <div class="col-sm-3"></div>
+                            </div>
+                        }
+                        <p class="p-2">or</p>
+                        <button class="facebook"><a href="#">log in with facebook</a></button>
+                        @Html.ActionLink("forget password?", "ForgetPassword", "Account", null, new { @class = "href" })
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 foot">
+                    <img src="~/Images/Logo.PNG" />
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><a href="#" class="href">help center</a></span><br>
+                    <span>
+                        @Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" }, new { @class = "href" })
+                    </span>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><a href="#" class="href">privacy</a></span><br>
+                    <span><a href="#" class="href">terms</a></span>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 foot text-center">
+                    <span><img src="~/images/pay/amerc.svg" title="Amercia"> United States</span><br>
+                    <p class="">Accepted Payments</p>
+                    <ul class="list-image">
+                        <li class="pay"><img src="~/images/pay/pay1.svg"></li>
+                        <li class="pay"><img src="~/images/pay/pay2.svg"></li>
+                        <li class="pay"><img src="~/images/pay/pay3.svg"></li>
+                        <li class="pay"><img src="~/images/pay/pay4.svg"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-cright">
+            <div class="container">
+                <p class="text text-center">&copy; 2012-19 BATH CLUB . ALL RIGHTS RESERVED.</p>
+                @Html.Partial("_social")
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

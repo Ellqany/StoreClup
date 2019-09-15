@@ -9,33 +9,34 @@
 <section class="started">
     <div class="container">
         <h3 class="text-center head-start">What part of your morning routine can we help with?</h3>
-
-        @for (int i = 0; i <= Length; i++, k += 3)
-        {
-            <div class="w3-row-padding w3-margin-top">
-                @for (int j = k; j < k + 3; j++)
-                {
-                    try
+        @using (Html.BeginForm("Customize", "Product", FormMethod.Get)) { 
+            for (; k <= Length;  k += 3)
+            {
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12"></div>
+                    @for (int j = k; j < k + 3; j++)
+                    {
+                        try
                     {
                         var item = Model[j];
-
-                        <div class="w3-third">
-                            <div class="w3-card">
-                                <img src="@item.ImageUrl" title="@item.Name" alt="@item.Name" style="width:100%; height:300px; cursor:pointer;"
-                                     onclick="document.location ='@Url.Action("Details", "Product", new { @Id = item.ProductID })';">
-                                <div class="w3-container text-center w3-margin-top">
-                                    <h4 class="h4">@item.Name</h4>
-                                    <h5 class="h5">@item.Price</h5>
-                                </div>
+                        <div class=" col-lg-2 col-md-4 col-sm-12 col-xs-12 checkbox">
+                            <div class="image-check">
+                                <img src="@item.ImageUrl" title="get">
                             </div>
+                            <label for="ncheck2" class=text-center>@item.Name</label><br>
+                            <input type="checkbox" id="id" name="id" value="@item.ProductID" 
+                                   class="check text-center" />
                         </div>
                     }
                     catch (Exception)
                     {
-                        <div class="w3-third"></div>
+                        <div class=" col-lg-3 col-md-4 col-sm-12 col-xs-12"></div>
                     }
-                }
-            </div>
+                    }
+                    <div class=" col-lg-3 col-md-4 col-sm-12 col-xs-12"></div>
+                    <button class="next text-center">continue</button>
+                </div>
+            }
         }
     </div>
 </section>

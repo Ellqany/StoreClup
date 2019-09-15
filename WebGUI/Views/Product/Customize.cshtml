@@ -1,4 +1,12 @@
-﻿@model WebGUI.App_Data.Product
+﻿@model List<WebGUI.App_Data.Product>
+
+@{ 
+    decimal Total = 0;
+    foreach (var item in Model)
+    {
+        Total += item.Price;
+    }
+}
 
 <br />
 <br />
@@ -9,30 +17,40 @@
             <div class=" col-lg-6 col-md-12 col-sm-12 col-xs-12 custom-left">
                 <div class="sticky">
                     <div class="image-custom">
-                        <img src="@Model.ImageUrl" title="@Model.Name">
+                        <img src="~/Images/custmoize194229052.png" alt="Plan" />
                     </div>
                     <p>
-                        <span class="left">@Model.Name</span>
-                        <span class="right">Price is @Model.Price.ToString("c")</span>
+                        <span class="left">You Pay</span>
+                        <span class="right">Price is @Total.ToString("c")</span>
                     </p>
+                    <br />
+                    <div class="d-flex align-content-center justify-content-center">
+                        @using (Html.BeginForm("Checkout", "Order", FormMethod.Get))
+                        {
+                            foreach (var item in Model)
+                            {
+                                <input type="hidden" name="id" value="@item.ProductID" />
+                            }
+                            <button type="submit" class="btn w3-large btn-primary join bg-color">Check Out</button>
+                        }
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
                 <div class="custom-right">
-                    <h5 class="form-inline w3-container">
-                        <span class="w3-twothird"><strong>@Model.Name </strong></span>
-                        <span class="w3-third">
-                            @using (Html.BeginForm("AddToCart", "Cart"))
-                            {
-                                @Html.HiddenFor(x => x.ProductID)
-                                @Html.Hidden("ReturnUrl", Request.Url.PathAndQuery)
-                                <button type="submit" class="btn btn-sm btn-outline-primary float-right w3-margin-left" title="Add to cart"><i class="fa fa-cart-plus"></i></button>
-                            }
-                            <b class="float-right">@Model.Price.ToString("c")</b>
-                        </span>
-                    </h5>
-                    <div class="clearfix"></div>
-                    @Html.Raw(Model.Description)
+                    @foreach (var item in Model)
+                    {
+                    <div class="w3-container w3-margin-top w3-border">
+                        <h5 class="form-inline w3-container">
+                            <span class="w3-twothird"><strong>@item.Name </strong></span>
+                            <span class="w3-third">
+                                <b class="float-right">@item.Price.ToString("c")</b>
+                            </span>
+                        </h5>
+                        <div class="clearfix"></div>
+                        @Html.Raw(item.Description)
+                    </div>
+                    }
                 </div>
             </div>
         </div>

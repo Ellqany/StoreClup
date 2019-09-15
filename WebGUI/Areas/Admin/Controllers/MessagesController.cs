@@ -48,7 +48,7 @@ namespace WebGUI.Areas.Admin.Controllers
                 Email = Message.Email,
                 Phone = Message.Phone,
                 Fax = Message.Subject,
-                Name = Message.Name,
+                GoogleMapLink = Message.Name,
                 Address = Message.Massage
             });
         }
@@ -63,7 +63,7 @@ namespace WebGUI.Areas.Admin.Controllers
                     Email = Message.Email,
                     Phone = Message.Phone,
                     Subject = Message.Fax,
-                    Name = Message.Name,
+                    Name = Message.GoogleMapLink,
                     Massage = Message.Address,
                     ContactId = 1
                 });

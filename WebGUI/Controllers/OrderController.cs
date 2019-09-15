@@ -16,18 +16,24 @@ namespace WebGUI.Controllers
     [Authorize]
     public class OrderController : Controller
     {
+        readonly IProductRepository Reposatory;
         readonly IOrderRepository OrderRepository;
         AppUserManager UserManager =>
             HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
         Task<AppUser> CurrentUser =>
             UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
 
-        public OrderController(IOrderRepository repoService) =>
+        public OrderController(IOrderRepository repoService, IProductRepository Repo)
+        {
             OrderRepository = repoService;
+            Reposatory = Repo;
+        }
+
         [HttpGet]
-        public async Task<ActionResult> Checkout()
+        public async Task<ActionResult> Checkout(Cart cart, List<int> Id)
         {
             var user = await CurrentUser;
+            AddToCart(cart, Id);
             return View(new App_Data.Order()
             {
                 User = user,
@@ -200,6 +206,19 @@ namespace WebGUI.Controllers
                 return date.AddMonths(1);
             else
                 return date.AddDays(1).AddMonths(1).AddDays(-1);
+        }
+
+        void AddToCart(Cart cart, List<int> Id)
+        {
+            cart.Clear();
+            foreach (var item in Id)
+            {
+                Product product = Reposatory.Products.FirstOrDefault(x => x.ProductID == item);
+                if (product != null)
+                {
+                    cart.AddItem(product, 1);
+                }
+            }
         }
         #endregion
     }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebGUI.App_Data;
+using WebGUI.Areas.Admin.Models;
 using WebGUI.Infrastructure;
 using WebGUI.Models;
 using WebGUI.Repository;
@@ -14,6 +15,20 @@ namespace WebGUI.Controllers
     {
         readonly IImageRepository ImageRepository;
         readonly IContactRepository ContactRepository;
+
+        ContactModel GetData()
+        {
+            var Message = ContactRepository.Messages.SingleOrDefault(x => x.ContactId == 1);
+            return new ContactModel
+            {
+                Email = Message.Email,
+                Phone = Message.Phone,
+                Fax = Message.Subject,
+                GoogleMapLink = Message.Name,
+                Address = Message.Massage
+            };
+        }
+
         AppUserManager UserManager =>
             HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
         Task<AppUser> CurrentUser =>
@@ -36,12 +51,17 @@ namespace WebGUI.Controllers
                 .Where(x => x.Category == "HowitWork")
                 .OrderBy(x => x.Title).ToList());
 
+        public ActionResult Club() => View();
+
         public async Task<ActionResult> Contact()
         {
             var user = await CurrentUser;
             if (user is null)
             {
-                return View();
+                return View(new Contact
+                {
+                    Data = GetData()
+                });
             }
             else
             {
@@ -49,7 +69,8 @@ namespace WebGUI.Controllers
                 {
                     Name = user.Name,
                     Email = user.Email,
-                    Phone = user.PhoneNumber
+                    Phone = user.PhoneNumber,
+                    Data = GetData()
                 });
             }
         }
@@ -65,7 +86,8 @@ namespace WebGUI.Controllers
                 {
                     Name = Message.Name,
                     Email = Message.Email,
-                    Phone = Message.Phone
+                    Phone = Message.Phone,
+                    Data = GetData()
                 });
             }
             return View(Message);

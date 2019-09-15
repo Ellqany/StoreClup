@@ -10,6 +10,7 @@
 namespace WebGUI.App_Data
 {
     using System.ComponentModel.DataAnnotations;
+    using WebGUI.Areas.Admin.Models;
 
     public partial class Contact
     {
@@ -26,5 +27,6 @@ namespace WebGUI.App_Data
         public string Phone { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please add message content")]
         public string Massage { get; set; }
+        public ContactModel Data { get; set; }
     }
 }
