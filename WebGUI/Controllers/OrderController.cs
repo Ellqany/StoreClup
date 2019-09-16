@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using PayPal.Api;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -60,135 +58,16 @@ namespace WebGUI.Controllers
             return View(Order);
         }
         [HttpGet]
-        public async Task<ViewResult> Completed(Cart cart)
+        public async Task<ActionResult> Completed(Cart cart)
         {
+            if (cart.Lines.Count() == 0)
+            {
+                return RedirectToAction("GetStart", "Product", null);
+            }
             await MakeCurrentOrder(cart, cart.CurrentOrder);
             cart.Clear();
             return View();
         }
-
-        #region Paypall
-        public Payment Payment { get; set; }
-
-        public async Task<ActionResult> PaymentWithPaypal(Cart cart)
-        {
-            APIContext apiContext = PaypalConfiguration.GetAPIContext();
-            try
-            {
-                string payerId = Request.Params["PayerID"];
-                if (string.IsNullOrEmpty(payerId))
-                {
-                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority +
-                                "/Order/PaymentWithPaypal?";
-
-                    var guid = Convert.ToString((new Random()).Next(100000));
-
-                    var createdPayment = this.CreatePayment(cart, apiContext, baseURI + "guid=" + guid);
-
-                    var links = createdPayment.links.GetEnumerator();
-
-                    string paypalRedirectUrl = null;
-
-                    while (links.MoveNext())
-                    {
-                        Links lnk = links.Current;
-                        if (lnk.rel.ToLower().Trim().Equals("approval_url"))
-                        {
-                            paypalRedirectUrl = lnk.href;
-                        }
-                    }
-
-                    Session.Add(guid, createdPayment.id);
-                    return Redirect(paypalRedirectUrl);
-                }
-                else
-                {
-                    var guid = Request.Params["guid"];
-                    var executedPayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
-                    if (executedPayment.state.ToLower() != "approved")
-                    {
-                        return View("Error", new string[] { executedPayment.failure_reason });
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return View("Error", new string[] { "Failed to make payment please try again" });
-            }
-            await MakeCurrentOrder(cart, cart.CurrentOrder);
-            return RedirectToAction(nameof(Completed));
-        }
-
-        Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
-        {
-            var paymentExecution = new PaymentExecution() { payer_id = payerId };
-            this.Payment = new Payment() { id = paymentId };
-            return this.Payment.Execute(apiContext, paymentExecution);
-        }
-
-        Payment CreatePayment(Cart cart, APIContext apiContext, string redirectUrl)
-        {
-            var itemList = new ItemList() { items = new List<Item>() };
-
-            foreach (var item in cart.Lines)
-            {
-                itemList.items.Add(new Item()
-                {
-                    name = item._Product.Name,
-                    currency = "USD",
-                    price = item._Product.Price.ToString(),
-                    quantity = item.Quantity.ToString(),
-                    sku = "sku"
-                });
-            }
-
-            var payer = new Payer() { payment_method = "paypal" };
-
-            var redirUrls = new RedirectUrls()
-            {
-                cancel_url = redirectUrl,
-                return_url = redirectUrl
-            };
-
-            var details = new Details()
-            {
-                tax = "1",
-                shipping = "14",
-                subtotal = cart.ComputeTotalItem().ToString()
-            };
-
-            var amount = new Amount()
-            {
-                currency = "USD",
-                total = (15 + cart.ComputeTotalItem()).ToString(),
-                details = details
-            };
-
-            var guid = Convert.ToString((new Random()).Next(100000));
-
-            var transactionList = new List<Transaction>
-            {
-                new Transaction()
-                {
-                    description = "Bath clup pill register",
-                    invoice_number = guid.ToString(),
-                    amount = amount,
-                    item_list = itemList
-                }
-            };
-
-            this.Payment = new Payment()
-            {
-                update_time = NextMonth(DateTime.Now).ToString(),
-                intent = "sale",
-                payer = payer,
-                transactions = transactionList,
-                redirect_urls = redirUrls
-            };
-
-            return this.Payment.Create(apiContext);
-        }
-        #endregion
 
         #region Private Methods
         async Task MakeCurrentOrder(Cart cart, App_Data.Order Order)

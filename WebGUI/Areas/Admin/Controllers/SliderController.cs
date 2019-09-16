@@ -15,6 +15,8 @@ namespace WebGUI.Areas.Admin.Controllers
         public ActionResult Index() =>
           View(ImageRepository.Images.Where(x => x.Category == "Slider").ToList());
 
+        public ViewResult Create() => View("Edit", new ImageModel());
+
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -45,6 +47,17 @@ namespace WebGUI.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(image);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(int ImageId)
+        {
+            var deletedimage = await ImageRepository.DeleteImage(ImageId);
+            if (deletedimage != null)
+            {
+                TempData["Sucssess"] = "The image has been deleted successfully";
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -4,9 +4,12 @@ namespace WebGUI.Models
 {
     public class Manage
     {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Plese add your Phone")]
         [RegularExpression(@"(01)(0|1|2|5)[0-9]{8}", ErrorMessage = "It is not a correct phone")]
         public string PhoneNumber { get; set; }
         public string Billing { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Plese add your Address")]
+        public string Address { get; set; }
     }
     public class ChangePassword
     {

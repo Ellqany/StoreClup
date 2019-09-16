@@ -16,23 +16,6 @@
     @Scripts.Render("~/bundles/clientfeaturesscripts")
 </head>
 <body>
-    <div class="parent-top">
-        <div class="top-bar-area inline inc-border">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 address-info text-left">
-                        <div class="info box word-left">
-                            <p><i class="fa fa-star" style="color:#ecef1c;"></i> Welcome to the Bath Club </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 bar-btn text-right socail-right">
-                        @Html.Action("Social", "Nav")
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="body-content">
         <section class="log-out">
             <span class="back">
@@ -83,44 +66,5 @@
         </section>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 foot">
-                    <img src="~/Images/Logo.PNG" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 foot text-center">
-                    <span><a href="#" class="href">help center</a></span><br>
-                    <span>
-                        @Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" }, new { @class = "href" })
-                    </span>
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 foot text-center">
-                    <span><a href="#" class="href">privacy</a></span><br>
-                    <span><a href="#" class="href">terms</a></span>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 foot text-center">
-                    <span><img src="~/images/pay/amerc.svg" title="Amercia"> United States</span><br>
-                    <p class="">Accepted Payments</p>
-                    <ul class="list-image">
-                        <li class="pay"><img src="~/images/pay/pay1.svg"></li>
-                        <li class="pay"><img src="~/images/pay/pay2.svg"></li>
-                        <li class="pay"><img src="~/images/pay/pay3.svg"></li>
-                        <li class="pay"><img src="~/images/pay/pay4.svg"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-cright">
-            <div class="container">
-                <p class="text text-center">&copy; 2012-19 BATH CLUB . ALL RIGHTS RESERVED.</p>
-                @Html.Action("Social", "Nav")
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

@@ -40,9 +40,13 @@ namespace WebGUI.Controllers
         public async Task<ActionResult> Edit(Manage manage)
         {
             AppUser user = await CurrentUser;
-            user.Billing = manage.Billing;
-            user.PhoneNumber = manage.PhoneNumber;
-            await UserManager.UpdateAsync(user);
+            if (ModelState.IsValid)
+            {
+                user.Billing = manage.Billing;
+                user.PhoneNumber = manage.PhoneNumber;
+                user.Address = manage.Address;
+                await UserManager.UpdateAsync(user);
+            }
             return PartialView("_manage", user);
         }
         [HttpGet]

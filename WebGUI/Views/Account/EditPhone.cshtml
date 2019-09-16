@@ -20,6 +20,7 @@
             <h4 class="text-danger" id="failuer">@TempData["Error"]</h4>
             <h4 class="alert-success" id="Success">@TempData["success"]</h4>
             @Html.HiddenFor(x => x.Billing)
+            @Html.HiddenFor(x => x.Address)
             <p>
                 @Html.TextBoxFor(x => x.PhoneNumber, new { @placeholder="Add Your phone", @class="form-control" })
                 @Html.ValidationMessageFor(x=>x.PhoneNumber,"", new { @class="text-danger" })

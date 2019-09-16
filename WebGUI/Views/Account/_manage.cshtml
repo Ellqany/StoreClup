@@ -1,9 +1,22 @@
 ﻿@model WebGUI.Models.AppUser
 
 <li class="child">
+    <strong>Your Address</strong><br>
+    <p>@Model.Address</p>
+    <button onclick="document.getElementById('AddressData').style.display='block'">Edit</button>
+</li>
+
+<li class="child">
     <strong>Billing Information</strong><br>
-    <p> <i class="fa fa-money"></i> No payment method on file</p>
-    <button><a href="#">Edit</a></button>
+    @if (string.IsNullOrEmpty(Model.PhoneNumber))
+    {
+        <p> <i class="fa fa-money"></i> No payment method on file</p>
+    }
+    else
+    {
+        <p>@Model.Billing</p>
+    }
+    <button onclick="document.getElementById('BillingData').style.display='block'">Edit</button>
 </li>
 
 <li class="child">

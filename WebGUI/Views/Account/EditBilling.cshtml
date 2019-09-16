@@ -1,0 +1,48 @@
+﻿@model WebGUI.Models.Manage
+@{
+    Layout = null;
+    AjaxOptions ajax = new AjaxOptions
+    {
+        OnSuccess = "Success3",
+        AllowCache = true,
+        HttpMethod = "POST",
+        UpdateTargetId = "tbl",
+        OnFailure = "Failure3"
+    };
+}
+
+<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;">
+    @using (Ajax.BeginForm("Edit", "Account", null, ajax, null))
+    {
+        <div class="w3-container w3-white w3-center">
+            <i onclick="document.getElementById('BillingData').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+            <h2 class="w3-wide">Add or Edit your Billing Info</h2>
+            <h4 class="text-danger" id="failuer2">@TempData["Error"]</h4>
+            <h4 class="alert-success" id="Success2">@TempData["success"]</h4>
+            @Html.HiddenFor(x => x.Address)
+            @Html.HiddenFor(x => x.PhoneNumber)
+            <p>
+                @Html.TextBoxFor(x => x.Billing, new { @placeholder = "Add Your Billing info", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Billing, "", new { @class = "text-danger" })
+            <p>
+                <br />
+                <button type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom ">
+                    <i class="fa fa-plus-square"></i>
+                </button>
+        </div>
+    }
+</div>
+
+<script>
+    function Success3() {
+        document.getElementById('failuer2').innerHTML = ' ';
+        document.getElementById('Success2').innerHTML = 'Billing has been updated successfully';
+        document.getElementById('BillingData').style.display='none'
+    }
+
+    function Failure3() {
+        document.getElementById('failuer2').innerHTML = 'there is an error occure while trying to attemp your request';
+        document.getElementById('Success2').innerHTML = ' ';
+    }
+</script>
+

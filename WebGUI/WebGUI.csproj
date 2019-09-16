@@ -319,6 +319,7 @@
     <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Infrastructure\CustomPasswordValidator.cs" />
     <Compile Include="Infrastructure\CustomUserValidator.cs" />
+    <Compile Include="Infrastructure\ImageValidation.cs" />
     <Compile Include="Migrations\201908241715207_CityProperty.cs" />
     <Compile Include="Migrations\201908241715207_CityProperty.Designer.cs">
       <DependentUpon>201908241715207_CityProperty.cs</DependentUpon>
@@ -889,6 +890,8 @@
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Views\Product\Customize.cshtml" />
     <Content Include="Views\Home\Club.cshtml" />
+    <Content Include="Views\Account\EditAddress.cshtml" />
+    <Content Include="Views\Account\EditBilling.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908241715207_CityProperty.resx">

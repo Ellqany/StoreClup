@@ -1,9 +1,7 @@
 ﻿@model List<WebGUI.App_Data.Image>
 
 @{
-    double c = Model.Count / 2;
-    int Length = Convert.ToInt32(Math.Ceiling(c));
-    int k = 0;
+    int i = 0;
 }
 
 <br />
@@ -17,42 +15,48 @@
 <p class="alert-success"> @TempData["Sucssess"]</p>
 
 <div class="w3-container w3-animate-zoom">
-    @for (int i = 0; i <= Length; i++, k += 2)
-    {
-        <div class="w3-row-padding active">
-            <br />
-            @for (int j = k; j < k + 2; j++)
-            {
-                try
-                {
-                    var item = Model[j];
-                    <div class="w3-half" onclick="document.location ='@Url.Action("Edit", "Slider",
-                                                                     new { @Id = item.ImageId })';">
-                        <button class=" M3ybtnaccordion w3-display-container" type="button">
-                            <img src='@item.ImageURL' alt="@item.Title" style="height:300px;width:100%;">
-                            @if (item.Title != " " || item.Description != " ")
-                            {
-                                <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
-                                    @if (item.Title != " ")
-                                    {
-                                        @item.Title
-                                    }
-                                    <br />
-                                    @if (item.Description != " ")
-                                    {
-                                        @item.Description
-                                    }
-                                </div>
-                            }
-                        </button>
-                    </div>
-                }
-                catch (Exception)
-                {
-                    <div class="w3-quarter"></div>
-                }
-            }
-        </div>
-    }
-    <br />
+    <table class="table table-hover table-condensed table-bordered">
+        <tr class="w3-blue">
+            <th>No</th>
+            <th>Image</th>
+            <th>Operation</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td onclick="document.location ='@Url.Action("Edit", "Slider", new { @Id = item.ImageId })';">
+                    <button class=" M3ybtnaccordion w3-display-container" type="button">
+                        <img src='@item.ImageURL' alt="@item.Title" style="height:300px;width:100%;">
+                        @if (item.Title != " " || item.Description != " ")
+                        {
+                            <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
+                                @if (item.Title != " ")
+                                {
+                                    @item.Title
+                                }
+                                <br />
+                                @if (item.Description != " ")
+                                {
+                                    @item.Description
+                                }
+                            </div>
+                        }
+                    </button>
+                </td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Slider", FormMethod.Post))
+                    {
+                        @Html.Hidden("ImageId", item.ImageId)
+                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-close"></i></button>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="w3-container form-group" style="text-align:center;">
+        @Html.ActionLink("Add a Slider", "Create", null, new { @class = "btn btn-outline-primary" })
+    </div>
 </div>
