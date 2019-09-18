@@ -2,14 +2,20 @@
 
 <br />
 <br />
+<br />
+<br />
 
-<div class="w3-container">
-    <div class="w3-container w3-wide">
-        <h2 class="h2 text-center">@Model.Title</h2>
-    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 content-right-offset">
 
-    <div class="w3-container">
-        @Html.Raw(Model.Description)
+            <div class="single-page-section">
+                <h2 class="margin-bottom-25 h2">@Model.Title</h2>
+                <div class="w3-container">
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
