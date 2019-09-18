@@ -11,7 +11,7 @@ namespace WebGUI.App_Data
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class AspNetUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace WebGUI.App_Data
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public string Id { get; set; }
         public string Name { get; set; }
         public string Billing { get; set; }
@@ -34,7 +34,8 @@ namespace WebGUI.App_Data
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-    
+        public string Address { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

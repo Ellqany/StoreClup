@@ -1,0 +1,42 @@
+﻿@model WebGUI.App_Data.Page
+
+<br />
+<br />
+
+<div class="w3-container">
+    <p class="alert-success">@TempData["success"]</p>
+</div>
+
+<div class="w3-container">
+    @using (Html.BeginForm("Terms", "Pages", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.Id)
+        @Html.HiddenFor(x => x.Category)
+
+        <div class="d-flex justify-content-center">
+            <div class="w3-container form-group" style="width:50%">
+                @Html.TextBoxFor(model => model.Title, "", new { @class = "form-control", @placeholder = "Page Title" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="w3-container form-group">
+            @Html.TextAreaFor(x => x.Description, new { @placeholder = "write description..", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="w3-container btn-group d-flex justify-content-center">
+            <button type="submit" class="btn btn-lg btn-outline-success">
+                <i class="fa fa-edit"></i>
+            </button>
+        </div>
+    }
+</div>
+
+<br />
+<br />
+
+<script type="text/javascript">
+    CKEDITOR.replace('Description');
+</script>

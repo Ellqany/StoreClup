@@ -34,6 +34,7 @@ namespace WebGUI.App_Data
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<SocialLink> SocialLinks { get; set; }
+        public virtual DbSet<Page> Pages { get; set; }
     
         public virtual ObjectResult<Report_Financials_Result> Report_Financials()
         {

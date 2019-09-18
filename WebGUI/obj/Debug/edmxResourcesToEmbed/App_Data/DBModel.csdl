@@ -19,6 +19,7 @@
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_AspNetUsers" FromRole="AspNetUsers" ToRole="Orders" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CartLine">
     <Key>
@@ -151,6 +152,7 @@
     <FunctionImport Name="Report_Products" ReturnType="Collection(ClupStoreModel.Report_Products_Result)" />
     <FunctionImport Name="Report_Users" ReturnType="Collection(ClupStoreModel.Report_Users_Result)" />
     <EntitySet Name="SocialLinks" EntityType="ClupStoreModel.SocialLink" />
+    <EntitySet Name="Pages" EntityType="ClupStoreModel.Page" />
   </EntityContainer>
   <ComplexType Name="Report_Financials_Result">
     <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="38" Scale="2" />
@@ -173,5 +175,14 @@
     <Property Name="Link" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
     <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CssClass" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

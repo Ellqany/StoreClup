@@ -54,6 +54,7 @@ namespace WebGUI.App_Start
             Kernel.Bind<IContactRepository>().To<ContactRepository>();
             Kernel.Bind<IReportRepository>().To<ReportRepository>();
             Kernel.Bind<ISocialLinkRepository>().To<SocialLinkRepository>();
+            Kernel.Bind<IPageRepository>().To<PageRepository>();
         }
     }
 }

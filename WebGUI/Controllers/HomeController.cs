@@ -15,6 +15,7 @@ namespace WebGUI.Controllers
     {
         readonly IImageRepository ImageRepository;
         readonly IContactRepository ContactRepository;
+        readonly IPageRepository PageRepository;
 
         ContactModel GetData()
         {
@@ -31,14 +32,17 @@ namespace WebGUI.Controllers
 
         AppUserManager UserManager =>
             HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
         Task<AppUser> CurrentUser =>
             UserManager.FindByNameAsync(HttpContext.User.Identity.Name);
 
         public HomeController(IImageRepository imageRepository,
-            IContactRepository contactRepository)
+            IContactRepository contactRepository,
+            IPageRepository pageRepository)
         {
             ImageRepository = imageRepository;
             ContactRepository = contactRepository;
+            PageRepository = pageRepository;
         }
 
         public ActionResult Index() =>
@@ -95,5 +99,11 @@ namespace WebGUI.Controllers
             }
             return View(Message);
         }
+
+        public ActionResult Privacy() =>
+            View(PageRepository.Pages.SingleOrDefault(x => x.Category == "Privacy"));
+
+        public ActionResult Terms() =>
+            View(PageRepository.Pages.SingleOrDefault(x => x.Category == "Terms"));
     }
 }

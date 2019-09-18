@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="ClupStoreModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Billing" ColumnName="Billing" />
@@ -119,6 +120,16 @@
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Link" ColumnName="Link" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="ClupStoreModel.Page">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
