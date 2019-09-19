@@ -405,7 +405,6 @@
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Images\Logo.png" />
-    <Content Include="Images\single-company.jpg" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />

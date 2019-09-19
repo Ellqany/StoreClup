@@ -213,58 +213,9 @@ namespace WebGUI.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        #region Login Vie Google
+        #region Login Vie FaceBook
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult GoogleLogin(string returnUrl)
-        {
-            var properties = new AuthenticationProperties
-            {
-                RedirectUri = Url.Action("GoogleLoginCallback", new { returnUrl })
-            };
-            HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
-            return new HttpUnauthorizedResult();
-        }
-        [AllowAnonymous]
-        public async Task<ActionResult> GoogleLoginCallback(string returnUrl)
-        {
-            ExternalLoginInfo loginInfo = await AuthManager.GetExternalLoginInfoAsync();
-            AppUser user = await UserManager.FindAsync(loginInfo.Login);
-            if (user == null)
-            {
-                user = new AppUser
-                {
-                    Email = loginInfo.Email,
-                    UserName = loginInfo.DefaultUserName,
-                    Name = loginInfo.DefaultUserName,
-                    EmailConfirmed = true
-                };
-                IdentityResult result = await UserManager.CreateAsync(user);
-                if (!result.Succeeded)
-                {
-                    return View("Error", result.Errors);
-                }
-                else
-                {
-                    result = await UserManager.AddLoginAsync(user.Id, loginInfo.Login);
-                    if (!result.Succeeded)
-                    {
-                        return View("Error", result.Errors);
-                    }
-                }
-            }
-            ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user,
-            DefaultAuthenticationTypes.ApplicationCookie);
-            ident.AddClaims(loginInfo.ExternalIdentity.Claims);
-            AuthManager.SignIn(new AuthenticationProperties
-            {
-                IsPersistent = false
-            }, ident);
-            return Redirect(returnUrl ?? "/");
-        }
-        #endregion
-
-        #region Login Vie FaceBook
         public ActionResult FaceBookLogin(string returnUrl)
         {
             var properties = new AuthenticationProperties

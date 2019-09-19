@@ -58,7 +58,11 @@
                             </div>
                         }
                         <p class="p-2">or</p>
-                        <button class="facebook"><a href="#">log in with facebook</a></button>
+                        @using (Html.BeginForm("FaceBookLogin", "Account", FormMethod.Post))
+                        {
+                            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                            <button class="facebook" type="submit">log in with facebook</button>
+                        }
                         @Html.ActionLink("forget password?", "ForgetPassword", "Account", null, new { @class = "href" })
                     </div>
                 </div>
