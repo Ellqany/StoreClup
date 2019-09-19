@@ -386,11 +386,11 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\pages\bootstrap-grid.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\M3Y.css" />
-    <Content Include="Content\style.css" />
+    <Content Include="Content\pages\style.css" />
     <Content Include="Content\w3colors.css" />
     <Content Include="Content\w3mobile.css" />
     <Content Include="Content\w3pro.css" />
