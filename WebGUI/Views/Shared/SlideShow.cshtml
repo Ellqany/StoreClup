@@ -1,11 +1,13 @@
 ﻿@model List<WebGUI.App_Data.Image>
-
+@{ 
+    Layout = null;
+}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @foreach (var item in Model)
         {
             string cssclass = " ";
-            if (item.ImageId == 1)
+            if (Model[0] == item)
             {
                 cssclass = "active";
             }

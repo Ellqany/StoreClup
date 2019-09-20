@@ -28,6 +28,7 @@ namespace WebGUI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 product.ImageUrl = await CreateFileUrl(Image, product.ImageUrl);
+                product.Category = "new";
                 await ProductRepository.SaveProduct(product);
                 TempData["message"] = string.Format("{0} has been saved", product.Name);
                 return RedirectToAction("Index");

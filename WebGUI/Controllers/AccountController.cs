@@ -2,9 +2,11 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -45,38 +47,10 @@ namespace WebGUI.Controllers
                 user.Billing = manage.Billing;
                 user.PhoneNumber = manage.PhoneNumber;
                 user.Address = manage.Address;
+                user.Email = manage.Email;
                 await UserManager.UpdateAsync(user);
             }
             return PartialView("_manage", user);
-        }
-        [HttpGet]
-        public ActionResult ChangPassword()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<ActionResult> ChangPassword(ChangePassword manage)
-        {
-            AppUser user = await CurrentUser;
-            var reult = await UserManager.CheckPasswordAsync(user, manage.OldPassword);
-            if (reult)
-            {
-                var res = await UserManager.ChangePasswordAsync(user.Id, manage.OldPassword, manage.NewPassword);
-                if (res.Succeeded)
-                {
-                    ViewBag.Change = "Password has been changed";
-                    return RedirectToAction("Manage");
-                }
-                else
-                {
-                    AddErrorsFromResult(res);
-                }
-            }
-            else
-            {
-                ViewBag.Change = "Password is not Correct";
-            }
-            return View(manage);
         }
         [AllowAnonymous]
         public ActionResult Register()
@@ -118,17 +92,13 @@ namespace WebGUI.Controllers
         }
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult ForgetPassword()
+        public ActionResult ChangPassword()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                return View("Error", new string[] { "Access Denied" });
-            }
             return View();
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> ForgetPassword(ForgetPassword manage)
+        public async Task<ActionResult> ChangPassword(ForgetPassword manage)
         {
             if (ModelState.IsValid)
             {
@@ -139,13 +109,23 @@ namespace WebGUI.Controllers
                     {
                         await SendEmailConfirmationTokenAsync(user.Email, user.Id, "Confirm your account-Resend");
                         string message = "You must have a confirmed email to log on.\nThe confirmation token has been resent to your email account.";
-                        return RedirectToAction("Info", new { message });
+                        return RedirectToAction("Info", new
+                        {
+                            message
+                        });
                     }
+                    var password = RandomPassword();
+                    await MailConfirmation.SendMessage(new IdentityMessage
+                    {
+                        Subject = "Reset your password",
+                        Destination = manage.Email,
+                        Body = "Your new password is " + password
+                    });
                     var es = await UserManager.RemovePasswordAsync(user.Id);
                     if (es.Succeeded)
                     {
-                        await UserManager.AddPasswordAsync(user.Id, manage.NewPassword);
-                        return RedirectToAction("Index", "Home", new { area = "" });
+                        await UserManager.AddPasswordAsync(user.Id, password);
+                        return RedirectToAction(nameof(Logout));
                     }
                     else
                     {
@@ -155,7 +135,7 @@ namespace WebGUI.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Invalid Email or User Name.");
+                ModelState.AddModelError("", "Invalid Email.");
             }
             return View(manage);
         }
@@ -210,7 +190,7 @@ namespace WebGUI.Controllers
             HttpContext.Response.Cookies.Clear();
             HttpContext.Request.Cookies.Clear();
             AuthManager.SignOut();
-            return RedirectToAction("Index", "Home", new { area = "" });
+            return RedirectToAction(nameof(Login));
         }
 
         #region Login Vie FaceBook
@@ -331,6 +311,36 @@ namespace WebGUI.Controllers
             };
             await MailConfirmation.SendMessage(message);
             return callbackUrl;
+        }
+
+        string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            if (lowerCase)
+                return builder.ToString().ToLower();
+            return builder.ToString();
+        }
+
+        int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+
+        string RandomPassword()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append(RandomString(4, true));
+            builder.Append(RandomNumber(1000, 9999));
+            builder.Append(RandomString(2, false));
+            return builder.ToString();
         }
         #endregion
     }

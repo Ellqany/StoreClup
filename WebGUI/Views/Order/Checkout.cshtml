@@ -6,8 +6,8 @@
             <a href="/Home/index"><img src="~/Images/Logo.PNG" width="70" height="70"></a>
         </div>
         <ul class="list-track m-auto">
-            <li class="active"> Get Ready  </li>
-            <li class="active"> Customize </li>
+            <li class="active"> Get Ready</li>
+            <li class="active"> Customize</li>
             <li class="active"> Checkout </li>
         </ul>
     </div>
@@ -26,31 +26,12 @@
             <label class="col-form-label w3-large">Email: @Model.User.Email</label>
         </div>
         
+        @Html.HiddenFor(x=>x.Country)
+        @Html.HiddenFor(x=>x.City)
+        @Html.HiddenFor(x=>x.State)
+        @Html.HiddenFor(x=>x.Zip)
+
         <h3 class="h3">Address</h3>
-        <div class="w3-container form-group">
-            @Html.LabelFor(x=>x.Country, new {@class = "font-weight-bold" })
-            @Html.TextBoxFor(x=>x.Country, null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x=>x.Country, null, new { @class = "text-danger" })
-        </div>
-    
-        <div class="w3-container form-group">
-            @Html.LabelFor(x=>x.City, new {@class = "font-weight-bold" })
-            @Html.TextBoxFor(x=>x.City, null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x=>x.City, null, new { @class = "text-danger" })
-        </div>
-    
-        <div class="w3-container form-group">
-            @Html.LabelFor(x=>x.State, new {@class = "font-weight-bold" })
-            @Html.TextBoxFor(x=>x.State, null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x=>x.State, null, new { @class = "text-danger" })
-        </div>
-
-        <div class="w3-container form-group">
-            @Html.LabelFor(x=>x.Zip, new {@class = "font-weight-bold" })
-            @Html.TextBoxFor(x=>x.Zip, null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x=>x.Zip, null, new { @class = "text-danger" })
-        </div>
-
         <div class="w3-container form-group">
             @Html.LabelFor(x=>x.Line1, new {@class = "font-weight-bold" })
             @Html.TextBoxFor(x=>x.Line1, null, new { @class = "form-control" })

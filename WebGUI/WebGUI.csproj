@@ -264,7 +264,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ClubController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WhyController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenericController.cs" />
     <Compile Include="Areas\Admin\Controllers\HowitWorkController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
@@ -837,8 +837,8 @@
     <Content Include="Areas\Admin\Views\HowitWork\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Messages\EditContact.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLinks\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Club\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Club\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Why\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Why\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Privacy.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Terms.cshtml" />
     <None Include="DataSet\ReportDataSet.xsd">
@@ -875,7 +875,6 @@
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\ForgetPassword.cshtml" />
     <Content Include="Views\Account\ChangPassword.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
@@ -887,7 +886,7 @@
     <Content Include="Views\Order\Completed.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
-    <Content Include="Views\Nav\SlideShow.cshtml" />
+    <Content Include="Views\Shared\SlideShow.cshtml" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\package.json" />
@@ -899,11 +898,12 @@
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Views\Product\Customize.cshtml" />
-    <Content Include="Views\Home\Club.cshtml" />
+    <Content Include="Views\Home\Whyus.cshtml" />
     <Content Include="Views\Account\EditAddress.cshtml" />
     <Content Include="Views\Account\EditBilling.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Account\EditEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908241715207_CityProperty.resx">

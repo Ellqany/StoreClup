@@ -6,11 +6,11 @@ using WebGUI.Repository;
 
 namespace WebGUI.Areas.Admin.Controllers
 {
-    public class ClubController : GenericController
+    public class WhyController : GenericController
     {
         readonly IImageRepository ImageRepository;
 
-        public ClubController(IImageRepository imageRepository)
+        public WhyController(IImageRepository imageRepository)
             => ImageRepository = imageRepository;
 
         public ActionResult Index() =>

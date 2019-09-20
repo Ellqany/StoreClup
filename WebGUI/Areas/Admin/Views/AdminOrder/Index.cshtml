@@ -24,44 +24,22 @@
             <table class="table table-hover table-condensed table-bordered">
                 <tr class="w3-blue">
                     <th>Name</th>
-                    <th>First Line</th>
-                    <th colspan="2">Details</th>
-                    <th></th>
+                    <th>Address</th>
+                    <th>Product</th>
                 </tr>
                 @foreach (var o in Model.Orders)
                 {
-                    <tr onclick="document.location ='@Url.Action("Details", "AdminOrder", new { @Id = o.OrderID})';">
+                    var cart = o.CartLines.FirstOrDefault();
+                    <tr>
                         <td>@o.AspNetUser.Name</td>
                         <td>@o.Line1</td>
-                        <th>Product</th>
-                        <th>Quantity</th>
                         <td>
-                            @using (Html.BeginForm("MarkShipped", "AdminOrder", FormMethod.Post))
+                            @if (cart != null)
                             {
-                                @Html.Hidden("ReturnUrl", Request.Url.PathAndQuery)
-                                <input type="hidden" id="orderID" name="orderID" value="@o.OrderID" />
-                                if (o.Shipped)
-                                {
-                                    <p>The Product is shipped</p>
-                                }
-                                else
-                                {
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">
-                                        Ship
-                                    </button>
-                                }
+                                <p>@cart.Product.Name</p>
                             }
                         </td>
                     </tr>
-                    foreach (var line in o.CartLines)
-                    {
-                        <tr>
-                            <td colspan="2"></td>
-                            <td>@line.Product.Name</td>
-                            <td>@line.Quantity</td>
-                            <td></td>
-                        </tr>
-                    }
                 }
             </table>
         }

@@ -1,0 +1,71 @@
+﻿@model WebGUI.Models.ImageModel
+
+<div class="w3-container">
+    @using (Html.BeginForm("Edit", "Why", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.ImageId)
+        @Html.HiddenFor(x => x.Title)
+        @Html.HiddenFor(x => x.ImageURL)
+
+        if (Model.Title == "7")
+        {
+            <div class="w3-container form-group">
+                @Html.TextAreaFor(x => x.Description, new { @placeholder = "write description..", @class = "form-control" })
+            </div>
+        }
+        else
+        {
+            <div class="w3-container form-group">
+                <div style="position:relative;">
+                    <a class='btn' href='javascript:;'>
+                        Image..
+                        @Html.TextBoxFor(model => model.ImageFile, "", new { @class = "M3yUpload", @type = "file", @accept = "image/*", @style = "width:100%", @id = "Image" })
+                    </a>
+                </div>
+
+                <section class="gift-sets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                <div class=" side-left">
+                                    <div class="image-gift">
+                                        <img src="@Model.ImageURL" title="Image sets" id="demo">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                <div class="side-right">
+                                    @Html.TextAreaFor(x => x.Description, new { @placeholder = "write description..", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <p class="text-danger" id="imgwide"></p>
+                @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+            </div>
+        }
+        <div class="w3-container btn-group">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa fa-upload"></i> Upload
+            </button>
+        </div>
+    }
+</div>
+
+<br />
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/Model.js"></script>
+<script type="text/javascript">
+    CKEDITOR.replace('Description');
+
+    $("#Image").change(function () {
+        readIMG(this, '#demo', 'imgwide');
+    });
+</script>

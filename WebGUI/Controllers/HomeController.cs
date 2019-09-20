@@ -55,7 +55,7 @@ namespace WebGUI.Controllers
                 .Where(x => x.Category == "HowitWork")
                 .OrderBy(x => x.Title).ToList());
 
-        public ActionResult Club() =>
+        public ActionResult Whyus() =>
             View(ImageRepository.Images
                 .Where(x => x.Category == "Club")
                 .OrderBy(x => x.Title).ToList());

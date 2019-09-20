@@ -37,15 +37,33 @@
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
                 <div class="custom-right">
-                    <h5 class="form-inline w3-container">
-                        <span class="w3-twothird"><strong>@Model.Name </strong></span>
-                        <span class="w3-third">
-                            <b class="float-right">@Model.Price.ToString("c")</b>
-                        </span>
-                    </h5>
-                    <div class="clearfix"></div>
-                    @Html.Raw(Model.Description)
-                 </div>
+                    <h3 class="great">Great choice! Here's what your @Model.Name looks like.</h3>
+                    <p class="intro">Get the perfect introduction to our most popular products. We follow that up with Restock Boxes, so you never run out.</p>
+                    <h5 class="ships"><span class="left">@Model.Name </span> <span class="right">@Model.Price.ToString("c")</span></h5>
+                    <p class="trial"> Trial sizes are big enough to use a few times. No hidden fees. Starter Set ships for free.</p>
+                    <ul class="parent-product">
+                        <li class="product">
+                            <img src="@Model.ImageUrl" title="@Model.Name">
+                            @Html.Raw(Model.Description)
+                        </li>
+                        <li>
+                            @Html.ActionLink("Change Your Selection ?","GetStart" ,"Product",null,new {@class="change-select" })
+                        </li>
+                    </ul>
+                    <h5 class="ships"><span class="left">@Model.Name ships today </span> <span class="right">@Model.Price.ToString("c")</span></h5>
+                    <p class="trial">Your full-size Restock Box will be sent soon.</p>
+                    <ul class="shaving">
+                        <li>
+                            <p class="prag"><i class="fas fa-sync"></i>This box ships <a href="#" class="href">every 2 months</a>.</p>
+                        </li>
+                        <li>
+                            <p class="prag"> <i class="fas fa-tags"></i>You‘ve got a <a href="#" class="href">15% discount</a>.</p>
+                        </li>
+                        <li>
+                            <p class="prag"> <i class="fas fa-dice-d6"></i> Add or remove products anytime.</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

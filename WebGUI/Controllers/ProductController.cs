@@ -14,9 +14,9 @@ namespace WebGUI.Controllers
         public ActionResult GetStart() =>
             View(ProductRepository.Products.ToList());
 
-        public ActionResult Customize(int id)
+        public ActionResult Customize(int? id)
         {
-            if (id == 0)
+            if (!id.HasValue)
             {
                 return RedirectToAction(nameof(GetStart));
             }

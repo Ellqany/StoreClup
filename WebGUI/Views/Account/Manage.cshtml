@@ -1,69 +1,36 @@
 ﻿@using WebGUI.Models
 @model AppUser
 
-@{ 
+@{
     var manage = new Manage
     {
         PhoneNumber = Model.PhoneNumber,
         Billing = Model.Billing,
-        Address = Model.Address
+        Address = Model.Address,
+        Email = Model.Email
     };
 }
-
-<section class="parent-acount">
-    <div class="container">
-        <div class="account text-center">
-            <h2>YOUR ACCOUNT</h2>
-        </div>
-    </div>
-</section>
-
-<h4 class="text-success">@ViewBag.Change</h4>
 
 <section class="detailes">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 text-center side-left-one">
+            <div class="col-lg-12 col-md-6 col-sm-12 text-center side-left-one">
                 <div class="content-left">
-                    <h2 class="h-pazor">READY FOR A RAZOR?</h2>
-                    <p class="p-2">
-                        We've got 2, 4, and 6 blade razors.
-                        They're all pretty amazing.
-                    </p>
-                    <button class="pick">Pick Pazor</button>
+                    <h2 class="h-pazor">
+                        READY FOR NEW EXPERIENCE ?
+                    </h2>
+                    <p> use the best sponge in the World</p>
+                    @Html.ActionLink("Pick One", "GetStart", "Product", null, new { @class = "btn pick" })
                     <div class="image">
-                        <img src="~/images/account1.png">
+                        <img src="../images/sponge.png">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center parent-one">
-                <p class="text-center top-p">Introduce friends to the Club. Earn DSC Credits when they join. Easy.</p>
-                <div class="send">
-                    <div class="topic">
-                        <span class="left">Email</span>
-                        <span class="right">Facebook</span>
-                    </div>
-                    <form>
-                        <input class="number" type="text" placeholder="enter your number here"><br>
-                        <input type="checkbox" checked>
-                        <label>Send my friend a reminder in three days</label>
-                        <p>Your unique link will be shared along with your message</p>
-                        <input type="submit" value="Send" class="confirm">
-                    </form>
 
-                </div>
-                <p class="share">Share your unique link on the web and let your friends know you get up to $15 when they join the Club. Cha-ching!</p>
-                <strong>
-                    Paste it anywhere :
-                </strong>
-                <form>
-                    <input type="text" value="http://shaved.by/nq72G" class="link">
-                </form>
-            </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 side-left-two">
                 <div class="customize">
                     <div class="image">
-                        <img src="~/images/5.svg" title="things">
+                        <img src="../images/5.svg" title="things">
                     </div>
                     <h3>CUSTOMIZE YOUR CLUB</h3>
                     <p>Tell us a bit about yourself. We'll give you a more personalized experience.</p>
@@ -71,21 +38,12 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  parent-two">
-                <ul class="list-edit">
-                    <li class="child">
-                        <strong>Your Email</strong><br>
-                        <p>@Model.Email</p>
-                    </li>
-                    <li class="child">
-                        <strong>Your Password</strong><br>
-                        <p>**********</p>
-                        <button>@Html.ActionLink("Edit", "ChangPassword", "Account", null, null)</button>
-                    </li>
-                </ul>
                 <ul id="tbl" class="list-edit">
                     @Html.Partial("_manage", Model)
+                </ul>
+                <ul class="list-edit">
                     <li class="log_out">
-                        @Html.ActionLink("Any questions ?","Contact","Home",null,null)
+                        @Html.ActionLink("Any questions ?", "Contact", "Home", null, null)
                         <br>
                     </li>
                 </ul>
@@ -104,4 +62,8 @@
 
 <div id="BillingData" class="w3-modal">
     @Html.Partial("EditBilling", manage)
+</div>
+
+<div id="EmailData" class="w3-modal">
+    @Html.Partial("EditEmail", manage)
 </div>

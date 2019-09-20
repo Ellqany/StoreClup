@@ -35,7 +35,12 @@ namespace WebGUI.Controllers
             return View(new App_Data.Order()
             {
                 User = user,
-                UserId = user.Id
+                UserId = user.Id,
+                Line1 = user.Address,
+                Country = "Country",
+                City = "City",
+                State = "state",
+                Zip = "2222"
             });
         }
         [HttpPost]
