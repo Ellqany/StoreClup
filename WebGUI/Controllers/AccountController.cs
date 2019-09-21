@@ -47,7 +47,12 @@ namespace WebGUI.Controllers
                 user.Billing = manage.Billing;
                 user.PhoneNumber = manage.PhoneNumber;
                 user.Address = manage.Address;
-                user.Email = manage.Email;
+                if (user.Email != manage.Email)
+                {
+                    user.Email = manage.Email;
+                    user.UserName = manage.Email;
+                    user.EmailConfirmed = false;
+                }
                 await UserManager.UpdateAsync(user);
             }
             return PartialView("_manage", user);
@@ -92,8 +97,16 @@ namespace WebGUI.Controllers
         }
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult ChangPassword()
+        public async Task<ActionResult> ChangPassword()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var user = await CurrentUser;
+                return await ChangPassword(new ForgetPassword
+                {
+                    Email = user.Email
+                });
+            }
             return View();
         }
         [AllowAnonymous]
@@ -184,7 +197,7 @@ namespace WebGUI.Controllers
             ViewBag.returnUrl = returnUrl;
             return View();
         }
-        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
         public ActionResult Logout()
         {
             HttpContext.Response.Cookies.Clear();
