@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    int i = 0;
     AjaxOptions ajax = new AjaxOptions
     {
         OnSuccess = "processData",
@@ -14,15 +15,16 @@
 
 <table class="table table-hover table-condensed table-bordered" id="tbl">
     <tr class="w3-blue">
-        <th class="text-right">ID</th>
+        <th class="text-right">No</th>
         <th>Name</th>
         <th class="text-right">Price</th>
         <th class="text-center">Actions</th>
     </tr>
     @foreach (var item in Model)
     {
+        i++;
         <tr>
-            <td class="text-right">@item.ProductID</td>
+            <td class="text-right">@i</td>
             <td>
                 <img src="@item.ImageUrl" width="60" class="img-thumbnail" />
                 @Html.ActionLink(item.Name, "Edit", new { item.ProductID })

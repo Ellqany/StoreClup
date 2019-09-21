@@ -77,6 +77,19 @@ namespace WebGUI.Areas.Admin.Controllers
             return View(await GetUsersReport(UsersReport.ToList()));
         }
 
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            var result = await UserManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                TempData["Success"] = "user has beed deleted successfully";
+            }
+            var UsersReport = ReportRepository.UsersReport();
+            var users = await GetUsersReport(UsersReport.ToList());
+            return PartialView("GetUsers", users);
+        }
+
         public ActionResult UsersReport()
         {
             ReportViewer rp = ReportViewer;

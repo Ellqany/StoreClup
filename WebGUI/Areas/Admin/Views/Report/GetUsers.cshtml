@@ -1,0 +1,47 @@
+﻿@model List<WebGUI.Areas.Admin.Models.UsersReport>
+
+@{
+    Layout = null;
+    int i = 0;
+    AjaxOptions ajax = new AjaxOptions
+    {
+        OnSuccess = "processData",
+        AllowCache = true,
+        HttpMethod = "POST",
+        UpdateTargetId = "tbl",
+        Confirm = "are you sure that you want to delete this user?"
+    };
+}
+
+<table class="table table-hover table-condensed table-bordered" id="tbl">
+    <tr class="w3-blue text-center">
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Email Confirmed</th>
+        <th>Phone</th>
+        <th>Total Number Of order</th>
+        <th>Active</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr class="text-center">
+            <td>@i</td>
+            <td>@item.Name</td>
+            <td>@item.User.Email</td>
+            <td>@item.User.EmailConfirmed</td>
+            <td>@item.User.PhoneNumber</td>
+            <td>@item.TotalOrder</td>
+            <td>@item.User.EmailConfirmed</td>
+            <td>
+                @using (Ajax.BeginForm("DeleteUser", "Report", ajax))
+                {
+                    @Html.Hidden("id", item.User.Id)
+                    <button type="submit" class="btn btn-info">Delete</button>
+                }
+            </td>
+        </tr>
+    }
+</table>

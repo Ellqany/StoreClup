@@ -1,49 +1,22 @@
 ﻿@model List<WebGUI.Areas.Admin.Models.UsersReport>
 
-@{
-    int i = 0;
-}
-
-<br />
-
 <div class="w3-container">
     <div class="w3-container w3-xlarge">
         <div class="w3-left">
-            @Html.ActionLink("Export to Report", "UsersReport", null, new { @class = "btn btn-outline-primary" })
+            <h2 class="h2">User Report</h2>
         </div>
         <div class="w3-right w3-twothird">
-            <h2 class="h2">Users Report</h2>
         </div>
     </div>
 
     <br />
 
-    <div class="w3-container">
-        <table class="table table-hover table-condensed table-bordered">
-            <tr class="w3-blue text-center">
-                <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Email Confirmed</th>
-                <th>Phone</th>
-                <th>Total Number Of order</th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                i++;
-                <tr class="text-center">
-                    <td>@i</td>
-                    <td>@item.Name</td>
-                    <td>@item.User.Email</td>
-                    <td>@item.User.EmailConfirmed</td>
-                    <td>@item.User.PhoneNumber</td>
-                    <td>@item.TotalOrder</td>
-                </tr>
-            }
-        </table>
+    <center>
+        @Html.ActionLink("Export to Report", "UsersReport", null, new { @class = "btn btn-info" })
+    </center>
 
+    <br>
+    <div class="w3-container">
+        @Html.Partial("GetUsers", Model)
     </div>
 </div>
-
-<br />
-<br />

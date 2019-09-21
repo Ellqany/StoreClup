@@ -4,22 +4,24 @@
     int i = 0;
 }
 
-<br />
-
 <div class="w3-container">
     <div class="w3-container w3-xlarge">
         <div class="w3-left">
-            @Html.ActionLink("Export to Report", "ProductReport", null, new { @class="btn btn-outline-primary" })
-        </div>
-        <div class="w3-right w3-twothird">
             <h2 class="h2">Products Report</h2>
+        </div>
+
+        <div class="w3-right w3-twothird">
         </div>
     </div>
 
     <br />
 
+    <center>
+        @Html.ActionLink("Export to Report", "ProductReport", null, new { @class = "btn btn-info" })
+    </center>
+    <br>
     <div class="w3-container">
-        <table class="table table-hover table-condensed table-bordered">
+        <table class="table table-hover table-bordered">
             <tr class="w3-blue text-center">
                 <th>No</th>
                 <th>Name</th>
@@ -40,7 +42,7 @@
                     <td>@item.SumQuantity</td>
                     <td>
                         @{
-                            decimal price = 
+                            decimal price =
                                 Convert.ToDecimal(item.SumQuantity * item.Product.Price);
                         }
                         @price.ToString("c")
@@ -51,6 +53,3 @@
 
     </div>
 </div>
-
-<br />
-<br />

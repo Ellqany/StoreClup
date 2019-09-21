@@ -4,20 +4,22 @@
     int i = 0;
 }
 
-<br />
-
 <div class="w3-container">
     <div class="w3-container w3-xlarge">
         <div class="w3-left">
-            @Html.ActionLink("Export to Report", "FinancialReport", null, new { @class = "btn btn-outline-primary" })
+            <h2 class="h2">Financial Report</h2>
         </div>
         <div class="w3-right w3-twothird">
-            <h2 class="h2">Financials Report</h2>
         </div>
     </div>
 
     <br />
 
+    <center>
+        @Html.ActionLink("Export to Report", "FinancialReport", null, new { @class = "btn btn-info" })
+    </center>
+
+    <br>
     <div class="w3-container">
         <table class="table table-hover table-condensed table-bordered">
             <tr class="w3-blue text-center">
@@ -38,6 +40,3 @@
 
     </div>
 </div>
-
-<br />
-<br />

@@ -841,6 +841,7 @@
     <Content Include="Areas\Admin\Views\Why\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Privacy.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Terms.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\GetUsers.cshtml" />
     <None Include="DataSet\ReportDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
